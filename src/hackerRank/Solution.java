@@ -10,30 +10,24 @@ public class Solution {
     	
     	System.out.println("current page: " + p + ", total pages: " + n);
     	
-    	// calculate turning from front:
+    	// Page 1 is on the first *spread*. Page 2 and 3 are on the second. etc.
+    	// When on spread 1, I need to turn 0 times, on the second once etc. So:
     	// pg 1 -> 0; 2,3 -> 1; 4,5 -> 2
-    	// that's exactly the modulo of the page number!
-    	
-    	// calculate turning from back:
-    	// for now, get number of sheets...
-    	// that's modulo + 1
-    	
-    	// number of sheets - sheet of current page = turning from back
-    	// that's again modulo + 1 (sheet of pg 1 = first sheet = no turning from front, so 0)
-    	int curSheet = (p / 2) + 1;
-//    	System.out.println("modulo: " + (p%2) + ", so " + curSheet);
-    	int sheets = (n / 2) + 1;
-    	
-    	int laterSheets = (sheets - curSheet);
-    	
-    	System.out.println("current: " + curSheet + ", later: " + laterSheets + ", total: " + sheets);
+    	// which is just the result of an integer division!
+    	// That goes for each page, so for both the current page and the total number of pages...
+    	int curSpread = p / 2;
+    	int totalSpreads = n / 2;
+    	// System.out.println("current spread: " + curSpread + ", total spreads: " + totalSpreads);
+    	// ...and the spreads that follow after the current are the difference...
+    	int laterSpreads = totalSpreads - curSpread;
+    	System.out.println("current spread: " + curSpread + ", later spreads: " + laterSpreads + ", total: " + totalSpreads);
     	
     	int result;
-    	if (laterSheets > curSheet) { result = curSheet; }
-    	else { result = laterSheets; }
     	
+    	result = 0; // dummy!
     	
     	return result;
+    	
 
     }
 
