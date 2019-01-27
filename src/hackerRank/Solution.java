@@ -8,6 +8,8 @@ public class Solution {
         
     	System.out.println("entering function...");
     	
+    	System.out.println("current page: " + p + ", total pages: " + n);
+    	
     	// calculate turning from front:
     	// pg 1 -> 0; 2,3 -> 1; 4,5 -> 2
     	// that's exactly the modulo of the page number!
@@ -18,10 +20,13 @@ public class Solution {
     	
     	// number of sheets - sheet of current page = turning from back
     	// that's again modulo + 1 (sheet of pg 1 = first sheet = no turning from front, so 0)
-    	int curSheet = (p % 2 + 1);
-    	int sheets = (n % 2 + 1);
+    	int curSheet = (p / 2) + 1;
+//    	System.out.println("modulo: " + (p%2) + ", so " + curSheet);
+    	int sheets = (n / 2) + 1;
     	
     	int laterSheets = (sheets - curSheet);
+    	
+    	System.out.println("current: " + curSheet + ", later: " + laterSheets + ", total: " + sheets);
     	
     	int result;
     	if (laterSheets > curSheet) { result = curSheet; }
