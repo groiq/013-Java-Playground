@@ -51,7 +51,7 @@ public class ArrayExercisesApp {
 		
 		double[] testDouble = new double[testInt.length];
 		for (int i = 0; i < testDouble.length; i++) {
-			testDouble[i] = (double) testInt[i];
+			testDouble[i] = testInt[i];
 		}
 		pprint(testDouble);
 		Statistics DoubleStats = new Statistics(testDouble);

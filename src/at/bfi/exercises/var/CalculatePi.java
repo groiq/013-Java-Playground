@@ -12,7 +12,7 @@ public class CalculatePi {
 		for (int i = 1; i <= denominator; i += 2) {
 			double value = 1 / (double)i;
 			int factor = ((i/2)%2==0) ? 1 : -1 ;
-			value *= (double)factor;
+			value *= factor;
 			System.out.println("i is increased by " + factor + "*(1/" + i + "), that's " + value);
 			pi += value;
 			System.out.println("pi is now " + pi);
@@ -33,7 +33,7 @@ public class CalculatePi {
 		for (int i = 1; i <= denominator; i +=2 ) {
 			double value = 1 / (double)i;
 			int factor = ((i/2)%2==0) ? 4 : -4 ;
-			value *= (double)factor;
+			value *= factor;
 			pi += value;
 			System.out.println("pi is " + pi + " after processing i=" + i);
 		}

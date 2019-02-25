@@ -1,6 +1,5 @@
 package at.bfi.fibonacci;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Fibonacci01 {
