@@ -31,6 +31,7 @@ public class Statistics {
 		this.sum = sum;
 		this.average = sum / input.length;
 		
+		double standardDeviationCounter = 0;
 		
 		
 		// calculate standard deviation
@@ -43,18 +44,22 @@ public class Statistics {
 		return input;
 	}
 
-//	public double getMinimum() {
-//		return minimum;
-//	}
-//
-//	public double getMaximum() {
-//		return maximum;
-//	}
-//
-//	public double getAverage() {
-//		return average;
-//	}
-//
+	public double getMinimum() {
+		return minimum;
+	}
+
+	public double getMaximum() {
+		return maximum;
+	}
+
+	public double getAverage() {
+		return average;
+	}
+
+	public double getSum() {
+		return sum;
+	}
+
 //	public double getStandardDeviation() {
 //		return standardDeviation;
 //	}
