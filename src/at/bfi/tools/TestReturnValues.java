@@ -73,6 +73,7 @@ public class TestReturnValues {
 		P.pprint(reassignArray(test3));
 		P.pprint(test3);
 		
+		System.out.println("Todo: make everything clearer: first, print each command, then execute it. Also, use the same method everytime (increase each value by one).");
 
 	}
 
