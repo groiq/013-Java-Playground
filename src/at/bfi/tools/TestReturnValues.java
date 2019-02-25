@@ -34,6 +34,7 @@ public class TestReturnValues {
 		System.out.println("then, call the method from inside a sysout().");
 		
 		System.out.println("pprint(myMethod(arr));");
+		
 		P.pprint(makeNewArray(test1));
 		P.pprint(test1);
 
@@ -43,14 +44,47 @@ public class TestReturnValues {
 		
 		System.out.println("again, call this method once with assignment, once without assignment and once in-place.");
 		
+		int[] test2 = {0,1,2};
+		P.pprint(test2);
+		
+		test2 = changeArrayInPlace(test2);
+		P.pprint(test2);
+		
+		changeArrayInPlace(test2);
+		P.pprint(test2);
+		
+		P.pprint(changeArrayInPlace(test2));
+		P.pprint(test2);
+		
+		
 		System.out.println("and a third method that creates a new array - but assigns it back to the input.");
+		
+		int[] test3 = {0,1,2};
+		P.pprint(test3);
 		
 		System.out.println("again, call this method once with assignment, once without assignment and once in-place.");
 		
-		
+		test3 = reassignArray(test3);
+		P.pprint(test3);
 		
 		
 
+	}
+
+	private static int[] reassignArray(int[] input) {
+		int newLength = input.length + 1;
+		input = new int[newLength];
+		for (int i = 0; i < input.length; i++) {
+			input[i] = i;
+		}
+		return input;
+	}
+
+	private static int[] changeArrayInPlace(int[] input) {
+		for (int i = 0; i < input.length; i++) {
+			input[i] += 1;
+		}
+		return input;
 	}
 
 	private static int[] makeNewArray(int[] input) {
