@@ -12,23 +12,36 @@ public class TestReturnValues {
 		
 		System.out.println("We will start with an array where arr[i] = i. We will create a new array that is one longer.");
 		
+		int[] test1 = {0,1,2};
+		P.pprint(test1);
+		
 		System.out.println("Then, call this method in various ways.");
 		
 		System.out.println("First, assign the new value as usual.");
 		
 		System.out.println("arr = myMethod(arr);");
 		
+		test1 = makeNewArray(test1);
+		P.pprint(test1);
+				
 		System.out.println("then, call the method without assigning anything.");
+		
+		makeNewArray(test1);
+		P.pprint(test1);
 		
 		System.out.println("myMethod(arr);");
 		
 		System.out.println("then, call the method from inside a sysout().");
 		
 		System.out.println("pprint(myMethod(arr));");
+		P.pprint(makeNewArray(test1));
+		P.pprint(test1);
 
 		System.out.println("Come to think of it, let's do a second method that doesn't create a new array, but changes the array in-place.");
 		
 		System.out.println("let's say it increases each element of the array by one.");
+		
+		System.out.println("again, call this method once with assignment, once without assignment and once in-place.");
 		
 		System.out.println("and a third method that creates a new array - but assigns it back to the input.");
 		
@@ -38,6 +51,15 @@ public class TestReturnValues {
 		
 		
 
+	}
+
+	private static int[] makeNewArray(int[] input) {
+		int[] output = new int[input.length+1];
+		for (int i = 0; i < output.length; i++) {
+			output[i] = i;
+		}
+		
+		return output;
 	}
 
 }
