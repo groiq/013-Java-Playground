@@ -8,8 +8,8 @@ public class Statistics {
 	private final double maximum;
 	private final double sum;
 	private final double average;
-//	private final double standardDeviation;
-//	private final double variance;
+	private final double standardDeviation;
+	private final double variance;
 
 	public Statistics(double[] input) {
 		super();
@@ -31,8 +31,17 @@ public class Statistics {
 		this.sum = sum;
 		this.average = sum / input.length;
 		
-		double standardDeviationCounter = 0;
+		double varianceCounter = 0;
 		
+		for (double d : input) {
+			double i = d - this.average;
+			i = i*i;
+			varianceCounter += i;
+			
+		}
+		this.variance = varianceCounter / input.length;
+		
+		this.standardDeviation = Math.sqrt(this.variance);
 		
 		// calculate standard deviation
 		
@@ -60,13 +69,15 @@ public class Statistics {
 		return sum;
 	}
 
-//	public double getStandardDeviation() {
-//		return standardDeviation;
-//	}
-//
-//	public double getVariance() {
-//		return variance;
-//	}
+	public double getStandardDeviation() {
+		return standardDeviation;
+	}
+
+	public double getVariance() {
+		return variance;
+	}
+	
+	
 	
 	// TODO toString() - once all the fields are ready
 	
