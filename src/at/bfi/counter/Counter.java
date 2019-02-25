@@ -41,7 +41,7 @@ public class Counter {
 	}
 	
 
-	private static int[] count(int start, int end, int step) {
+	public static int[] count(int start, int end, int step) {
 		
 		System.out.println("start=" + start + ", end=" + end + ", step=" + step);
 	
@@ -80,12 +80,12 @@ public class Counter {
 	
 	
 	
-	private static int[] count(int end) {
+	public static int[] count(int end) {
 		System.out.println("end=" + end);
 		return count(0,end,1);
 	}
 
-	private static int[] count(int start, int end) {
+	public static int[] count(int start, int end) {
 		System.out.println("start=" + start + ", end=" + end);
 		return count(start,end,1);
 	}

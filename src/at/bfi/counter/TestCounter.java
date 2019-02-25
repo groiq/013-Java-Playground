@@ -1,6 +1,6 @@
 package at.bfi.counter;
 
-import exercises.loops.Counter;
+import at.bfi.counter.Counter;
 
 public class TestCounter {
 
