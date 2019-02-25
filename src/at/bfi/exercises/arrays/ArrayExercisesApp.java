@@ -56,6 +56,20 @@ public class ArrayExercisesApp {
 		pprint(testDouble);
 		Statistics DoubleStats = new Statistics(testDouble);
 		pprint(DoubleStats.getInput());
+		System.out.println(DoubleStats);
+		
+		double[] noVarianceData = {2.0,2.0,2.0,2.0};
+		Statistics noVariance = new Statistics(noVarianceData);
+		System.out.println("no variance: " + noVariance);
+		
+		double[] lowVarianceData = {2.0,2.0,6.0,6.0};
+		Statistics lowVariance = new Statistics(lowVarianceData);
+		System.out.println("low variance: " + lowVariance);
+		
+		double[] higherVarianceData = {4.0,4.0,12.0,12.0};
+		Statistics higherVariance = new Statistics(higherVarianceData);
+		System.out.println("higher variance: " + higherVariance);
+		
 		
 
 	}

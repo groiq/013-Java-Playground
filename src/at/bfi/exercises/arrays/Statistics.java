@@ -1,5 +1,7 @@
 package at.bfi.exercises.arrays;
 
+import java.util.Arrays;
+
 public class Statistics {
 	
 	private final double[] input;
@@ -75,6 +77,13 @@ public class Statistics {
 
 	public double getVariance() {
 		return variance;
+	}
+
+	@Override
+	public String toString() {
+		return "Statistics [input=" + Arrays.toString(input) + ", minimum=" + minimum + ", maximum=" + maximum
+				+ ", sum=" + sum + ", average=" + average + ", standardDeviation=" + standardDeviation + ", variance="
+				+ variance + "]";
 	}
 	
 	
