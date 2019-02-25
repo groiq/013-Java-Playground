@@ -67,6 +67,11 @@ public class TestReturnValues {
 		test3 = reassignArray(test3);
 		P.pprint(test3);
 		
+		reassignArray(test3);
+		P.pprint(test3);
+		
+		P.pprint(reassignArray(test3));
+		P.pprint(test3);
 		
 
 	}
