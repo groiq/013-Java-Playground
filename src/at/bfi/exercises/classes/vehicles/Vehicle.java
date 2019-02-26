@@ -14,13 +14,37 @@ public abstract class Vehicle {
 	public Vehicle(int power, String manufacturer, String model, int yearOfRegistration,
 			String county, String licenseNumber) {
 		super();
+		checkPower(power);
 		this.power = power;
+		checkManufacturer(manufacturer);
 		this.manufacturer = manufacturer;
+		checkModel(model);
 		this.model = model;
+		checkYearOfRegistration(yearOfRegistration);
 		this.yearOfRegistration = yearOfRegistration;
 		this.LicensePlate = new LicensePlate(county, licenseNumber);
 	}
 	
+	private void checkYearOfRegistration(int yearOfRegistration2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void checkModel(String model2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void checkManufacturer(String manufacturer2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void checkPower(int power2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public int getPower() {
 		return power;
 	}
