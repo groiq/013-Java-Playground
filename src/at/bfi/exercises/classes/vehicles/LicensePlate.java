@@ -4,7 +4,7 @@ public class LicensePlate {
 	
 	protected final String county; // fun: replace with an enum
 	protected final String number;
-	public String getDistrictSign() {
+	public String getCounty() {
 		return county;
 	}
 	public String getId() {
