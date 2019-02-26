@@ -1,5 +1,8 @@
 package at.bfi.exercises.classes.vehicles;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import at.bfi.exercises.arrays.Statistics;
 
 public class VehicleStatistics {
@@ -52,6 +55,16 @@ public class VehicleStatistics {
 		
 	}
 
+		public Map<String, Integer> calcRegistrationPerCounty() {
+			
+			Map<String, Integer> result = new HashMap<String, Integer>();
+			
+			
+			
+			return result;
+			
+		}
+		
 		
 
 	

@@ -48,7 +48,8 @@ public class VehiclesApp {
 		Truck v3 = new Truck(8, "3", "3", 1271, "L", "3", 5);
 		Vehicle[] vehicles = {v0,v1,v2,v3};
 		System.out.println(Arrays.toString(vehicles));
-//		VehicleStatistics vehicleStats = new VehicleStatistics(vehicles);
+		VehicleStatistics vehicleStats = new VehicleStatistics(vehicles);
+		System.out.println(vehicleStats.averagePower());
 		
 
 	}
