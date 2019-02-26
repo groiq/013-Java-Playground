@@ -1,0 +1,27 @@
+package at.bfi.exercises.classes.vehicles;
+
+public class VehiclesApp {
+
+	public static void main(String[] args) {
+		
+//		try {
+//			Vehicle platonicVehicle = new Vehicle();
+//			System.out.println("That's weird. I can create an instance of a supposedly abstract class.");
+//		} catch (Exception e) {
+//			System.out.println(e);
+//			System.out.println("Successfully prevented instantiating abstract class.");
+//		}
+//		// this doesn't even work
+		
+		// testing vehicle classes
+		
+		Car myCar = new Car(34, "Austin", "Mini", 1963, "L", "007", 4, false);
+		Truck myTruck = new Truck(300, "VW", "Big Beetle", 1574, "L", "34535", 1400);
+		
+		System.out.println(myCar);
+		System.out.println(myTruck);
+		
+
+	}
+
+}
