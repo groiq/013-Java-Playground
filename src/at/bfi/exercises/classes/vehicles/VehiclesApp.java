@@ -46,9 +46,10 @@ public class VehiclesApp {
 		Car v1 = new Car(4, "1", "1", 1271, "L", "1", 5, false);
 		Car v2 = new Car(6, "2", "2", 1271, "L", "2", 4, false);
 		Truck v3 = new Truck(8, "3", "3", 1271, "L", "3", 5);
-		Vehicle[] vehicleStats = {v0,v1,v2,v3};
+		Vehicle[] vehicles = {v0,v1,v2,v3};
+		System.out.println(Arrays.toString(vehicles));
+//		VehicleStatistics vehicleStats = new VehicleStatistics(vehicles);
 		
-		System.out.println(Arrays.toString(vehicleStats));
 
 	}
 
