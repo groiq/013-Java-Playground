@@ -1,5 +1,7 @@
 package at.bfi.exercises.classes.vehicles;
 
+import java.util.Arrays;
+
 public class VehiclesApp {
 
 	public static void main(String[] args) {
@@ -40,7 +42,13 @@ public class VehiclesApp {
 		 * 
 		 */
 
+		Car v0 = new Car(2, "0", "0", 1271, "LL", "0", 5, true);
+		Car v1 = new Car(4, "1", "1", 1271, "L", "1", 5, false);
+		Car v2 = new Car(6, "2", "2", 1271, "L", "2", 4, false);
+		Truck v3 = new Truck(8, "3", "3", 1271, "L", "3", 5);
+		Vehicle[] vehicleStats = {v0,v1,v2,v3};
 		
+		System.out.println(Arrays.toString(vehicleStats));
 
 	}
 
