@@ -21,6 +21,26 @@ public class VehiclesApp {
 		System.out.println(myCar);
 		System.out.println(myTruck);
 		
+		/*
+		 * create test objects for statistics exercise
+		 * 
+		 * testing:
+		 * - average power
+		 * - number of vehicles per county
+		 * - for cars: ranking of number of seats
+		 * 
+		 * So, two cars with 5 seats, two with 4 seats.
+		 * That's three, throw in one truck.
+		 * Three vehicles in L, one in LL.
+		 * 
+		 * powers: 2,4,6 and 8, that averages to 5.
+		 * 
+		 * Other fields are filled with dummy values.
+		 * 
+		 * 
+		 */
+
+		
 
 	}
 
