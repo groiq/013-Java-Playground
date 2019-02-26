@@ -70,7 +70,8 @@ public class ArrayExercisesApp {
 		Statistics higherVariance = new Statistics(higherVarianceData);
 		System.out.println("higher variance: " + higherVariance);
 		
-		
+		// test example from https://www.mathsisfun.com/data/standard-deviation.html
+		// 
 
 	}
 
