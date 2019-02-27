@@ -8,9 +8,9 @@ public class TaxIncome {
 	 * The principle is as follows:
 	 * If tax rates are 20% below 500 E and 30% above 500 E,
 	 * and you earn 700 E,
-	 * then you pay 20% on the first 500 E (100 E) 
-	 * and 30% on the other 200 E (60 E).
-	 * (that'd be 160 E, if I'm not mistaken.)
+	 * then you pay 20% on the first 500 E
+	 * and 30% on the other 200 E.
+	 * (that'd be 100 + 60 = 160 E, if I'm not mistaken.)
 	 */
 
 	private static int totalNet;
