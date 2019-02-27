@@ -26,7 +26,8 @@ public class TaxCalculator {
 		return stats;
 	}
 
-	
+	// no wait, that way I won't get to the if-else part! Gotta do it some other way.
+	// So, implement two functions: a short one and a proper one.
 	
 	// another method that toStrings() that thing
 	public static String statsAsString(int[] stats) {
