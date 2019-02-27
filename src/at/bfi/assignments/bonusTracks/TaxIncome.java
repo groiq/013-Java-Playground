@@ -1,4 +1,4 @@
-package at.bfi.exercises.var;
+package at.bfi.assignments.bonusTracks;
 
 public class TaxIncome {
 	
