@@ -11,31 +11,32 @@ public class NumberToName {
 	 * @return - the name of that number
 	 */
 	public static String toNameProper(int num) {
-		String result;
+		String name;
 		switch(num) {
-		case 0: result = "zero";
+		case 0: name = "zero";
 		break;
-		case 1: result = "one";
+		case 1: name = "one";
 		break;
-		case 2: result = "two";
+		case 2: name = "two";
 		break;
-		case 3: result = "three";
+		case 3: name = "three";
 		break;
-		case 4: result = "four";
+		case 4: name = "four";
 		break;
-		case 5: result = "five";
+		case 5: name = "five";
 		break;
-		case 6: result = "six";
+		case 6: name = "six";
 		break;
-		case 7: result = "seven";
+		case 7: name = "seven";
 		break;
-		case 8: result = "eight";
+		case 8: name = "eight";
 		break;
-		case 9: result = "nine";
+		case 9: name = "nine";
 		break;
-		default: result = warning;
+		default: name = warning;
 		}
-		return result;
+//		System.out.println("num: " + num + ", name: " + name);
+		return name;
 	}
 	
 	/**
@@ -45,13 +46,14 @@ public class NumberToName {
 	 * @return
 	 */
 	public static String toNameQuick(int num) {
-		String result;
+		String name;
 		if (num >= 0 && num < 10) {
-			result = names[num];
+			name = names[num];
 		} else {
-			result = warning;
+			name = warning;
 		}
-		return result;
+//		System.out.println("num: " + num + ", name: " + name);
+		return name;
 	}
 	
 	/**
