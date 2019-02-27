@@ -2,6 +2,14 @@ package at.bfi.assignments.conditionals;
 
 public class NumberToName {
 	
+
+	/**
+	 * Assignment:
+	 * Write a program that converts number from 0 … 9 in words (“zero”, “one”,
+	 * “two”, …). You can do this with if-else or switchcase, but don’t forget a
+	 * default case!
+	 */	
+	
 	static String[] names = {"zero","one","two","three","four","five","six","seven","eight","nine"};
 	static String warning = "not a valid number!";
 	

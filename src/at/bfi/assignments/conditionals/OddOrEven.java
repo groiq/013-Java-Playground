@@ -3,6 +3,12 @@ package at.bfi.assignments.conditionals;
 public class OddOrEven {
 	
 	/**
+	 * Assignment: 
+	 * Write a program that checks if a number is even or odd. Use the
+	 * “%” (modulo) operator for this. Write debug output in both cases.
+	 */
+	
+	/**
 	 * Checks whether a number is odd or even.
 	 * @param num - an int
 	 * @return - a boolean. true if num is odd, false if num is even.
