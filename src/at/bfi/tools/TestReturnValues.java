@@ -10,7 +10,8 @@ public class TestReturnValues {
 		
 		System.out.println("(i.e. takes an array, modifies it and returns it.)");
 		
-		System.out.println("We will start with an array where arr[i] = i. We will create a new array that is one longer.");
+		System.out.println("We will start with an array where arr[i] = i. " + 
+				"We will create a new array that is one longer.");
 		
 		int[] test1 = {0,1,2};
 		P.pprint(test1);
@@ -38,11 +39,13 @@ public class TestReturnValues {
 		P.pprint(makeNewArray(test1));
 		P.pprint(test1);
 
-		System.out.println("Come to think of it, let's do a second method that doesn't create a new array, but changes the array in-place.");
+		System.out.println("Come to think of it, let's do a second method that doesn't create a new " 
+				+ "array, but changes the array in-place.");
 		
 		System.out.println("let's say it increases each element of the array by one.");
 		
-		System.out.println("again, call this method once with assignment, once without assignment and once in-place.");
+		System.out.println("again, call this method once with assignment, once without assignment and " 
+				+ "once in-place.");
 		
 		int[] test2 = {0,1,2};
 		P.pprint(test2);
@@ -62,7 +65,8 @@ public class TestReturnValues {
 		int[] test3 = {0,1,2};
 		P.pprint(test3);
 		
-		System.out.println("again, call this method once with assignment, once without assignment and once in-place.");
+		System.out.println("again, call this method once with assignment, once without assignment and " 
+				+ "once in-place.");
 		
 		test3 = reassignArray(test3);
 		P.pprint(test3);
@@ -73,7 +77,8 @@ public class TestReturnValues {
 		P.pprint(reassignArray(test3));
 		P.pprint(test3);
 		
-		System.out.println("Todo: make everything clearer: first, print each command, then execute it. Also, use the same method everytime (increase each value by one).");
+		System.out.println("Todo: make everything clearer: first, print each command, then execute it. " 
+				+ "Also, use the same method everytime (increase each value by one).");
 
 	}
 
