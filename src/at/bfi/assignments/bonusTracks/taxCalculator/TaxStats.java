@@ -1,17 +1,23 @@
 package at.bfi.assignments.bonusTracks.taxCalculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class TaxStats {
 	
 	private int gross;
-	private int[] rates;
-	private int[] thresholds;
+	private final int[] thresholds = {1500,2500,3500};
+	private final int[] rates = {20,35,45,50};
+	
+	private TaxChunk[] taxChunks;
+	int totalNet;
+	int totalTax;
 	
 	/*
-	 * for later: create a handy input format for rates/thresholds (Hashmap?)
+	 * for later: make rates-thresholds data editable, store in a decent format
 	 */
 
-	private TaxChunk[] taxChunks;
-
+	
 	/**
 	 * @return the gross
 	 */
@@ -24,6 +30,7 @@ public class TaxStats {
 	 */
 	public void setGross(int gross) {
 		this.gross = gross;
+		calculateChunks();
 	}
 
 	/**
@@ -33,12 +40,6 @@ public class TaxStats {
 		return rates;
 	}
 
-	/**
-	 * @param rates the rates to set
-	 */
-	public void setRates(int[] rates) {
-		this.rates = rates;
-	}
 
 	/**
 	 * @return the thresholds
@@ -47,12 +48,6 @@ public class TaxStats {
 		return thresholds;
 	}
 
-	/**
-	 * @param thresholds the thresholds to set
-	 */
-	public void setThresholds(int[] thresholds) {
-		this.thresholds = thresholds;
-	}
 
 	/**
 	 * @return the taxChunks
@@ -63,20 +58,69 @@ public class TaxStats {
 	
 
 	/**
+	 * @return the totalNet
+	 */
+	public int getTotalNet() {
+		return totalNet;
+	}
+
+	/**
+	 * @return the totalTax
+	 */
+	public int getTotalTax() {
+		return totalTax;
+	}
+
+	/**
 	 * @param gross
 	 * @param rates
 	 * @param thresholds
 	 */
-	public TaxStats(int gross, int[] rates, int[] thresholds) {
+	public TaxStats(int gross) {
 		this.gross = gross;
-		this.rates = rates;
-		this.thresholds = thresholds;
-		calculatePackets();
+		calculateChunks();
 	}
 
 
-	private void calculatePackets() {
+	private void calculateChunks() {
 		
+		int rest = gross;
+		int pos = 0;
+		int currGrossChunk = thresholds[0];
+		
+		totalNet = 0;
+		totalTax = 0;
+		
+		ArrayList<TaxChunk> interimChunkList = new ArrayList<TaxChunk>();
+		
+		while (rest > currGrossChunk) {
+			rest -= currGrossChunk;
+			
+			System.out.println("currGrossChunk: " + currGrossChunk + ", rest: " + rest + ", pos: " + pos);
+			
+//			TaxChunk newTaXChunk = new TaxChunk(currGrossChunk,rates[pos]);
+//			interimChunkList.add(newTaXChunk);
+			
+			pos += 1;
+			if (pos >= thresholds.length) break;
+			currGrossChunk = thresholds[pos] - thresholds[pos-1];
+			// for later: start thresholds with 0, that might make loops like this one more elegant
+		}
+		
+		System.out.println("currGrossChunk: " + currGrossChunk + ", rest: " + rest + ", pos: " + pos);
+		
+		taxChunks = interimChunkList.toArray(new TaxChunk[0]);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TaxStats [gross=" + gross + ", rates=" + Arrays.toString(rates) + ", thresholds="
+				+ Arrays.toString(thresholds) + ", taxChunks=" + Arrays.toString(taxChunks) + ", totalNet=" + totalNet
+				+ ", totalTax=" + totalTax + "]";
 	}
 	
 	
