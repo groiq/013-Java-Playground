@@ -17,6 +17,7 @@ public class TaxCalculator {
 	
 	private static int[] thresholds = {1500,2500,3500};
 	private static int[] rates = {20,35,45,50};
+	private static boolean useFields = true;
 	
 	// method that calculates tax and returns an int[] containing gross, tax rate, tax and net
 	public static int[] taxStats(int gross) {
