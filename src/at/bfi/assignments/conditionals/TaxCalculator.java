@@ -1,5 +1,3 @@
-package at.bfi.assignments.conditionals;
-
 /**
  * assignment:
  * 
@@ -12,6 +10,7 @@ package at.bfi.assignments.conditionals;
  * 3501 and above -> 50%
  */
 
+package at.bfi.assignments.conditionals;
 
 public class TaxCalculator {
 	
@@ -19,11 +18,37 @@ public class TaxCalculator {
 	private static int[] rates = {20,35,45,50};
 	private static boolean useFields = true;
 	
-	// method that calculates tax and returns an int[] containing gross, tax rate, tax and net
+	/**
+	 * Takes a gross income value and calculates the progressive tax.
+	 * @param gross - an int, the gross value
+	 * @return an array of four integers containing, in that order, gross value, tax rate, tax, and net value
+	 */
 	public static int[] taxStats(int gross) {
 		int[] stats = new int[4];
 		stats[0] = gross;
-		
+		int rate;
+		if (useFields == true) {
+			int pos = 0;
+			while(pos < thresholds.length && thresholds[pos] < gross) {
+				pos += 1;
+			}
+//			System.out.println("gross: " + gross + ", pos: " + pos + ", threshold: " + 
+//			( pos < thresholds.length ? thresholds[pos] : "(surpassed)" ) + ", rate: " + rates[pos]);
+			rate = rates[pos];
+		} else {
+			if (gross <= 1500) {
+				rate = 20;
+			} else if (gross <= 2500) {
+				rate = 35;
+			} else if (gross <= 3500) {
+				rate = 45;
+			} else {
+				rate = 50;
+			}
+		}
+		stats[1] = rate;
+		stats[2] = (gross * rate) / 100;
+		stats[3] = gross - stats[2];
 		return stats;
 	}
 
@@ -41,13 +66,19 @@ public class TaxCalculator {
 
 	public static void main(String[] args) {
 		
+		testWithVariousValues(true);
+		testWithVariousValues(false);
+		
+	}
+
+	private static void testWithVariousValues(boolean fieldsToggler) {
 		// test getTax method with representative values
+		useFields = fieldsToggler;
 		for (int i = 1000; i < 5000; i += 1000) {
 //			System.out.println(i);
 			System.out.println(statsAsString(i));
 		}
-		
-
+		System.out.println();
 	}
 
 }
