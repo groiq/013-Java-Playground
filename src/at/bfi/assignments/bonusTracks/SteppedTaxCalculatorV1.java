@@ -1,6 +1,6 @@
 package at.bfi.assignments.bonusTracks;
 
-public class TaxIncome {
+public class SteppedTaxCalculatorV1 {
 	
 	/**
 	 * A variant of the tax calculator assignment that uses differential tariff or whatever it's called.
