@@ -77,12 +77,16 @@ public class TaxStats {
 	 * @param thresholds
 	 */
 	public TaxStats(int gross) {
+		System.out.println("<Constructor: TaxStats(gross), gross: " + gross + ">");
 		this.gross = gross;
 		calculateChunks();
+		System.out.println("</Constructor: TaxStats()>");
 	}
 
 
 	private void calculateChunks() {
+		
+		System.out.println("<method calculateChunks()>");
 		
 		int rest = gross;
 		int pos = 0;
@@ -110,6 +114,8 @@ public class TaxStats {
 		System.out.println("currGrossChunk: " + currGrossChunk + ", rest: " + rest + ", pos: " + pos);
 		
 		taxChunks = interimChunkList.toArray(new TaxChunk[0]);
+		
+		System.out.println("</method calculateChunks()>");
 		
 	}
 

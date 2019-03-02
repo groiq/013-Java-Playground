@@ -36,10 +36,12 @@ public class TaxChunk {
 	 * @param rate
 	 */
 	public TaxChunk(int gross, int rate) {
+		System.out.println("Creating tax chunk...");
 		this.gross = gross;
 		this.rate = rate;
 		this.tax = (this.gross * this.rate) / 100;
 		this.net = this.gross - this.tax;
+		System.out.println("created tax chunk: " + this.toString());
 	}
 	
 	/* (non-Javadoc)
