@@ -1,4 +1,4 @@
-package at.bfi.assignments.bonusTracks;
+package at.bfi.assignments.conditionals.taxCalculator.v1;
 
 public class SteppedTaxCalculatorV1 {
 	

@@ -12,7 +12,7 @@
  * Note that this solution fails to implement stepped progression.
  */
 
-package at.bfi.assignments.conditionals;
+package at.bfi.assignments.conditionals.taxCalculator.v2;
 
 import java.util.Arrays;
 
