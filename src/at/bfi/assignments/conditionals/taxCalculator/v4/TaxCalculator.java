@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TaxCalculator {
 	
 	private static int[] rates = {20,35,45,50};
-	private static int[] thresholds = {1500,2500,3500};
+	private static int[] thresholds = {0,1500,2500,3500};
 	
 	public static int[] asArray(int i) {
 //		System.out.println("one-liner: asArray(" + i + ")");
@@ -44,21 +44,20 @@ public class TaxCalculator {
 		int pos = 0;
 		int currChunk = thresholds[0];
 		
-		while (remainingGross >= currChunk) {
+		for (int i = 0; i < thresholds.length; i++) {
 			
-			remainingGross -= currChunk;
+			System.out.println("first, calculate the current chunk...");
+			/*
+			 * three cases:
+			 * full chunk
+			 * part chunk (sum is over)
+			 * last chunk (no next threshold)
+			 */
 			
-			
-			int currTax = ( currChunk * rates[pos] ) / 100;
-			totalTax += currTax;
-			
-			pos += 1;
-			if (pos >= thresholds.length) {
-				break;
-			}
-			currChunk = thresholds[pos] - thresholds[pos - 1];
+			System.out.println("then calculate it with the appropriate rate");
 			
 		}
+
 		
 		
 		totalNet = gross - totalTax;
