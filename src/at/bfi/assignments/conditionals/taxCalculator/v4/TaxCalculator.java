@@ -9,23 +9,26 @@ public class TaxCalculator {
 		return calculateTaxes(i);
 	}
 
-	public static String asString(int i) {
-		return asString(calculateTaxes(i));
+	public static String asString(int gross) {
+		return asString(calculateTaxes(gross));
 	}
 	
-	public static String asString(int[] i) {
-		String answer;
-		if (i.length == 3) {
-			answer = "gross: " + i[0] + ", tax: " + i[1] + ", net: " + i[2];
+	public static String asString(int[] stats) {
+		String theString;
+		if (stats.length == 3) {
+			theString = "gross: " + stats[0] + ", tax: " + stats[1] + ", net: " + stats[2];
 		} else {
-			answer = "Error: malformed array (needs to be of length three).";
+			theString = "Error: malformed array (needs to be of length three).";
 		}
-		return answer;
+		return theString;
 	}
 	
-	private static int[] calculateTaxes(int i) {
+	private static int[] calculateTaxes(int gross) {
 		
 		int[] stats = new int[3];
+		stats[0] = gross;
+		
+		int remainingGross = gross; // could use gross itself, but I'll use a better name
 		
 		return stats;
 	}
