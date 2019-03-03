@@ -21,7 +21,7 @@
  */
 
 
-package at.bfi.assignments.bonusTracks.taxCalculator;
+package at.bfi.assignments.bonusTracks.taxCalculator.v2;
 
 public class CalculatorApp {
 
@@ -36,7 +36,8 @@ public class CalculatorApp {
 		
 		for (int i = 0; i < incomeStats.length; i++) {
 			incomeStats[i] = new TaxStats(incomes[i]);
-			System.out.println(incomeStats[i]);
+			incomeStats[i].printAllOutputs();
+//			System.out.println(incomeStats[i]);
 			System.out.println();
 			System.out.println("--------------");
 			System.out.println();
