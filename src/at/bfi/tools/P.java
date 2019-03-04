@@ -18,7 +18,13 @@ public class P {
 		P.lineBreak = lineBreak;
 	}
 	
-	
+	public static  void print(Iterable<Object> input) {
+		for (Object i : input) {
+			System.out.println(i);
+		}
+	}
+//	https://stackoverflow.com/questions/33871121/how-to-pass-any-array-as-a-parameter-in-java
+	// p.print(a) und p.print(a,lineBreak) implementieren
 
 	/**
 	 * Prints the contents of an integer array.
