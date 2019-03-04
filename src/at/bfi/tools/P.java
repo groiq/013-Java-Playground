@@ -8,7 +8,7 @@ public class P {
 	private static int defaultLineBreak = 20;
 	
 	/**
-	 * @return the lineBreak
+	 * @return the defaultLineBreak
 	 */
 	public static int getLineBreak() {
 		return defaultLineBreak;
@@ -24,8 +24,14 @@ public class P {
 
 	public static <T> void print(List<T> input, int lineBreak) {
 		System.out.println("printing list...");
-		System.out.println(input);
+//		System.out.println(input);
+		for (T t : input) {
+			System.out.println("next element:");
+			System.out.println(t);
+		}
 	}
+	
+	// try again with array of wrappers
 	
 	public static void print(Object[] input, int lineBreak) {
 		print(Arrays.asList(input),lineBreak);
