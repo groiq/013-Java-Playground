@@ -13,6 +13,8 @@ public class TestToolsApp {
 		
 //		P.print(intArray);
 //		P.print(strArray);
+		System.out.println(intArray.getClass());
+		System.out.println(strArray.getClass());
 		
 		for (Object o : strArray) {
 			System.out.println(o);

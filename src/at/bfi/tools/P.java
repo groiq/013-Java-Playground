@@ -18,11 +18,15 @@ public class P {
 		P.lineBreak = lineBreak;
 	}
 	
-	public static  void print(Iterable<Object> input) {
-		for (Object i : input) {
-			System.out.println(i);
-		}
-	}
+//	public static  void print(Object input) {
+//		if (input == null || not (input.getClass().isArray)) {
+//			System.err.println("no!");
+//			return;
+//		}
+//		for (Object i : input) {
+//			System.out.println(i);
+//		}
+//	}
 //	https://stackoverflow.com/questions/33871121/how-to-pass-any-array-as-a-parameter-in-java
 	// p.print(a) und p.print(a,lineBreak) implementieren
 
