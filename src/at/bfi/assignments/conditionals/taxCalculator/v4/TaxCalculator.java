@@ -42,19 +42,46 @@ public class TaxCalculator {
 		
 		int remainingGross = gross;
 		int pos = 0;
-		int currChunk = thresholds[0];
+//		int currChunk;
 		
 		for (int i = 0; i < thresholds.length; i++) {
 			
-			System.out.println("first, calculate the current chunk...");
+			
+//			System.out.println("first, calculate the current chunk...");
 			/*
 			 * three cases:
 			 * full chunk
 			 * part chunk (sum is over)
 			 * last chunk (no next threshold)
+			 * 
+			 * condition for second case: remainingGross is smaller than current chunk
+			 * condition for third case: reached end of array
 			 */
 			
-			System.out.println("then calculate it with the appropriate rate");
+			int currChunk;
+			int currTax;
+			
+			if (i < thresholds.length - 1) {
+				currChunk = thresholds[i+1] - thresholds[i];
+				if (currChunk > remainingGross) {
+					currChunk = remainingGross;
+//					break;
+				}
+			} else {
+				currChunk = remainingGross;
+			}
+			
+//			System.out.println("then calculate it with the appropriate rate");
+			
+			currTax = (currChunk * rates[i]) / 100;
+			System.out.println("current threshold: " + thresholds[i] + ", current rate: " + rates[i] + 
+					", current gross chunk: " + currChunk + ", tax on that: " + currTax);
+			totalTax += currTax;
+			
+			remainingGross -= currChunk;
+			if (remainingGross <= 0) {
+				break;
+			}
 			
 		}
 
@@ -64,7 +91,7 @@ public class TaxCalculator {
 		stats[1] = totalTax;
 		stats[2] = totalNet;
 		
-//		System.out.println("returning: " + Arrays.toString(stats));
+		System.out.println("returning: " + Arrays.toString(stats));
 //		System.out.println("/calculateTaxes(int)");
 		return stats;
 	}
