@@ -2,6 +2,8 @@ package at.bfi.tools;
 
 public class P {
 	
+	private static int lineBreak = 20;
+	
 	/**
 	 * Prints the contents of an integer array.
 	 * @param input
