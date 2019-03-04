@@ -74,8 +74,8 @@ public class TaxCalculator {
 //			System.out.println("then calculate it with the appropriate rate");
 			
 			currTax = (currChunk * rates[i]) / 100;
-			System.out.println("current threshold: " + thresholds[i] + ", current rate: " + rates[i] + 
-					", current gross chunk: " + currChunk + ", tax on that: " + currTax);
+//			System.out.println("current threshold: " + thresholds[i] + ", current rate: " + rates[i] + 
+//					", current gross chunk: " + currChunk + ", tax on that: " + currTax);
 			totalTax += currTax;
 			
 			remainingGross -= currChunk;
@@ -91,7 +91,7 @@ public class TaxCalculator {
 		stats[1] = totalTax;
 		stats[2] = totalNet;
 		
-		System.out.println("returning: " + Arrays.toString(stats));
+//		System.out.println("returning: " + Arrays.toString(stats));
 //		System.out.println("/calculateTaxes(int)");
 		return stats;
 	}

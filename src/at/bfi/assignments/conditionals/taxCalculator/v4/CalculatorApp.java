@@ -32,14 +32,15 @@ public class CalculatorApp {
 		for (int i = 1000; i < 4500; i += 500) {
 			System.out.println("Calculating taxes for " + i + " Euro:");
 			int[] stats = TaxCalculator.asArray(i);
-			System.out.println("As array: ");
+			System.out.println("Calculate and return the array: ");
 			System.out.println(Arrays.toString(stats));
-			System.out.println("As string, from the array: " );
+			System.out.println("fetch a string from the array: " );
 			System.out.println(TaxCalculator.asString(stats));
-			System.out.println("as string, from the original input: ");
+			System.out.println("calculate from the original gross value and return as a string: ");
 			System.out.println(TaxCalculator.asString(i));
 			System.out.println();
-			// TODO test asString with array as input
+			
+			
 		}
 
 	}
