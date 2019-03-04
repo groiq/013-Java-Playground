@@ -5,39 +5,44 @@ import java.util.List;
 
 public class P {
 	
-	private static int lineBreak = 20;
+	private static int defaultLineBreak = 20;
 	
 	/**
 	 * @return the lineBreak
 	 */
 	public static int getLineBreak() {
-		return lineBreak;
+		return defaultLineBreak;
 	}
 
 	/**
 	 * @param lineBreak the lineBreak to set
 	 */
 	public static void setLineBreak(int lineBreak) {
-		P.lineBreak = lineBreak;
+		P.defaultLineBreak = lineBreak;
 	}
 	
-	public static <T> void print(List<T> input) {
+
+	public static <T> void print(List<T> input, int lineBreak) {
 		System.out.println("printing list...");
 		System.out.println(input);
 	}
 	
-	public static void print(Object[] input) {
-		print(Arrays.asList(input));
+	public static void print(Object[] input, int lineBreak) {
+		print(Arrays.asList(input),lineBreak);
 	}
 	
-	public static void print(int[] input) {
-		print(Arrays.asList(input));
+	public static void print(int[] input, int lineBreak) {
+		print(Arrays.asList(input),lineBreak);
 	}
 	
-	public static void print(double[] input) {
-		print(Arrays.asList(input));
+	public static void print(double[] input, int lineBreak) {
+		print(Arrays.asList(input),lineBreak);
 	}
 	
+	public static void print(Object input) {
+		print(input,defaultLineBreak);
+	}
+		
 //	public static  void print(Object input) {
 //		if (input != null && input.getClass().isArray()) {
 //			for (Object i : input) {
