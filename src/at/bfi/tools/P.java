@@ -5,6 +5,22 @@ public class P {
 	private static int lineBreak = 20;
 	
 	/**
+	 * @return the lineBreak
+	 */
+	public static int getLineBreak() {
+		return lineBreak;
+	}
+
+	/**
+	 * @param lineBreak the lineBreak to set
+	 */
+	public static void setLineBreak(int lineBreak) {
+		P.lineBreak = lineBreak;
+	}
+	
+	
+
+	/**
 	 * Prints the contents of an integer array.
 	 * @param input
 	 */
