@@ -1,5 +1,8 @@
 package at.bfi.tools;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class P {
 	
 	private static int lineBreak = 20;
@@ -18,8 +21,33 @@ public class P {
 		P.lineBreak = lineBreak;
 	}
 	
+	public static <T> void print(List<T> input) {
+		System.out.println("printing list...");
+		System.out.println(input);
+	}
+	
+	public static void print(Object[] input) {
+		print(Arrays.asList(input));
+	}
+	
+	public static void print(int[] input) {
+		print(Arrays.asList(input));
+	}
+	
+	public static void print(double[] input) {
+		print(Arrays.asList(input));
+	}
+	
 //	public static  void print(Object input) {
-//		if (input == null || not (input.getClass().isArray)) {
+//		if (input != null && input.getClass().isArray()) {
+//			for (Object i : input) {
+//				
+//			}
+//		} else {
+//			System.out.println("Nooo!");
+//			return;
+//		}
+//		if (input == null ||  (input.getClass().isArray())) {
 //			System.err.println("no!");
 //			return;
 //		}

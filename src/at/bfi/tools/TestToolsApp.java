@@ -11,18 +11,18 @@ public class TestToolsApp {
 		int[] intArray = {1,2,3};
 		String[] strArray = {"a-one","a-two","a-one-two-three-four"};
 		
-//		P.print(intArray);
-//		P.print(strArray);
-		System.out.println(intArray.getClass());
-		System.out.println(strArray.getClass());
+		P.print(intArray);
+		P.print(strArray);
+//		System.out.println(intArray.getClass());
+//		System.out.println(strArray.getClass());
 		
-		for (Object o : strArray) {
-			System.out.println(o);
-		}
+//		for (Object o : strArray) {
+//			System.out.println(o);
+//		}
 		
-		for (Object o : intArray) {
-			System.out.println(o);
-		}
+//		for (Object o : intArray) {
+//			System.out.println(o);
+//		}
 
 	}
 
