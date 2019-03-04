@@ -39,9 +39,21 @@ public class P {
 		print(Arrays.asList(input),lineBreak);
 	}
 	
-	public static void print(Object input) {
-		print(input,defaultLineBreak);
+	public static void print(Object[] input) {
+		print(Arrays.asList(input),defaultLineBreak);
 	}
+	
+	public static void print(int[] input) {
+		print(Arrays.asList(input),defaultLineBreak);
+	}
+	
+	public static void print(double[] input) {
+		print(Arrays.asList(input),defaultLineBreak);
+	}
+	
+//	public static void print(Object input) {
+//		print(input,defaultLineBreak);
+//	}
 		
 //	public static  void print(Object input) {
 //		if (input != null && input.getClass().isArray()) {
