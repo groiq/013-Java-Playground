@@ -1,7 +1,5 @@
 package at.bfi.assignments.loops;
 
-import java.util.Arrays;
-
 public class EveryThirdNumber {
 	
 	private static void everyThird(int threshold) {
