@@ -61,10 +61,8 @@ public class TaxCalculator {
 		
 		int remainingGross = gross;
 		int pos = 0;
-//		int currChunk;
 		
 		for (int i = 0; i < thresholds.length; i++) {
-			
 			
 //			System.out.println("first, calculate the current chunk...");
 			/*
