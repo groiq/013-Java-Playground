@@ -6,7 +6,7 @@ import java.util.List;
 public class P {
 	
 	private static int defaultLineBreak = 20;
-	private static String sep = " | ";
+	private static String separator = " | ";
 	
 	/**
 	 * @return the defaultLineBreak
@@ -25,24 +25,24 @@ public class P {
 	
 	
 	/**
-	 * @return the sep
+	 * @return the separator
 	 */
-	public static String getSep() {
-		return sep;
+	public static String getSeparator() {
+		return separator;
 	}
 
 	/**
-	 * @param sep the sep to set
+	 * @param sep the separator to set
 	 */
-	public static void setSep(String sep) {
-		P.sep = sep;
+	public static void setSeparator(String sep) {
+		P.separator = sep;
 	}
 
 	public static void print(Object[] input, int lineBreak) {
 //		System.out.println("printing object array");
-		System.out.print(sep);
+		System.out.print(separator);
 		for (int i = 0; i < input.length; i++) {
-			System.out.print(input[i].toString() + sep);
+			System.out.print(input[i].toString() + separator);
 			if ((i+1)%lineBreak == 0) {
 				System.out.println();
 			}
