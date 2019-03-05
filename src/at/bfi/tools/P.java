@@ -53,6 +53,29 @@ public class P {
 	public static void print(Object[] input) {
 		print(input,defaultLineBreak);
 	}
+	
+	public static void print(int[] input, int lineBreak) {
+		Integer[] wrappedInput = Arrays.stream(input)
+				.boxed()
+				.toArray(Integer[]::new);
+		print(wrappedInput);
+	}
+	public static void print(int[] input) {
+		print(input,defaultLineBreak);
+	}
+	
+
+	public static void print(double[] input, int lineBreak) {
+		System.out.println("hello");
+		Double[] wrappedInput = Arrays.stream(input)
+				.boxed()
+				.toArray(Double[]::new);
+		print(wrappedInput);
+	}
+	public static void print(double[] input) {
+		print(input,defaultLineBreak);
+	}
+	
 
 	// try again with array of wrappers?
 
