@@ -3,7 +3,9 @@
  * Print all prime numbers smaller or equal than 100.
  * 
  * This variant uses the sieve of Erastothenes,
- * tracking the prime property in an extra boolean[].
+ * tracking the prime property in a boolean[].
+ * 
+ * source: https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes
  */
 
 package at.bfi.assignments.loops;
