@@ -9,10 +9,21 @@ public class TestToolsApp {
 	public static void main(String[] args) {
 		
 		int[] intArray = {1,2,3};
-		String[] strArray = {"a-one","a-two","a-one-two-three-four"};
+		String[] strArray;
+//		strArray = {"a-one","a-two","a-one-two-three-four"};
+		strArray = new String[100];
 		
-		P.print(intArray);
+		for (Integer i = 0; i < strArray.length; i++) {
+//			String string = strArray[i];
+			strArray[i] = i.toString();
+		}
+		
 		P.print(strArray);
+		
+		
+		
+//		P.print(intArray);
+//		P.print(strArray);
 //		System.out.println(intArray.getClass());
 //		System.out.println(strArray.getClass());
 		

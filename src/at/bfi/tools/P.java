@@ -6,6 +6,7 @@ import java.util.List;
 public class P {
 	
 	private static int defaultLineBreak = 20;
+	private static String sep = " | ";
 	
 	/**
 	 * @return the defaultLineBreak
@@ -21,42 +22,75 @@ public class P {
 		P.defaultLineBreak = lineBreak;
 	}
 	
+	
+	
+	/**
+	 * @return the sep
+	 */
+	public static String getSep() {
+		return sep;
+	}
 
-	public static <T> void print(List<T> input, int lineBreak) {
-		System.out.println("printing list...");
-//		System.out.println(input);
-		for (T t : input) {
-			System.out.println("next element:");
-			System.out.println(t);
+	/**
+	 * @param sep the sep to set
+	 */
+	public static void setSep(String sep) {
+		P.sep = sep;
+	}
+
+	public static void print(Object[] input, int lineBreak) {
+//		System.out.println("printing object array");
+		System.out.print(sep);
+		for (int i = 0; i < input.length; i++) {
+			System.out.print(input[i].toString() + sep);
+			if ((i+1)%lineBreak == 0) {
+				System.out.println();
+			}
+			
 		}
 	}
 	
-	// try again with array of wrappers
-	
-	public static void print(Object[] input, int lineBreak) {
-		print(Arrays.asList(input),lineBreak);
-	}
-	
-	public static void print(int[] input, int lineBreak) {
-		print(Arrays.asList(input),lineBreak);
-	}
-	
-	public static void print(double[] input, int lineBreak) {
-		print(Arrays.asList(input),lineBreak);
-	}
-	
 	public static void print(Object[] input) {
-		print(Arrays.asList(input),defaultLineBreak);
+		print(input,defaultLineBreak);
 	}
-	
-	public static void print(int[] input) {
-		print(Arrays.asList(input),defaultLineBreak);
-	}
-	
-	public static void print(double[] input) {
-		print(Arrays.asList(input),defaultLineBreak);
-	}
-	
+
+	// try again with array of wrappers?
+
+
+//	public static <T> void print(List<T> input, int lineBreak) {
+//		System.out.println("printing list...");
+////		System.out.println(input);
+//		for (T t : input) {
+//			System.out.println("next element:");
+//			System.out.println(t);
+//		}
+//	}
+//	
+//	
+//	public static void print(Object[] input, int lineBreak) {
+//		print(Arrays.asList(input),lineBreak);
+//	}
+//	
+//	public static void print(int[] input, int lineBreak) {
+//		print(Arrays.asList(input),lineBreak);
+//	}
+//	
+//	public static void print(double[] input, int lineBreak) {
+//		print(Arrays.asList(input),lineBreak);
+//	}
+//	
+//	public static void print(Object[] input) {
+//		print(Arrays.asList(input),defaultLineBreak);
+//	}
+//	
+//	public static void print(int[] input) {
+//		print(Arrays.asList(input),defaultLineBreak);
+//	}
+//	
+//	public static void print(double[] input) {
+//		print(Arrays.asList(input),defaultLineBreak);
+//	}
+//	
 //	public static void print(Object input) {
 //		print(input,defaultLineBreak);
 //	}
