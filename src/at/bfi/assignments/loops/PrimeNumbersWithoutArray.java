@@ -1,3 +1,10 @@
+/**
+ * assignment:
+ * print all prime numbers smaller or equal than 100.
+ * 
+ * Brute force method that uses no arrays. High runtime costs.
+ */
+
 package at.bfi.assignments.loops;
 
 public class PrimeNumbersWithoutArray {

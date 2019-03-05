@@ -1,3 +1,11 @@
+/**
+ * assignment:
+ * Print all prime numbers smaller or equal than 100.
+ * 
+ * This variant uses the sieve of Erastothenes,
+ * tracking the prime property in an extra boolean[].
+ */
+
 package at.bfi.assignments.loops;
 
 import java.util.ArrayList;
@@ -21,8 +29,5 @@ public class PrimeNumbers02 {
 		int maxNum = 100;
 		ArrayList<Integer> primes = getPrimes(maxNum);
 		System.out.println(primes);
-		int sum = 0;
-		for (int prime : primes) { sum += prime; }
-		System.out.println(primes.size() + "," + sum);
 	}
 }

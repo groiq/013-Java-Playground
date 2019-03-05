@@ -1,3 +1,8 @@
+/**
+ * assignment:
+ * Print all fibonacci numbers smaller or equal than 100.
+ */
+
 package at.bfi.assignments.loops.fibonacci;
 
 public class ByThreshold {
