@@ -1,4 +1,19 @@
-
+/**
+ * assignment:
+ * Collect various statistics calculations on a double[] in one class.
+ * 
+ * Write a class with methods that each take a double[] as input and return
+ * - the minimum
+ * - the maximum
+ * - the sum
+ * - the average
+ * - the variance
+ * - the standard deviation
+ * 
+ * Explanation of deviation and standard variance taken from:
+ * https://www.mathsisfun.com/data/standard-deviation.html
+ * I am also using their example for testing.
+ */
 
 package at.bfi.exercises.arrays;
 
