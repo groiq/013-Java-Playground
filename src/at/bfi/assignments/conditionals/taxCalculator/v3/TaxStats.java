@@ -1,6 +1,6 @@
 /**
  * Calculates taxes for a given gross value and stores them in an object.
- * Creates a helper object for each tax bracket.
+ * Creates a helper object for each tax bracket (a "tax chunk").
  * Provides methods to retrieve tax information.
  * 
  * The following progressive tax rates are hard-coded:
@@ -27,6 +27,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TaxStats {
+	
+	/*
+	 * for later: implement overall tax rate like I did in v4.
+	 */
 	
 	private int gross;
 	private final int[] thresholds = {1500,2500,3500};
@@ -170,24 +174,38 @@ public class TaxStats {
 		
 //		System.out.println("<method calculateChunks()>");
 		
-		int rest = gross;
-		int pos = 0;
-		int currGrossChunk = thresholds[0];
+		int rest = gross; // track chunks of money that haven't been taxed yet
+		int pos = 0; // track position in thresholds list and rates list
+		int currGrossChunk = thresholds[0]; // track the chunk to be taxed at the current rate. Starts with a chunk from 0 to the first threshold.
 		
-		totalNet = 0;
-		totalTax = 0;
+		totalTax = 0; // track the tax calculated so far
 		
+		// track a growing list of tax chunks
 		ArrayList<TaxChunk> interimChunkList = new ArrayList<TaxChunk>();
+		// for later: possible alternative: track tax chunks in an array the size of the rates list.
+		// when writing to field, copy over all non-null entries.
 		
+		/*
+		 * repeat calculating chunks until the money left doesn't reach the next threshold.
+		 * If the rest is equal to the next chunk, the loop will be finished.
+		 */
 		while (rest > currGrossChunk) {
-			rest -= currGrossChunk;
+			rest -= currGrossChunk; // take the current chunk from the untaxed amount
 			
 //			System.out.print("currGrossChunk: " + currGrossChunk + ", rest: " + rest + ", pos: " + pos);
 //			System.out.println(". Create new chunk with gross " + currGrossChunk + " and rate " + rates[pos]);
+			/*
+			 * Calculate tax for current chunk using current tax rate. Store data in the list of tax chunks.
+			 * Increase total tax.
+			 */
 			TaxChunk newTaxChunk = new TaxChunk(currGrossChunk,rates[pos]);
 			totalTax += newTaxChunk.getTax();
 			interimChunkList.add(newTaxChunk);
 			
+			/*
+			 * move forward in thresholds list. If end of list reached, break out of loop.
+			 * Otherwise, calculate next gross chunk.
+			 */
 			pos += 1;
 			if (pos >= thresholds.length) break;
 			currGrossChunk = thresholds[pos] - thresholds[pos-1];
@@ -195,13 +213,19 @@ public class TaxStats {
 		}
 		
 //		System.out.print("currGrossChunk: " + currGrossChunk + ", rest: " + rest + ", pos: " + pos);
+		
+		/*
+		 * Create final chunk with the rest. This rest must be smaller or equal to the last calculated chunk.
+		 */
 //		System.out.println(". Create final chunk with gross " + rest + " and rate " + rates[pos]);
 		TaxChunk newTaxChunk = new TaxChunk(rest,rates[pos]);
 		totalTax += newTaxChunk.getTax();
 		interimChunkList.add(newTaxChunk);
 		
+		/*
+		 * Calculate total net value. Write total net and chunk list to fields.
+		 */
 		totalNet = gross - totalTax;
-		
 		taxChunks = interimChunkList.toArray(new TaxChunk[0]);
 		
 //		System.out.println("printing the contents of taxChunks in seperate lines...");
