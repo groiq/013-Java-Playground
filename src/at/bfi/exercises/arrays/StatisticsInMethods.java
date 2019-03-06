@@ -10,6 +10,8 @@
  * - the variance
  * - the standard deviation
  * 
+ * Contains a main method for testing.
+ * 
  * Explanation of deviation and standard variance taken from:
  * https://www.mathsisfun.com/data/standard-deviation.html
  * I am also using their example for testing.
@@ -21,6 +23,10 @@ import java.util.Arrays;
 
 public class StatisticsInMethods {
 
+	/**
+	 * test stuff
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		
@@ -57,14 +63,11 @@ public class StatisticsInMethods {
 
 	}
 
-
-
-	private static void show(double[] input) {
-		System.out.println("new input: " + Arrays.toString(input));
-	}
-	
-
-
+	/**
+	 * Looks up the smallest number in a double[].
+	 * @param input a double[]
+	 * @return a double, the smallest number from input
+	 */
 	private static double minimum(double[] input) {
 		double result = input[0];
 		for (double d : input) {
@@ -75,6 +78,11 @@ public class StatisticsInMethods {
 		return result;
 	}
 	
+	/**
+	 * Looks up the largest number in a double[].
+	 * @param input a double[]
+	 * @return a double, the largest number from input
+	 */
 	private static double maximum(double[] input) {
 		double result = input[0];
 		for (double d : input) {
@@ -85,6 +93,11 @@ public class StatisticsInMethods {
 		return result;
 	}
 	
+	/**
+	 * Calculates the sum of the values in a double[].
+	 * @param input a double[]
+	 * @return a double, the sum of the elements in input
+	 */
 	private static double sum(double[] input) {
 		double result = 0;
 		for (double d : input) {
@@ -93,10 +106,20 @@ public class StatisticsInMethods {
 		return result;
 	}
 	
+	/**
+	 * Calculates the average of the values in a double[].
+	 * @param input a double[]
+	 * @return a double, the average of the values in input
+	 */
 	private static double average(double[] input) {
 		return (sum(input) / input.length);
 	}
 	
+	/**
+	 * Calculates the variance of the values in a double[].
+	 * @param input a double[]
+	 * @return a double, the variance of the values in input
+	 */
 	private static double variance(double[] input) {
 		double varianceCounter = 0;
 		double average = average(input);
@@ -112,10 +135,28 @@ public class StatisticsInMethods {
 		
 	}
 	
+	/**
+	 * Calculates the standard deviation of the values in a double[].
+	 * @param input a double[]
+	 * @return a double, the standard deviation of the values in input
+	 */
 	private static double standardDeviation(double[] input) {
 		return Math.sqrt(variance(input));
 	}
 	
+	/**
+	 * helper method for printing a new array before calling methods on it. Prints the contents.
+	 * @param input a double[]
+	 */
+	private static void show(double[] input) {
+		System.out.println("new input: " + Arrays.toString(input));
+	}
+
+	/**
+	 * Helper method for printing statistical data in one go.
+	 * Prints, in succession, the input, its average, variance and standard deviation.
+	 * @param input a double[]
+	 */
 	private static void printVariance(double[] input) {
 		show(input);
 		System.out.println("average: " + average(input));
