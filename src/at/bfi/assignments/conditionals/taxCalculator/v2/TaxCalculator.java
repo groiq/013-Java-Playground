@@ -9,7 +9,14 @@
  * 2501 - 3500 EUR -> 45% 
  * 3501 and above -> 50%
  * 
- * Note that this solution fails to implement stepped progression.
+ * This class contains two implementation. In one, the thresholds and tax rates are stored in two fields.
+ * That makes the entire thing more configurable, but since the assignment was about conditional statements, it misses the point.
+ * So, the second implementation uses an if-else chain.
+ * 
+ * Contains a main method for testing.
+ * 
+ * Note that this is a simplified model of tax progression. In reality, a higher tax rate is not applied to the total amount,
+ * but only to the amount above the threshold. I have implemented that model in the other versions of the tax calculator.
  */
 
 package at.bfi.assignments.conditionals.taxCalculator.v2;
@@ -18,9 +25,10 @@ import java.util.Arrays;
 
 public class TaxCalculator {
 	
+	
 	private static int[] thresholds = {1500,2500,3500};
 	private static int[] rates = {20,35,45,50};
-	private static boolean useFields = true;
+	private static boolean useFields = true; // determines whether to use the fields or the if-else chain
 	
 	
 	
@@ -58,7 +66,7 @@ public class TaxCalculator {
 	 * @return an array of four integers containing, in that order, gross value, tax rate, tax, and net value
 	 */
 	public static int[] taxStats(int gross) {
-		System.out.println("Method taxStats: takes a gross value and calculates tax. Gross value is " + gross);
+//		System.out.println("Method taxStats: takes a gross value and calculates tax. Gross value is " + gross);
 		int[] stats = new int[4];
 		stats[0] = gross;
 		int rate;
@@ -67,20 +75,20 @@ public class TaxCalculator {
 			 * Calculate tax rate using fields for rates and thresholds.
 			 * This supposedly makes the code more editable, but misses the actual assignment.
 			 */
-			System.out.println("Calculating tax rate using fields.");
+//			System.out.println("Calculating tax rate using fields.");
 			int pos = 0;
 			while(pos < thresholds.length && thresholds[pos] < gross) {
 				pos += 1;
 			}
-			System.out.println("gross: " + gross + ", pos: " + pos + ", threshold: " + 
-			( pos < thresholds.length ? thresholds[pos] : "(surpassed)" ) + ", rate: " + rates[pos]);
+//			System.out.println("gross: " + gross + ", pos: " + pos + ", threshold: " + 
+//			( pos < thresholds.length ? thresholds[pos] : "(surpassed)" ) + ", rate: " + rates[pos]);
 			rate = rates[pos];
 		} else {
 			/*
 			 * Calculate tax rate using an if-else chain.
 			 * This requires the thresholds to be hard-coded, but fits what the assignment acutally asked for.
 			 */
-			System.out.println("Calculating tax rate using an if-else chain.");
+//			System.out.println("Calculating tax rate using an if-else chain.");
 			if (gross <= 1500) {
 				rate = 20;
 			} else if (gross <= 2500) {
@@ -90,13 +98,13 @@ public class TaxCalculator {
 			} else {
 				rate = 50;
 			}
-			System.out.println("gross: " + gross + ", rate: " + rate);
+//			System.out.println("gross: " + gross + ", rate: " + rate);
 		}
 		stats[1] = rate;
 		stats[2] = (gross * rate) / 100;
 		stats[3] = gross - stats[2];
-		System.out.println("return value: " + Arrays.toString(stats));
-		System.out.println("/taxStats");
+//		System.out.println("return value: " + Arrays.toString(stats));
+//		System.out.println("/taxStats");
 		return stats;
 	}
 	
@@ -106,7 +114,7 @@ public class TaxCalculator {
 	 * @return a string, containing the four numbers with labels.
 	 */
 	public static String statsAsString(int[] stats) {
-		System.out.println("generating formatted string from array...");
+//		System.out.println("generating formatted string from array...");
 		if (stats.length != 4) {
 			return "Malformed array: required length: 4 elements. Actual length: " + stats.length + " elements.";
 			
@@ -119,7 +127,7 @@ public class TaxCalculator {
 	 * @return a string, the explained tax stats
 	 */
 	public static String statsAsString(int gross) {
-		System.out.println("generating formatted string from gross value...");
+//		System.out.println("generating formatted string from gross value...");
 		return statsAsString(taxStats(gross));
 	}
 	
