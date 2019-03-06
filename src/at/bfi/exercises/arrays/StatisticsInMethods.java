@@ -1,26 +1,41 @@
+
+
 package at.bfi.exercises.arrays;
+
+import java.util.Arrays;
 
 public class StatisticsInMethods {
 
 	public static void main(String[] args) {
 		
-		double[] minMax;
-		minMax = new double[] {3.0,4.0,1.0,2.0};
-		System.out.println("minimum: " + minimum(minMax));
-		System.out.println("maximum: " + maximum(minMax));
+		double[] testArr;
+		testArr = new double[] {3.0,4.0,1.0,2.0};
+		show(testArr);
+		System.out.println("minimum: " + minimum(testArr));
+		System.out.println("maximum: " + maximum(testArr));
 		
-		double[] avg;
-		avg = new double[] {2.0,4.0};
-		System.out.println(avg);
-		System.out.println("sum: " + sum(avg));
-		System.out.println("average: " + average(avg));
+		testArr = new double[] {2.0,4.0};
+		show(testArr);
+		System.out.println("sum: " + sum(testArr));
+		System.out.println("average: " + average(testArr));
 		
 		double[] noVarianceData = {2.0,2.0,2.0,2.0};
+		printVariance(noVarianceData);
 		double[] lowVarianceData = {2.0,2.0,6.0,6.0};
+		printVariance(lowVarianceData);
 		double[] higherVarianceData = {4.0,4.0,12.0,12.0};
+		printVariance(higherVarianceData);
 		
 
 	}
+
+
+
+	private static void show(double[] input) {
+		System.out.println("new input: " + Arrays.toString(input));
+	}
+	
+
 
 	private static double minimum(double[] input) {
 		double result = input[0];
@@ -71,6 +86,12 @@ public class StatisticsInMethods {
 	
 	private static double standardDeviation(double[] input) {
 		return Math.sqrt(variance(input));
+	}
+	
+	private static void printVariance(double[] input) {
+		show(input);
+		System.out.println("variance: " + variance(input));
+		System.out.println("standard deviation: " + standardDeviation(input));
 	}
 	
 }
