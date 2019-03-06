@@ -40,6 +40,14 @@ public class TaxChunk {
 	}
 	
 	/**
+	 * fallback constructor
+	 */
+	public TaxChunk() {
+		this(0,0);
+		System.out.println("Error: no arguments given. Falling back to 0 Eur gross value and 0% tax rate.");
+	}
+	
+	/**
 	 * @param gross
 	 * @param rate
 	 */

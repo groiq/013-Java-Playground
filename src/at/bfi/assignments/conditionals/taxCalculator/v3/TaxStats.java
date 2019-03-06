@@ -121,6 +121,15 @@ public class TaxStats {
 	public int getTotalTax() {
 		return totalTax;
 	}
+	
+	/**
+	 * Fallback constructor
+	 */
+	public TaxStats() {
+		this(0);
+		System.out.println("Error: no gross value given. Falling back to default value of 0 Euro.");
+//		this(0);
+	}
 
 	/**
 	 * @param gross

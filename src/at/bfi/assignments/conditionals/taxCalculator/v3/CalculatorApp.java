@@ -17,7 +17,7 @@ public class CalculatorApp {
 //		
 
 		TaxStats currStats;
-		int[] incomes = {1000,1500,2000,2500,3000,3500,4000};
+		int[] incomes = {0,500,1000,1500,2000,2500,3000,3500,4000};
 		
 		for (int i : incomes) {
 			currStats = new TaxStats(i);
@@ -27,6 +27,9 @@ public class CalculatorApp {
 			System.out.println();
 		}
 		
+		// test parameterless constructor
+		currStats = new TaxStats();
+		currStats.printAllOutputs();
 
 
 	}
