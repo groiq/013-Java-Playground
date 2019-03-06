@@ -23,7 +23,10 @@ public class StatisticsInMethods {
 
 	public static void main(String[] args) {
 		
+		
 		double[] testArr;
+		
+		System.out.println("basic tests:");
 		testArr = new double[] {3.0,4.0,1.0,2.0};
 		show(testArr);
 		System.out.println("minimum: " + minimum(testArr));
@@ -33,13 +36,23 @@ public class StatisticsInMethods {
 		show(testArr);
 		System.out.println("sum: " + sum(testArr));
 		System.out.println("average: " + average(testArr));
+		System.out.println();
 		
+		System.out.println("Testing variance and standard deviation with three samples.");
+		System.out.println("One with no variance, one with lower and one with higher.");
 		double[] noVarianceData = {2.0,2.0,2.0,2.0};
 		printVariance(noVarianceData);
 		double[] lowVarianceData = {2.0,2.0,6.0,6.0};
 		printVariance(lowVarianceData);
 		double[] higherVarianceData = {4.0,4.0,12.0,12.0};
 		printVariance(higherVarianceData);
+		System.out.println();
+		
+		System.out.println("Testing with sample data from the mathisfun page.");
+		System.out.println("Values should be: ");
+		System.out.println("average: 394; variance: 21704, standard deviation: 147,32...");
+		testArr = new double[] {600,470,170,430,300};
+		printVariance(testArr);
 		
 
 	}
@@ -105,6 +118,7 @@ public class StatisticsInMethods {
 	
 	private static void printVariance(double[] input) {
 		show(input);
+		System.out.println("average: " + average(input));
 		System.out.println("variance: " + variance(input));
 		System.out.println("standard deviation: " + standardDeviation(input));
 	}
