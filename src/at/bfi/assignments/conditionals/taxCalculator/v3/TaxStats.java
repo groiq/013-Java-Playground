@@ -1,3 +1,26 @@
+/**
+ * Calculates taxes for a given gross value and stores them in an object.
+ * Creates a helper object for each tax bracket.
+ * Provides methods to retrieve tax information.
+ * 
+ * The following progressive tax rates are hard-coded:
+ * 0 - 1500 EUR -> 20% 
+ * 1501 - 2500 EUR -> 35% 
+ * 2501 - 3500 EUR -> 45% 
+ * 3501 and above -> 50%
+ * 
+ * The calculator uses marginal tax rate or whatever it's called.
+ * The principle is as follows:
+ * If gross value is 4000 Eur, then taxes are
+ * the first 1500 Eur are taxed with 20%,
+ * the next 1000 Eur (1501-2500) are taxed with 35%,
+ * the next 1000 Eur (2501-3500) are taxed with 45%,
+ * and the rest (3501-4000) with 50%.
+ * 
+ * Debug output has been left in as comments.
+ */
+
+
 package at.bfi.assignments.conditionals.taxCalculator.v3;
 
 import java.util.ArrayList;
@@ -8,14 +31,14 @@ public class TaxStats {
 	private int gross;
 	private final int[] thresholds = {1500,2500,3500};
 	private final int[] rates = {20,35,45,50};
+	/*
+	 * for later: think of a better way to represent the rates and thresholds in some kind of interconnected manner (hashmap?).
+	 * For now I've set the two fields to final.
+	 */
 	
 	private TaxChunk[] taxChunks;
-	int totalNet;
-	int totalTax;
-	
-	/*
-	 * for later: make rates-thresholds data editable, store in a decent format (hashmap?)
-	 */
+	private int totalNet;
+	private int totalTax;
 
 	
 	/**
@@ -33,6 +56,9 @@ public class TaxStats {
 		return thresholds;
 	}
 	
+	/**
+	 * @return the tax rates and thresholds in a halfway decent formatting as a multi-line string.
+	 */
 	public String getRatesOverview() {
 		String overview = "";
 		int curThreshold = 0;
@@ -55,7 +81,6 @@ public class TaxStats {
 	 * Again, this will be more elegant if I set rates[0] to 0.
 	 */
 
-
 	/**
 	 * @return the gross
 	 */
@@ -64,6 +89,7 @@ public class TaxStats {
 	}
 
 	/**
+	 * sets a new gross value and recalculates taxes.
 	 * @param gross the gross to set
 	 */
 	public void setGross(int gross) {
@@ -77,7 +103,6 @@ public class TaxStats {
 	public TaxChunk[] getTaxChunks() {
 		return taxChunks;
 	}
-	
 
 	/**
 	 * @return the totalNet
@@ -95,8 +120,6 @@ public class TaxStats {
 
 	/**
 	 * @param gross
-	 * @param rates
-	 * @param thresholds
 	 */
 	public TaxStats(int gross) {
 //		System.out.println("<Constructor: TaxStats(gross), gross: " + gross + ">");
@@ -110,7 +133,10 @@ public class TaxStats {
 		return "TaxStats [gross=" + gross + ", totalNet=" + totalNet + ", totalTax=" + totalTax + "]";
 	}
 	
-	// TODO long output variant
+	/**
+	 * Provides detailed information.
+	 * @return everything you never wanted to know about your taxes in a multi-line string.
+	 */
 	public String verbose() {
 		String verbose = "Gross: " + gross + ", tax: " + totalTax + ", net: " + totalNet + "\n";
 		verbose += "Tax chunks:\n";
@@ -121,7 +147,9 @@ public class TaxStats {
 	}
 
 	
-	
+	/**
+	 * Prints the content of all three output methods to console.
+	 */
 	public void printAllOutputs() {
 		System.out.println("printing all output methods...");
 		System.out.println();
@@ -135,7 +163,9 @@ public class TaxStats {
 		
 	}
 	
-	
+	/*
+	 * Calculate tax data based on a gross value. Used by setGross() and the constructor.
+	 */
 	private void calculateChunks() {
 		
 //		System.out.println("<method calculateChunks()>");
