@@ -1,14 +1,18 @@
 /**
- * assignment:
- * Collect various statistics calculations on a double[] in one class.
+ * Collects various statistics calculations on a double[] in one class.
  * 
- * Write a class with methods that each take a double[] as input and return
+ * Provides a class with static methods that each take a double[] as input and return
  * - the minimum
  * - the maximum
  * - the sum
  * - the average
  * - the variance
  * - the standard deviation
+ * 
+ * Also contains methods for element lookup:
+ * - checks whether an element is in an array
+ * - returns index of first occurrence
+ * - counts occurrences of an element
  * 
  * Contains a main method for testing.
  * 
