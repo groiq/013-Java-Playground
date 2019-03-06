@@ -39,7 +39,7 @@ public class TaxCalculator {
 	private static final int[] thresholds = {0,1500,2500,3500};
 	
 	/**
-	 * TODO think of a better way to represent the rates and thresholds in some kind of interconnected manner (hashmap?).
+	 * for later: think of a better way to represent the rates and thresholds in some kind of interconnected manner (hashmap?).
 	 * For now I've set the two fields to final and left out the getters and setters.
 	 */
 	
