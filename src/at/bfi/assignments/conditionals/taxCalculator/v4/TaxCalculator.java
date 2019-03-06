@@ -21,12 +21,18 @@
  * 
  * Also provides methods to render the data into formatted strings.
  * 
+ * Compared to v3, this version is simplified. Works with static methods rather than objects.
+ * 
  * Debug output has been left in as comments.
  */
 
 /*
  * Adding overall tax rate was a last-minute change. There might probably be some errors in the code, 
  * such as comments talking about a three-element array or something.
+ * 
+ * Apart from using static methods, some internals have been refined.
+ * The thresholds field corresponds to the rates field more closely.
+ * Also, the loop in the actual calculation method is structured differently.
  */
 
 package at.bfi.assignments.conditionals.taxCalculator.v4;
