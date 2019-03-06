@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class StatisticsInMethods {
 
 	/**
-	 * test stuff
+	 * for testing 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -59,9 +59,19 @@ public class StatisticsInMethods {
 		System.out.println("average: 394; variance: 21704, standard deviation: 147,32...");
 		testArr = new double[] {600,470,170,430,300};
 		printVariance(testArr);
+		System.out.println();
 		
+		System.out.println("Testing element lookup:");
+		testArr = new double[] {1,3,3,7};
+		for (int i = 0; i < 4; i++) {
+			doLookups(testArr, i);
+		}
 
 	}
+
+	/**
+	 * Methods that perform statistical stuff
+	 */
 
 	/**
 	 * Looks up the smallest number in a double[].
@@ -127,12 +137,9 @@ public class StatisticsInMethods {
 			double i = d - average;
 			i = i*i;
 			varianceCounter += i;
-			
 		}
 		double variance = varianceCounter / input.length;
-		
 		return variance;
-		
 	}
 	
 	/**
@@ -145,11 +152,61 @@ public class StatisticsInMethods {
 	}
 	
 	/**
-	 * helper method for printing a new array before calling methods on it. Prints the contents.
+	 * Methods for element lookup
+	 */
+	
+	/**
+	 * Checks if a given element occurs in an array.
+	 * @param input
+	 * @param wanted
+	 * @return a boolean
+	 */
+	private static boolean contains(double[] input, double wanted) {
+		if (indexOf(input,wanted) < 0) { return false; }
+		else {return true; }
+	}
+	
+	/**
+	 * Looks up an element in an array. 
+	 * @param input
+	 * @param wanted
+	 * @return an int, the index of the first occurrence.
+	 */
+	private static int indexOf(double[] input, double wanted) {
+		int pos = -1;
+		for (int i = 0; i < input.length; i++) {
+			if (input[i] == wanted) {
+				pos = i;
+				break;
+			}
+		}
+		return pos;
+	}
+	
+	/**
+	 * counts the occurrence of an element in an array.
+	 * @param input
+	 * @param wanted
+	 * @return an int
+	 */
+	private static int countOccurrence(double[] input, double wanted) {
+		int count = 0;
+		for (double d : input) {
+			if (d == wanted) { count++; }
+		}
+		return count;
+	}
+
+	/**
+	 * printing shortcuts
+	 */
+
+	/**
+	 * prints the contents of an array.
 	 * @param input a double[]
 	 */
 	private static void show(double[] input) {
-		System.out.println("new input: " + Arrays.toString(input));
+		System.out.println("input: " + Arrays.toString(input));
 	}
 
 	/**
@@ -162,6 +219,14 @@ public class StatisticsInMethods {
 		System.out.println("average: " + average(input));
 		System.out.println("variance: " + variance(input));
 		System.out.println("standard deviation: " + standardDeviation(input));
+	}
+	
+	private static void doLookups(double[] input, double wanted) {
+		show(input);
+		System.out.println("wanted: " + wanted);
+		System.out.println("contains: " + contains(input,wanted));
+		System.out.println("indexOf: " + indexOf(input,wanted));
+		System.out.println("countOccurrence: " + countOccurrence(input,wanted));
 	}
 	
 }
