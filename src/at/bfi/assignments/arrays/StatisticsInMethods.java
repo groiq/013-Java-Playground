@@ -17,7 +17,7 @@
  * I am also using their example for testing.
  */
 
-package at.bfi.exercises.arrays;
+package at.bfi.assignments.arrays;
 
 import java.util.Arrays;
 
