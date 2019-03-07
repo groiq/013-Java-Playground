@@ -6,7 +6,7 @@ class TwoArrays {
 
 public class MethodsTest {
 	
-	// TODO Was toying with possibilities to create a method with two return values.
+	//  Was toying with possibilities to create a method with two return values.
 	// resource: https://www.cs.princeton.edu/courses/archive/spr96/cs333/java/tutorial/java/javaOO/arguments.html
 	
 
