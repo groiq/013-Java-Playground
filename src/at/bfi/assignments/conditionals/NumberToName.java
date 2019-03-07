@@ -18,11 +18,15 @@ public class NumberToName {
 	
 	/*
 	 * for later: replace error-message-as-return-string with a proper exception. Needs some strategies to reusing exception code.
+	 * 
+	 * Issue is that I want to throw the same exception in both methods, so I've put it into its own method.
+	 * But if the default case only contains a method call, rather than either an exception or a statement that intializes the name variable,
+	 * I get "The local variable name may not have been initialized" because the compiler can't understand that name is initialized in every valid case.
 	 */
 	static String warning = "not a valid number. num must be a positive one-digit decimal integer.";
 	
 	public static void blowUp() {
-		throw new IllegalArgumentException("num must be a positive one-digit decimal integer");
+		throw new IllegalArgumentException(warning);
 	}
 	
 	/**
