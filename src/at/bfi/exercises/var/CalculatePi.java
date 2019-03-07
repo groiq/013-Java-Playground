@@ -1,10 +1,19 @@
+/**
+ * Approximates pi using the formula:
+ * pi = 4x ( 1 - 1/3 + 1/5 - 1/7 + 1/9 ... )
+ * 
+ * Prints intermediate steps for demonstration.
+ * 
+ * Main method for testing included.
+ */
+
 package at.bfi.exercises.var;
 
 public class CalculatePi {
 	
 	/**
 	 * approximates pi using the given algorithm.
-	 * @param denominator - int
+	 * @param denominator - 
 	 * @return pi - double
 	 */
 	public static double calcPi(int denominator) {
