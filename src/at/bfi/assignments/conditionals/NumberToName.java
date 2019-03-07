@@ -10,8 +10,20 @@ public class NumberToName {
 	 * default case!
 	 */	
 	
-	static String[] names = {"zero","one","two","three","four","five","six","seven","eight","nine"};
-	static String warning = "not a valid number!";
+//	static String[] names = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+	/*
+	 *  Was a field originally, but I felt I'd misrepresent the respective complexities of the methods
+	 *  if I didn't include the array in the definition of toNameQuick().
+	 */
+	
+	/*
+	 * for later: replace error-message-as-return-string with a proper exception. Needs some strategies to reusing exception code.
+	 */
+	static String warning = "not a valid number. num must be a positive one-digit decimal integer.";
+	
+	public static void blowUp() {
+		throw new IllegalArgumentException("num must be a positive one-digit decimal integer");
+	}
 	
 	/**
 	 * changes a number to its name.
@@ -41,7 +53,9 @@ public class NumberToName {
 		break;
 		case 9: name = "nine";
 		break;
-		default: name = warning;
+//		default: name = warning;
+		default: throw new IllegalArgumentException(warning);
+//		default: blowUp();
 		}
 //		System.out.println("num: " + num + ", name: " + name);
 		return name;
@@ -54,11 +68,14 @@ public class NumberToName {
 	 * @return
 	 */
 	public static String toNameQuick(int num) {
+		String[] names = {"zero","one","two","three","four","five","six","seven","eight","nine"};
 		String name;
 		if (num >= 0 && num < 10) {
 			name = names[num];
 		} else {
-			name = warning;
+//			name = warning;
+			throw new IllegalArgumentException(warning);
+//			blowUp();
 		}
 //		System.out.println("num: " + num + ", name: " + name);
 		return name;
@@ -68,6 +85,7 @@ public class NumberToName {
 	 * a little helper for coding up the switch statement.
 	 */
 	public static void setUpSwitch() {
+		String[] names = {"zero","one","two","three","four","five","six","seven","eight","nine"};
 		for (int i = 0; i < names.length; i++) {
 			System.out.println("case " + i + ": result = \"" + names[i] + "\";\nbreak;");
 		}
@@ -76,16 +94,30 @@ public class NumberToName {
 	public static void main(String[] args) {
 		
 //		setUpSwitch();
+		int start,end;
+//		start = -1; // test error handling: negative values
+		start = 0;
+		end = 10;
+//		end = 11; // test error handling: multi-digit integers
 		
-		for (int i = -1; i <= 10; i++) {
+		
+		
+		System.out.println("Using a switch statement:");
+		for (int i = start; i < end; i++) {
 			System.out.println(i + " -> " + toNameProper(i));
 		}
 		
 		System.out.println("---");
 		
-		for (int i = -1; i <= 10; i++) {
+		System.out.println("using a String[]:");
+		for (int i = start; i < end; i++) {
 			System.out.println(i + " -> " + toNameQuick(i));
 		}
+		
+		/*
+		 * For later: fix this setup. The way it is done, exception handling on the second method is never tested
+		 * because if the code throws exception on one method, it throws on both of them.
+		 */
 
 	}
 
