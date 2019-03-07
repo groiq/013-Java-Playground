@@ -35,6 +35,15 @@
  * Also, the loop in the actual calculation method is structured differently.
  */
 
+/*
+ * For later: separate the "calculate taxes" and "store data" part.
+ * Use code that returns an array as in v4, then provide a *different* class that stores the data in a tax stats object.
+ * Also provide methods to return the tax chunks, in case the user wants those stored.
+ * 
+ * Or, could it be feasible to keep one class and mix object generating with static methods?
+ * Not having a good feeling about that idea, but might be something to talk through.
+ */
+
 package at.bfi.assignments.conditionals.taxCalculator.v4;
 
 import java.util.Arrays;
