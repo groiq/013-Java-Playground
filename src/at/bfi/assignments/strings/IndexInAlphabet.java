@@ -52,6 +52,10 @@ public class IndexInAlphabet {
 		return result;
 	}
 	
+	private static String lettersToNumbersToLettersAgain(String text) {
+		return Arrays.toString(lettersToNumbers(text));
+	}
+	
 	
 
 }
