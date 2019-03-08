@@ -11,10 +11,14 @@ public class IndexInAlphabet {
 
 	public static void main(String[] args) {
 		
-		String text = "The quick brown fox jumps over the lazy dog.";
+		String text;
+		text = "The quick brown fox jumps over the lazy dog.";
 		
 		int[] codedText = lettersToNumbers(text);
+		
 		System.out.println(Arrays.toString(codedText));
+		
+//		System.out.println("\"a-z\": ");
 
 	}
 
@@ -27,7 +31,19 @@ public class IndexInAlphabet {
 			char curChar = text.charAt(i);
 //			System.out.println(curChar);
 			if (Character.isLetter(curChar)) {
-				result[i] = 1;
+//				result[i] = 1;
+				int charInt = (int) curChar;
+//				System.out.println(curChar + ": " + charInt );
+				int comparer;
+				if (Character.isUpperCase(curChar)) {
+					comparer = (int) 'A';
+				} else if (Character.isLowerCase(curChar)) {
+					comparer = (int) 'a';
+				} else {
+					comparer = 127;
+				}
+				charInt -= comparer;
+				result[i] = charInt;
 			} else {
 				result[i] = -1;
 			}
@@ -35,5 +51,7 @@ public class IndexInAlphabet {
 		
 		return result;
 	}
+	
+	
 
 }
