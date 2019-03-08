@@ -24,7 +24,7 @@ public class IndexInAlphabet {
 		
 		for (int i = 0; i < result.length; i++) {
 //			System.out.println(text.charAt(i));
-			Character curChar = text.charAt(i);
+			char curChar = text.charAt(i);
 //			System.out.println(curChar);
 			if (Character.isLetter(curChar)) {
 				result[i] = 1;
