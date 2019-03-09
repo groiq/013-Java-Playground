@@ -4,7 +4,7 @@
  * Contains main method for testing.
  */
 
-package at.bfi.assignments.strings;
+package at.bfi.assignments.strings.indexInAlphabet;
 
 import java.util.Arrays;
 
