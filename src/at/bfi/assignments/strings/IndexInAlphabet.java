@@ -1,6 +1,7 @@
 /**
  * Takes a string and replaces each character with its index in the alphabet.
- * -1 on non-letter signs.
+ * -1 for non-letter signs.
+ * Contains main method for testing.
  */
 
 package at.bfi.assignments.strings;
@@ -14,27 +15,37 @@ public class IndexInAlphabet {
 		String text;
 		text = "The quick brown fox jumps over the lazy dog.";
 		
-		int[] codedText = lettersToNumbers(text);
-		
-		System.out.println(Arrays.toString(codedText));
-		
-//		System.out.println("\"a-z\": ");
+		System.out.println(lettersToNumbersToLettersAgainBecauseThatIsMoreEfficientThanTypingArraysToStringEverySingleTime(text));
+		System.out.println("\"a-z\": " + lettersToNumbersToLettersAgainBecauseThatIsMoreEfficientThanTypingArraysToStringEverySingleTime("a-z")
+						+ "; \"A-Z\": " + lettersToNumbersToLettersAgainBecauseThatIsMoreEfficientThanTypingArraysToStringEverySingleTime("A-Z"));
+		System.out.println("running through the alphabet: " + 
+				lettersToNumbersToLettersAgainBecauseThatIsMoreEfficientThanTypingArraysToStringEverySingleTime("abcdefghijklmnopqrstuvwxyz"));
 
 	}
 
+	/**
+	 * Takes a string and replaces each character with its index in the alphabet.
+	 * -1 for non-letter signs.
+	 * If a char is neither upper- nor lowercase, but still a letter,
+	 * some other negative numbers are generated.
+	 * @param text the text to be recoded
+	 * @return an array containing the indices as ints
+	 */
 	private static int[] lettersToNumbers(String text) {
 		
 		int[] result = new int[text.length()];
 		
 		for (int i = 0; i < result.length; i++) {
-//			System.out.println(text.charAt(i));
 			char curChar = text.charAt(i);
 //			System.out.println(curChar);
 			if (Character.isLetter(curChar)) {
-//				result[i] = 1;
 				int charInt = (int) curChar;
 //				System.out.println(curChar + ": " + charInt );
 				int comparer;
+				/*
+				 * subtract numerical values of 'A' from uppercase chars, 
+				 * 'a' from lowercase chars and the highest ascii value as a fallback.
+				 */
 				if (Character.isUpperCase(curChar)) {
 					comparer = (int) 'A';
 				} else if (Character.isLowerCase(curChar)) {
@@ -52,10 +63,16 @@ public class IndexInAlphabet {
 		return result;
 	}
 	
-	private static String lettersToNumbersToLettersAgain(String text) {
+	/**
+	 * performs lettersToNumbers() on a string and toString() on the result  
+	 * @param text the string to be recoded
+	 * @return the contents of the resulting integer array cast to a string
+	 */
+	private static String lettersToNumbersToLettersAgainBecauseThatIsMoreEfficientThanTypingArraysToStringEverySingleTime(String text) {
 		return Arrays.toString(lettersToNumbers(text));
 	}
 	
+
 	
 
 }
