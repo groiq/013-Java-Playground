@@ -1,95 +1,70 @@
-/**
- * Some tests on the subject of changing object variables in-place.
- */
-
 package at.bfi.tools.passByReferenceAndReturnValues;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+
+import at.bfi.tools.passByReferenceAndReturnValues.Tester;
 
 public class PassByReferenceAndReturnValues {
-	
-	private static int changes = 0;
-//	private static int 
 
 	public static void main(String[] args) {
 		
-		Tester t1 = new Tester("t1",0);
-		Tester t2 = new Tester("t2",0);
-		System.out.println(t1);
-		System.out.println(t2);
+		Tester tester = new Tester();
+		System.out.println(tester);
+		
+		
 
 	}
 	
-	private static Tester reassignObject(Tester input) {
-		changes += 1;
-		input = new Tester(input.getName(),changes);
-		return input;
-	}
-	
-	private static Tester changeObjectInPlace(Tester input) {
-		changes += 1;
-		input.setChanges(changes);
-		return input;
-	}
-	
-	private static Tester returnNewVariable(Tester input) {
-		changes += 1;
-		Tester output = new Tester(input.getName(),changes);
-		return output;
-	}
-	
-	private static void reassignObjectVoid(Tester input) {
-		changes += 1;
-		input = new Tester(input.getName(),changes);
-	}
-	
-	private static void changeObjectInPlaceVoid(Tester input) {
-		changes += 1;
-		input.setChanges(changes);
-	}
-	
-	private static void returnNewVariableVoid(Tester input) {
-		changes += 1;
-		Tester output = new Tester(input.getName(),changes);
-	}
 	
 	
+
+
+
 }
 
- class Tester {
+class Tester {
 	
-	 final String name;
-	 int changes;
-	 final int objCount;
-	 private static int runningObjectCounter = 0;
-	 
-	int getChanges() {
-		return changes;
+	private static int objectCounter = 0;
+	private static int changeCounter = 0;
+	private final int objectIndex;
+	private ArrayList<Integer> changeLog;
+	ArrayList<Integer> getChangeLog() {
+		return changeLog;
 	}
-	void setChanges(int changes) {
-		this.changes = changes;
+	void setChangeLog(ArrayList<Integer> changeLog) {
+		this.changeLog = changeLog;
 	}
-	String getName() {
-		return name;
+	static int getObjectCounter() {
+		return objectCounter;
 	}
-	int getObjCount() {
-		return objCount;
+	static int getChangeCounter() {
+		return changeCounter;
 	}
-	public Tester(String name, int changes) {
+	int getObjectIndex() {
+		return objectIndex;
+	}
+	
+	public Tester() {
 		super();
-		this.name = name;
-		this.changes = changes;
-		this.objCount = runningObjectCounter;
-		runningObjectCounter += 1;
+		this.objectIndex = objectCounter;
+		objectCounter++;
+		this.changeLog = new ArrayList<Integer>();
+		this.changeLog.add(changeCounter);
+		changeCounter++;
 	}
 	@Override
 	public String toString() {
-		return "Tester [name=" + name + ", changes=" + changes + ", objCount=" + objCount + "]";
+		return "Tester [objectIndex=" + objectIndex + ", changeLog=" + changeLog + "]";
 	}
-	 
-	 
-
-	 
 	
-	 
+	public void change() {
+		this.changeLog.add(changeCounter);
+		changeCounter++;
+	}
+	/*
+	 * for later: write a more verbose changelog, including change number, command invoked and object involved.
+	 * Also write an object list.
+	 */
+	
+	
 }
