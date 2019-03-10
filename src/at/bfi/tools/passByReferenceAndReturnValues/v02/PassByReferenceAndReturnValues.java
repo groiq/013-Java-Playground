@@ -87,45 +87,67 @@ public class PassByReferenceAndReturnValues {
 class Tester {
 	
 	private static int objectCounter = 0;
-	private static int changeCounter = 0;
 	private final int objectIndex;
-	private ArrayList<Integer> changeLog;
-	ArrayList<Integer> getChangeLog() {
-		return changeLog;
-	}
-	void setChangeLog(ArrayList<Integer> changeLog) {
-		this.changeLog = changeLog;
-	}
+	
+	private static int changeCounter = 0;
+	private final static ArrayList<ChangeLogEntry> overallChangeLog = new ArrayList<ChangeLogEntry>();
+	private final ArrayList<ChangeLogEntry> changeLog;
+	
+	
+	
 	static int getObjectCounter() {
 		return objectCounter;
+	}
+	static void setObjectCounter(int objectCounter) {
+		Tester.objectCounter = objectCounter;
 	}
 	static int getChangeCounter() {
 		return changeCounter;
 	}
+	static void setChangeCounter(int changeCounter) {
+		Tester.changeCounter = changeCounter;
+	}
 	int getObjectIndex() {
 		return objectIndex;
+	}
+	static ArrayList<ChangeLogEntry> getOverallchangelog() {
+		return overallChangeLog;
+	}
+	ArrayList<ChangeLogEntry> getChangeLog() {
+		return changeLog;
 	}
 	
 	public Tester() {
 		super();
 		this.objectIndex = objectCounter;
 		objectCounter++;
-		this.changeLog = new ArrayList<Integer>();
-		this.changeLog.add(changeCounter);
-		changeCounter++;
+		this.changeLog = new ArrayList<ChangeLogEntry>();
+//		this.changeLog.add(changeCounter);
+		changeInternal("constructor");
 	}
+	
 	@Override
 	public String toString() {
 		return "Tester [objectIndex=" + objectIndex + ", changeLog=" + changeLog + "]";
 	}
 	
 	public void change() {
-		this.changeLog.add(changeCounter);
+		changeInternal("change()");
+	}
+	
+	private void changeInternal(String command) {
+		ChangeLogEntry newEntry = new ChangeLogEntry(changeCounter, this, command);
+		this.changeLog.add(newEntry);
+		overallChangeLog.add(newEntry);
 		changeCounter++;
 	}
 	/*
-	 * for later: write a more verbose changelog, including change number, command invoked and object involved.
-	 * Also write an object list.
+	 * For later: store objects in a hashmap keyed by what is now the object index,
+	 * and changes in a hashmap keyed by the change indices.
+	 * Make those two static fields of the Tester class.
+	 * 
+	 * Make "change tracking class" a side project. When finished with that, do the pass-by-reference tests again.
+	 * To be more elegant, make a "test series" class that holds the changelog and object list.
 	 */
 	
 }
