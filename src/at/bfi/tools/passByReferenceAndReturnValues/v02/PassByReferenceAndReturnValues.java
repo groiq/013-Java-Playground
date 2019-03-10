@@ -129,3 +129,36 @@ class Tester {
 	 */
 	
 }
+
+class ChangeLogEntry {
+	
+	private final int index;
+	private final Tester object;
+	private final String command;
+	int getIndex() {
+		return index;
+	}
+	Tester getObject() {
+		return object;
+	}
+	String getCommand() {
+		return command;
+	}
+	
+	public ChangeLogEntry(int index, Tester object, String command) {
+		super();
+		this.index = index;
+		this.object = object;
+		this.command = command;
+	}
+	@Override
+	public String toString() {
+		return "ChangeLogEntry [index=" + index + ", object=" + object.getObjectIndex() + ", command=" + command + "]";
+	}
+	
+	
+
+	
+	
+	
+}
