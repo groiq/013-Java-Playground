@@ -20,6 +20,39 @@ public class PassByReferenceAndReturnValues {
 
 	}
 	
+	private static Tester reassignObject(Tester input) {
+		changes += 1;
+		input = new Tester(input.getName(),changes);
+		return input;
+	}
+	
+	private static Tester changeObjectInPlace(Tester input) {
+		changes += 1;
+		input.setChanges(changes);
+		return input;
+	}
+	
+	private static Tester returnNewVariable(Tester input) {
+		changes += 1;
+		Tester output = new Tester(input.getName(),changes);
+		return output;
+	}
+	
+	private static void reassignObjectVoid(Tester input) {
+		changes += 1;
+		input = new Tester(input.getName(),changes);
+	}
+	
+	private static void changeObjectInPlaceVoid(Tester input) {
+		changes += 1;
+		input.setChanges(changes);
+	}
+	
+	private static void returnNewVariableVoid(Tester input) {
+		changes += 1;
+		Tester output = new Tester(input.getName(),changes);
+	}
+	
 	
 }
 
