@@ -80,8 +80,6 @@ public class PassByReferenceAndReturnValues {
 	private static void returnNewVariableVoid(Tester input) {
 		Tester output = new Tester();
 	}
-	
-
 
 
 }
@@ -129,6 +127,5 @@ class Tester {
 	 * for later: write a more verbose changelog, including change number, command invoked and object involved.
 	 * Also write an object list.
 	 */
-	
 	
 }
