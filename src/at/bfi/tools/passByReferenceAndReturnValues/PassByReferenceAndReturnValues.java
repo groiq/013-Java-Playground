@@ -64,6 +64,11 @@ public class PassByReferenceAndReturnValues {
 		return output;
 	}
 	
+	/*
+	 * These are basically newObjectSameVariable, sameObjectSameVariable and newObjectNewVariable.
+	 * What's missing is 'sameObjectNewVariable'. That'd be 'Tester output = input;'.
+	 */
+	
 	private static void reassignObjectVoid(Tester input) {
 		input = new Tester();
 	}
