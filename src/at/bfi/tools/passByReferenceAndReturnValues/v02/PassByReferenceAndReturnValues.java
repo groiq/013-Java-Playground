@@ -1,8 +1,8 @@
-package at.bfi.tools.passByReferenceAndReturnValues;
+package at.bfi.tools.passByReferenceAndReturnValues.v02;
 
 import java.util.ArrayList;
 
-import at.bfi.tools.passByReferenceAndReturnValues.Tester;
+import at.bfi.tools.passByReferenceAndReturnValues.v02.Tester;
 
 public class PassByReferenceAndReturnValues {
 

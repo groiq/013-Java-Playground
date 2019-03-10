@@ -1,4 +1,6 @@
-package at.bfi.tools;
+package at.bfi.tools.passByReferenceAndReturnValues.v01;
+
+import at.bfi.tools.P;
 
 public class TestReturnValues {
 
