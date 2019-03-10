@@ -11,11 +11,70 @@ public class PassByReferenceAndReturnValues {
 		Tester tester = new Tester();
 		System.out.println(tester);
 		
+		System.out.println("reassignObject");
+		System.out.println(tester);
+		tester = reassignObject(tester);
+		System.out.println(tester);
+		reassignObject(tester);
+		System.out.println(tester);
 		
+		System.out.println("changeObjectInPlace");
+		System.out.println(tester);
+		tester = changeObjectInPlace(tester);
+		System.out.println(tester);
+		changeObjectInPlace(tester);
+		System.out.println(tester);
+		
+		System.out.println("returnNewVariable");
+		System.out.println(tester);
+		tester = returnNewVariable(tester);
+		System.out.println(tester);
+		returnNewVariable(tester);
+		System.out.println(tester);
+		
+		System.out.println("reassignObjectVoid");
+		System.out.println(tester);
+		reassignObjectVoid(tester);
+		System.out.println(tester);
+		
+		System.out.println("changeObjectInPlaceVoid");
+		System.out.println(tester);
+		changeObjectInPlaceVoid(tester);
+		System.out.println(tester);
+		
+		System.out.println("returnNewVariableVoid");
+		System.out.println(tester);
+		returnNewVariableVoid(tester);
+		System.out.println(tester);
 
 	}
 	
+	private static Tester reassignObject(Tester input) {
+		input = new Tester();
+		return input;
+	}
 	
+	private static Tester changeObjectInPlace(Tester input) {
+		input.change();
+		return input;
+	}
+	
+	private static Tester returnNewVariable(Tester input) {
+		Tester output = new Tester();
+		return output;
+	}
+	
+	private static void reassignObjectVoid(Tester input) {
+		input = new Tester();
+	}
+	
+	private static void changeObjectInPlaceVoid(Tester input) {
+		input.change();
+	}
+	
+	private static void returnNewVariableVoid(Tester input) {
+		Tester output = new Tester();
+	}
 	
 
 
