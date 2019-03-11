@@ -13,6 +13,14 @@ public class LogEntry {
 		this.index = index;
 		this.command = command;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LogEntry [object=" + object + ", index=" + index + ", command=" + command + "]";
+	}
 	
 	
 
