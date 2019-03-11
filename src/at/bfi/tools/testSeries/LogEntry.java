@@ -19,7 +19,7 @@ public class LogEntry {
 	 */
 	@Override
 	public String toString() {
-		return "LogEntry [object=" + object + ", index=" + index + ", command=" + command + "]";
+		return "LogEntry [object=" + object.getObjectIndex() + ", index=" + index + ", command=" + command + "]";
 	}
 	
 	
