@@ -16,7 +16,47 @@ public class TestReturnValues {
 
 	}
 	
+	private static TestObject sameObjectSameVariable(TestObject input) {
+		input.change();
+		return input;
+	}
 	
+	private static TestObject sameObjectNewVariable(TestObject input) {
+		TestObject output = input;
+		output.change();
+		return output;
+	}
+	
+	private static TestObject newObjectSameVariable(TestObject input) {
+		input = new TestObject();
+		input.change();
+		return input;
+	}
+	
+	private static TestObject newObjectNewVariable(TestObject input) {
+		TestObject output = new TestObject();
+		output.change();
+		return output;
+	}
+	
+	private static void sameObjectSameVariableVoid(TestObject input) {
+		input.change();
+	}
+	
+	private static void sameObjectNewVariableVoid(TestObject input) {
+		TestObject output = input;
+		output.change();
+	}
+	
+	private static void newObjectSameVariableVoid(TestObject input) {
+		input = new TestObject();
+		input.change();
+	}
+	
+	private static void newObjectNewVariableVoid(TestObject input) {
+		TestObject output = new TestObject();
+		output.change();
+	}
 	
 
 }
