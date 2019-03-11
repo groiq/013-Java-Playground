@@ -1,3 +1,6 @@
+/**
+ * Tests the testSeries package.
+ */
 package at.bfi.tools.testSeries;
 
 public class TestSeriesApp {
