@@ -26,6 +26,38 @@ public class TestReturnValues {
 		
 		
 		TestObject.printOverallLog();
+		System.out.println();
+		tester.printLog();
+		
+//		Output:
+//			
+//			overall change log:
+//				index: 0, object: 0, command: "tester = new TestObject(): constructor"]
+//				index: 1, object: 0, command: "tester = sameObjectSameVariable(tester): change()"]
+//				index: 2, object: 0, command: "sameObjectSameVariable(tester): change()"]
+//				index: 3, object: 0, command: "tester = sameObjectNewVariable(tester): change()"]
+//				index: 4, object: 0, command: "sameObjectNewVariable(tester): change()"]
+//				index: 5, object: 1, command: "tester = newObjectSameVariable(tester): constructor"]
+//				index: 6, object: 1, command: "tester = newObjectSameVariable(tester): change()"]
+//				index: 7, object: 2, command: "newObjectSameVariable(tester): constructor"]
+//				index: 8, object: 2, command: "newObjectSameVariable(tester): change()"]
+//				index: 9, object: 3, command: "tester = newObjectNewVariable(tester): constructor"]
+//				index: 10, object: 3, command: "tester = newObjectNewVariable(tester): change()"]
+//				index: 11, object: 4, command: "newObjectNewVariable(tester): constructor"]
+//				index: 12, object: 4, command: "newObjectNewVariable(tester): change()"]
+//				index: 13, object: 3, command: "sameObjectSameVariableVoid(tester): change()"]
+//				index: 14, object: 3, command: "sameObjectNewVariableVoid(tester): change()"]
+//				index: 15, object: 5, command: "newObjectSameVariableVoid(tester): constructor"]
+//				index: 16, object: 5, command: "newObjectSameVariableVoid(tester): change()"]
+//				index: 17, object: 6, command: "newObjectNewVariableVoid(tester): constructor"]
+//				index: 18, object: 6, command: "newObjectNewVariableVoid(tester): change()"]
+//
+//				change log for object 3
+//				index: 9, object: 3, command: "tester = newObjectNewVariable(tester): constructor"]
+//				index: 10, object: 3, command: "tester = newObjectNewVariable(tester): change()"]
+//				index: 13, object: 3, command: "sameObjectSameVariableVoid(tester): change()"]
+//				index: 14, object: 3, command: "sameObjectNewVariableVoid(tester): change()"]
+//
 
 	}
 	
