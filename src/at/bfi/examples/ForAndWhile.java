@@ -15,6 +15,8 @@ public class ForAndWhile {
 		return start;
 	}
 	
+	// Sell this example as a rounding up one
+	
 	// other example: three numbers divisible by four
 
 	public static void main(String[] args) {
