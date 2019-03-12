@@ -32,16 +32,16 @@ public class TestObject {
 	}
 	
 	//constructor
-	public TestObject() {
+	public TestObject(String command) {
 		this.objectIndex = objectCounter;
 		this.changelog = new ArrayList<LogEntry>();
-		this.changeInternal("constructor");
+		this.changeInternal(command + ": constructor");
 		objectCounter++;
 	}
 	
 	//change()
-	public void change() {
-		this.changeInternal("change()");
+	public void change(String command) {
+		this.changeInternal(command + ": change()");
 	}
 	
 	private void changeInternal(String command) {

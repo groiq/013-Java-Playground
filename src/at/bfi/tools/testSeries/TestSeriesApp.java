@@ -1,4 +1,4 @@
-/**
+/*
  * Tests the testSeries package.
  */
 package at.bfi.tools.testSeries;
@@ -11,12 +11,12 @@ public class TestSeriesApp {
 		TestObject.startNewTestSeries();
 		
 		// create an object
-		TestObject obj_1 = new TestObject();
+		TestObject obj_1 = new TestObject("test");
 		
 		// change the object
-		TestObject obj_2 = new TestObject();
+		TestObject obj_2 = new TestObject("test");
 		
-		obj_1.change();
+		obj_1.change("test");
 		
 		
 		// stop test series
@@ -24,6 +24,7 @@ public class TestSeriesApp {
 
 		// view log 
 		TestObject.printOverallLog();
+		System.out.println();
 		obj_1.printLog();
 	
 		
