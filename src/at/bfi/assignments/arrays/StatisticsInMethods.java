@@ -79,7 +79,7 @@ public class StatisticsInMethods {
 
 	/**
 	 * Looks up the smallest number in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the smallest number from input
 	 */
 	private static double minimum(double[] input) {
@@ -94,7 +94,7 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Looks up the largest number in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the largest number from input
 	 */
 	private static double maximum(double[] input) {
@@ -109,7 +109,7 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Calculates the sum of the values in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the sum of the elements in input
 	 */
 	private static double sum(double[] input) {
@@ -122,7 +122,7 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Calculates the average of the values in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the average of the values in input
 	 */
 	private static double average(double[] input) {
@@ -131,7 +131,7 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Calculates the variance of the values in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the variance of the values in input
 	 */
 	private static double variance(double[] input) {
@@ -148,7 +148,7 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Calculates the standard deviation of the values in a double[].
-	 * @param input a double[]
+	 * @param input a double[] the array to be searched
 	 * @return a double, the standard deviation of the values in input
 	 */
 	private static double standardDeviation(double[] input) {
@@ -161,9 +161,9 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Checks if a given element occurs in an array.
-	 * @param input
-	 * @param wanted
-	 * @return a boolean
+	 * @param input the array to be searched
+	 * @param wanted the number to be searched for
+	 * @return a boolean telling whether the element was found
 	 */
 	private static boolean contains(double[] input, double wanted) {
 		if (indexOf(input,wanted) < 0) { return false; }
@@ -172,8 +172,8 @@ public class StatisticsInMethods {
 	
 	/**
 	 * Looks up an element in an array. 
-	 * @param input
-	 * @param wanted
+	 * @param input the array to be searched
+	 * @param wanted the number to be searched for
 	 * @return an int, the index of the first occurrence.
 	 */
 	private static int indexOf(double[] input, double wanted) {
@@ -189,9 +189,9 @@ public class StatisticsInMethods {
 	
 	/**
 	 * counts the occurrence of an element in an array.
-	 * @param input
-	 * @param wanted
-	 * @return an int
+	 * @param input the array to be searched
+	 * @param wanted the number to be searched for
+	 * @return the number of occurrences of the element in the array
 	 */
 	private static int countOccurrence(double[] input, double wanted) {
 		int count = 0;
@@ -207,7 +207,7 @@ public class StatisticsInMethods {
 
 	/**
 	 * prints the contents of an array.
-	 * @param input a double[]
+	 * @param input a double[], the array to be printed
 	 */
 	private static void show(double[] input) {
 		System.out.println("input: " + Arrays.toString(input));
@@ -216,7 +216,7 @@ public class StatisticsInMethods {
 	/**
 	 * Helper method for printing statistical data in one go.
 	 * Prints, in succession, the input, its average, variance and standard deviation.
-	 * @param input a double[]
+	 * @param input a double[], the array to be analyzed
 	 */
 	private static void printVariance(double[] input) {
 		show(input);
@@ -225,6 +225,12 @@ public class StatisticsInMethods {
 		System.out.println("standard deviation: " + standardDeviation(input));
 	}
 	
+	/**
+	 * Helper methos for testing lookup methods in one go.
+	 * Prints, in succeddion, the number to be searched for, whether it was found, where it was found, and how often it was found.
+	 * @param input the array to be searched
+	 * @param wanted the number to be searched
+	 */
 	private static void doLookups(double[] input, double wanted) {
 		show(input);
 		System.out.println("wanted: " + wanted);
