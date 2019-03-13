@@ -1,6 +1,6 @@
-package at.bfi.counter;
+package at.bfi.variousStuff.counter;
 
-import at.bfi.counter.Counter;
+import at.bfi.variousStuff.counter.Counter;
 
 public class TestCounter {
 

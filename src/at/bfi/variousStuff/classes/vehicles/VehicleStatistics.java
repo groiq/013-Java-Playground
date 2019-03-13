@@ -1,9 +1,9 @@
-package at.bfi.exercises.classes.vehicles;
+package at.bfi.variousStuff.classes.vehicles;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import at.bfi.exercises.arrays.Statistics;
+import at.bfi.variousStuff.arrays.Statistics;
 
 public class VehicleStatistics {
 	

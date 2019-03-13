@@ -1,4 +1,4 @@
-package at.bfi.exercises.classes.vehicles;
+package at.bfi.variousStuff.classes.vehicles;
 
 public class LicensePlate {
 	

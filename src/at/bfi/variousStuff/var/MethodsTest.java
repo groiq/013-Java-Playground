@@ -1,4 +1,4 @@
-package at.bfi.exercises.var;
+package at.bfi.variousStuff.var;
 
 class TwoArrays {
 	public int[] arr1, arr2;

@@ -1,4 +1,4 @@
-package at.bfi.exercises.arrays;
+package at.bfi.variousStuff.arrays;
 
 public class Arr {
 	

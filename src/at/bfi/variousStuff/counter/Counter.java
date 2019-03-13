@@ -1,4 +1,4 @@
-package at.bfi.counter;
+package at.bfi.variousStuff.counter;
 
 public class Counter {
 	

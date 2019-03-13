@@ -7,7 +7,7 @@
  * Main method for testing included.
  */
 
-package at.bfi.exercises.var;
+package at.bfi.variousStuff.var;
 
 public class CalculatePi {
 	

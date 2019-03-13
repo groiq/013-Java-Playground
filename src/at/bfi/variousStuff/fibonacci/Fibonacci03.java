@@ -1,4 +1,4 @@
-package at.bfi.fibonacci;
+package at.bfi.variousStuff.fibonacci;
 
 public class Fibonacci03 {
 	
