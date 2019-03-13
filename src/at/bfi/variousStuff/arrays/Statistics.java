@@ -17,8 +17,6 @@ public class Statistics {
 		super();
 		this.input = input;
 		
-//		double minimum, maximum, sum = input[0];
-		
 		double minimum = input[0];
 		double maximum = input[0];
 		double sum = 0;
@@ -44,40 +42,63 @@ public class Statistics {
 		this.variance = varianceCounter / input.length;
 		
 		this.standardDeviation = Math.sqrt(this.variance);
-		
-		// calculate standard deviation
-		
-		// calculate variance
 
 	}
 
+	/**
+	 * @return the input
+	 */
 	public double[] getInput() {
 		return input;
 	}
 
+	/**
+	 * @return the minimum
+	 */
 	public double getMinimum() {
 		return minimum;
 	}
 
+	/**
+	 * @return the maximum
+	 */
 	public double getMaximum() {
 		return maximum;
 	}
 
-	public double getAverage() {
-		return average;
-	}
-
+	/**
+	 * @return the sum
+	 */
 	public double getSum() {
 		return sum;
 	}
 
+	/**
+	 * @return the average
+	 */
+	public double getAverage() {
+		return average;
+	}
+
+	/**
+	 * @return the standardDeviation
+	 */
 	public double getStandardDeviation() {
 		return standardDeviation;
 	}
 
+
+
+
+	/**
+	 * @return the variance
+	 */
 	public double getVariance() {
 		return variance;
 	}
+
+
+
 
 	@Override
 	public String toString() {
