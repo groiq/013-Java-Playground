@@ -3,7 +3,7 @@ package at.bfi.variousStuff.classes.vehicles;
 import java.util.HashMap;
 import java.util.Map;
 
-import at.bfi.variousStuff.arrays.Statistics;
+import at.bfi.assignments.arrays.Statistics;
 
 public class VehicleStatistics {
 	

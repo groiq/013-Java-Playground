@@ -1,5 +1,7 @@
 package at.bfi.variousStuff.arrays;
 
+import at.bfi.assignments.arrays.Statistics;
+
 public class ArrayExercisesApp {
 	
 	/**

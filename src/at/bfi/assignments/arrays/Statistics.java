@@ -1,4 +1,8 @@
-package at.bfi.variousStuff.arrays;
+/**
+ * Constructs an object providing various statistical information out of an array of doubles.
+ * All the statistical data are calculated in the constructor.
+ */
+package at.bfi.assignments.arrays;
 
 import java.util.Arrays;
 
