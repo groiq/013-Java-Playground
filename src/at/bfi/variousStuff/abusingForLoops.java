@@ -4,6 +4,7 @@
 package at.bfi.variousStuff;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class abusingForLoops {
 	
@@ -60,7 +61,42 @@ public class abusingForLoops {
 		return paddedString;
 	}
 	
+	/**
+	 * Plays number guessing with the user. 
+	 * An example of a classic while loop (runs until an unforeseeable incident happens)
+	 */
+	public static void guessNumberProper() {
+		int solution;
+		solution = 5;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Guess a number between 1 and 10:");
+		int guess = -1;
+		while (guess != solution) {
+			System.out.println("your guess:");
+			guess = scanner.nextInt();
+		}
+		scanner.close();
+		System.out.println("correct!");
+	}
 	
+	/**
+	 * Plays number guessing with the user. 
+	 * An example of a classic while loop (runs until an unforeseen incident happens).
+	 * but this time it's implemented using a for loop.
+	 */
+	public static void guessNumberUsingFor() {
+		int solution;
+		solution = 5;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Guess a number between 1 and 10:");
+		for(int i = 0; i < 10; i--) {
+			System.out.println("your guess:");
+			int guess = scanner.nextInt();
+			if (guess == solution) { break; }
+		}
+		scanner.close();
+		System.out.println("correct!");
+	}
 
 	
 
@@ -77,8 +113,8 @@ public class abusingForLoops {
 		System.out.println(fillSpaceProper("bla", 8));
 		System.out.println(fillSpaceUsingFor("bla", 8));
 
-		
-
+		guessNumberProper();
+		guessNumberUsingFor();
 
 	}
 
