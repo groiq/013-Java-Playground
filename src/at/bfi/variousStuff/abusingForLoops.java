@@ -3,6 +3,8 @@
  */
 package at.bfi.variousStuff;
 
+import java.util.Arrays;
+
 public class abusingForLoops {
 	
 	/**
@@ -57,6 +59,9 @@ public class abusingForLoops {
 		for (paddedString = snippet; paddedString.length() < space; paddedString += snippet) {}
 		return paddedString;
 	}
+	
+
+	
 
 	
 
@@ -73,6 +78,12 @@ public class abusingForLoops {
 		System.out.println(fillSpaceProper("bla", 8));
 		System.out.println(fillSpaceUsingFor("bla", 8));
 		
+//		int[] arrayReverse;
+//		arrayReverse = new int[] {1,2,3,4,5};
+//		
+//		System.out.println(Arrays.toString(reverseArrayProper(arrayReverse)));
+//		
+
 
 	}
 
