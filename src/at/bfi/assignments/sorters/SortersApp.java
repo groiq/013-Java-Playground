@@ -29,10 +29,11 @@ public class SortersApp {
 		System.out.println(tester);
 		System.out.println(fetch());
 		System.out.println(fetch()[0]);
-		
 		print(fetch());
+		System.out.println();
 		
-		
+		System.out.println("ID sort:");
+		print(Sorters.intelligentDesignSort(fetch()));
 
 		
 
