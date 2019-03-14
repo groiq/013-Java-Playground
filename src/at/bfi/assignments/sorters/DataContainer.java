@@ -1,23 +1,35 @@
 package at.bfi.assignments.sorters;
 
+import java.util.Arrays;
+
 class DataContainer {
 	
-	private static int[] unsortedArray;
+	private final int[] unsortedArray;
 
 	/**
 	 * @return the unsortedArray
 	 */
-	public static int[] getUnsortedArray() {
-		int[] output = unsortedArray.clone();
+	public int[] getUnsortedArray() {
+		int[] output = this.unsortedArray.clone();
 		return output;
 	}
 
 	/**
-	 * @param unsortedArray the unsortedArray to set
+	 * @param unsortedArray
 	 */
-	public static void setUnsortedArray(int[] unsortedArray) {
-		DataContainer.unsortedArray = unsortedArray;
+	public DataContainer(int[] unsortedArray) {
+		this.unsortedArray = unsortedArray;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return Arrays.toString(unsortedArray);
+	}
+	
+	
 
 	
 
