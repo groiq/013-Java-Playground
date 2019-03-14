@@ -33,7 +33,7 @@ public class SortersApp {
 		System.out.println();
 		
 		/*
-		 * for later: run through the same routine with differen sorter methods
+		 * for later: run through the same routine with different sorter methods
 		 * using lambda expression or something.
 		 * Material: https://stackoverflow.com/questions/2186931/java-pass-method-as-parameter
 		 */
