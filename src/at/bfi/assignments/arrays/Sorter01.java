@@ -51,8 +51,8 @@ public class Sorter01 {
 	public static void main(String[] args) {
 		
 //		double[] durations = {5.23, 4.82, 3.55, 6.19, 5.23};
-		int[] points = { 3, 5, 6, 1, 4, 2 };
-//		int[] points = { 2, 1 };
+//		int[] points = { 3, 5, 6, 1, 4, 2 };
+		int[] points = { 4, 2, 2, 1 };
 		points = Sorter.sortList(points);
 		System.out.print(Arrays.toString(points));
 		
