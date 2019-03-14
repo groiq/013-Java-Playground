@@ -32,6 +32,12 @@ public class SortersApp {
 		print(fetch());
 		System.out.println();
 		
+		/*
+		 * for later: run through the same routine with differen sorter methods
+		 * using lambda expression or something.
+		 * Material: https://stackoverflow.com/questions/2186931/java-pass-method-as-parameter
+		 */
+		
 		System.out.println("ID sort:");
 		print(Sorters.intelligentDesignSort(fetch()));
 
