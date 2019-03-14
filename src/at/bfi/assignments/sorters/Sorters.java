@@ -1,6 +1,13 @@
 package at.bfi.assignments.sorters;
 
 public class Sorters {
+	
+	private static void swap(int[] input, int i, int j) {
+		int clipboard;
+		clipboard = input[i];
+		input[i] = input[j];
+		input[j] = clipboard;
+	}
 
 	/**
 	 * An implementation of the sorting algorithm described at 
@@ -13,5 +20,6 @@ public class Sorters {
 		return input;
 	}
 
+	
 
 }
