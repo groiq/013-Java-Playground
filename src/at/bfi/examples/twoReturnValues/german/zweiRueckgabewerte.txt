@@ -8,3 +8,9 @@ Habe ich zwei Variablen von gleichem Typ, dann kann ich die Werte in einem Array
 
 (Wenn ich zum Beispiel in dem String-Array ["da nicht","hier","da auch nicht","hier"] nach "hier" suche, dann könnte [2,1,3] zurückkommen, weil das Element zweimal vorkommt, und zwar an den Stellen 1 und 3.)
 
+In diesem Fall geht das aber auch nicht, weil die Variablen von unterschiedlichen Typen sind, und Java erlaubt keine Arrays mit unterschiedlichen Typen.
+
+In diesem speziellen Fall läßt sich das leicht umgehen, indem man die Methode so programmiert, dass -1 zurückkommt, wenn das Element nicht existiert, d.h. die Information des boolean ist in dem Index enthalten.
+
+Was aber tue ich, wenn ich das nicht machen kann? Sagen wir zum Beispiel, ich habe den Array ["da nicht","da auch nicht","aber hier"].
+
