@@ -4,7 +4,9 @@ public class zweiRueckgabewerteTest {
 
 	public static void main(String[] args) {
 		
-		
+		/*
+		 * 
+		 */
 
 	}
 
