@@ -1,0 +1,10 @@
+Heute wurde ich wegen dieser Aufgabe gefragt:
+
+Erstelle eine Methode, die ein Element in einem Array sucht und sowohl einen Boolean-Wert zurückgibt, ob das Element enthalten ist, als auch den Index, an dem es vorkommt.
+
+Es geht also darum, eine Methode zu erstellen, die zwei Variablen von verschiedenen Typen zurückgibt. Die kurze Antwort ist: Das geht nicht. Eine Methode kann nur einen Wert zurückgeben. Wenn ich mehrere Werte zurückgeben will, brauche ich einen Container, der beide Werte aufnimmt.
+
+Habe ich zwei Variablen von gleichem Typ, dann kann ich die Werte in einem Array speichern. Wenn ich zum Beispiel heraussuchen soll, wie oft ein Element vorkommt, und alle Indices, an denen es vorkommt, dann kann ich einen Array zurückgeben, der an erster Stelle die Anzahl zurückgibt und danach die Indices.
+
+(Wenn ich zum Beispiel in dem String-Array ["da nicht","hier","da auch nicht","hier"] nach "hier" suche, dann könnte [2,1,3] zurückkommen, weil das Element zweimal vorkommt, und zwar an den Stellen 1 und 3.)
+
