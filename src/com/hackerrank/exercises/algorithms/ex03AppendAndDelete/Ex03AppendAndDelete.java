@@ -24,6 +24,7 @@ public class Ex03AppendAndDelete {
     	int firstSubstrLen = firstWord.length() - equalUntil;
     	int secondSubstrLen = secondWord.length() - equalUntil;
     	
+//    	 // debug output
 //    	for (int i = 0; i < equalUntil; i++) {
 //			System.out.print(firstWord.charAt(i));
 //		}
@@ -57,12 +58,6 @@ public class Ex03AppendAndDelete {
 		printResult("hackerhappy", "hackerrank", 9);
 		printResult("aba", "aba", 7);
 		printResult("ashley", "ash", 2);
-		
-		
-
-		
-
-
 
 	}
 
