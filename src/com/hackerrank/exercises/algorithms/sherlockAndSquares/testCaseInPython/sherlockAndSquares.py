@@ -1,10 +1,40 @@
 #!/usr/bin/env python3
 
 
+def squares(a,b):
 
+    sqrtA = sqrtRange(a)
+    sqrtB = sqrtRange(b)
+    
+    return 0
 
+def sqrtRange(num):
+    
+    min = 0
+    max = num
+    currGuess = int(num / 2)
+    currSquare = currGuess * currGuess
+    
+    while currSquare != num:
+        outfile.write("currGuess: {}, currSquare: {}\n".format(currGuess,currSquare))
+        if currSquare > num:
+            outfile.write("guess to big\n")
+            max = currGuess
+        else:
+            outfile.write("guess too small\n")
+            min = currGuess
+        currGuess = int((max+min)/2)
+        currSquare = currGuess * currGuess
+        if (max-min) <= 1:
+        
+            break
 
-
+        if currGuess == num:
+            return {currGuess,currGuess}
+        else:
+            return {min,max}
+            
+    
 
 ##########################
 
@@ -47,11 +77,13 @@ for line in testOut:
 testIn.close()
 testOut.close()
 
+for i in range(12):
+    j = sqrtRange(i)
+    outfile.write("{} -> {}\n".format(i,j))
 
 
-
-for i in range(5):
-    outfile.write("{},{} -> {}\n".format(begins[i],ends[i],solutions[i]))
+# for i in range(5):
+    # outfile.write("{},{} -> {} -> {}\n".format(begins[i],ends[i],solutions[i],squares(begins[i],ends[i])))
 
 
 outfile.close()

@@ -1,5 +1,32 @@
-465868129,988379794 -> 9855
-181510012,293922871 -> 3672
-395151610,407596310 -> 311
-481403421,520201871 -> 867
-309804254,776824625 -> 10270
+0 -> None
+currGuess: 0, currSquare: 0
+guess too small
+1 -> None
+currGuess: 1, currSquare: 1
+guess too small
+2 -> None
+currGuess: 1, currSquare: 1
+guess too small
+3 -> {1, 3}
+4 -> None
+currGuess: 2, currSquare: 4
+guess too small
+5 -> {2, 5}
+currGuess: 3, currSquare: 9
+guess to big
+6 -> {0, 3}
+currGuess: 3, currSquare: 9
+guess to big
+7 -> {0, 3}
+currGuess: 4, currSquare: 16
+guess to big
+8 -> {0, 4}
+currGuess: 4, currSquare: 16
+guess to big
+9 -> {0, 4}
+currGuess: 5, currSquare: 25
+guess to big
+10 -> {0, 5}
+currGuess: 5, currSquare: 25
+guess to big
+11 -> {0, 5}
