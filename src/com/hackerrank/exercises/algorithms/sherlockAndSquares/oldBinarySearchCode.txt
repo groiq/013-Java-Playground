@@ -1,0 +1,203 @@
+(some old attempts of mine to do a binary search in java)
+
+Aufgabe: Nimm ein Element eines sortierten Arrays und gib seinen Index zur¸ck.
+
+Runde 1:
+
+import java.util.Arrays;
+
+public class Playground {
+	
+	static char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', };
+	
+	static int getIndex(char c) {
+		int pos = alphabet.length / 2;
+		
+		return pos;
+	}
+
+	public static void main(String[] args) {
+		
+		char searched = 'k';
+		
+		System.out.println("gesucht: " + searched);
+		
+		int pos = alphabet.length / 2;
+		
+		while (alphabet[pos] != searched) {
+			System.out.println(pos + ": " + alphabet[pos]);
+			if (alphabet[pos] > searched) {
+				System.out.println("groesser");
+				pos = pos - (pos / 2);
+			} else if (alphabet[pos] < searched) {
+				System.out.println("kleiner");
+				pos = pos + (pos / 2);
+			}
+//			pos -= 1;
+		}
+		System.out.println("erwischt!");
+		
+	}
+}
+
+Okay, jetzt schein ichs zu haben:
+
+import java.util.Arrays;
+
+public class Playground {
+	
+	static char[] alphabet = 
+		{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+				'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', };
+	static char[] vokale = {'a', 'e', 'i', 'o', 'u' };
+	
+	static int getIndex(char ch, char[] alph) {
+		int links = 0;
+		int rechts = alph.length;
+		return getIndexPart(ch,alph,links,rechts);
+	}
+	
+	static int getIndexPart(char ch, char[] alph, int links, int rechts) {
+		int result;
+		int mitte = ((rechts - links) / 2) + links;
+		System.out.print(links + ":" + alph[links] + "/" + mitte + ":" + alph[mitte] +
+				"/" + rechts + ":" + alph[rechts-1] + "; ");
+		if (ch == alph[mitte]) {
+			result = mitte;
+		} else {
+			if (mitte == links || mitte == rechts) {
+//				System.out.println("Not found!");
+				return -1;
+			}
+			if (ch < alph[mitte]) {
+				rechts = mitte;
+			} else if (ch > alph[mitte]) {
+				links = mitte;
+			}
+//			System.out.print(links + ":" + alph[links] + "/" + mitte + ":" + alph[mitte] +
+//					"/" + rechts + ":" + alph[rechts-1] + "; ");
+			result = getIndexPart(ch,alph,links,rechts);
+		}
+		return result;
+	}
+	
+
+
+	public static void main(String[] args) {
+//		char test = 'a';
+//		System.out.print(test + ": ");
+//		System.out.println(getIndex(test, alphabet));
+		for ( char ch : alphabet) {
+			System.out.print(ch + ": ");
+			System.out.println(getIndex(ch, vokale));
+		}
+//		getIndex('b', alphabet);
+//		System.out.println(alphabet.length);
+		
+	}
+}
+
+
+Noch eine Variante. Verschiedene Dinge sind verbessert. Auﬂerdem habe ich die rekursive Methode durch eine while-Schleife ersetzt. Das f¸hrt aber zu dem smell, daﬂ ich die Zuweisung von mitte zweimal codieren muﬂ:
+
+
+import java.util.Arrays;
+
+public class Playground {
+	
+	static char[] alphabet = 
+		{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+				'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', };
+	static char[] vokale = {'a', 'e', 'i', 'o', 'u' };
+
+	static int getIndex(char ch, char[] alpha) {
+		
+		int links = 0;
+		int rechts = alpha.length;
+		int mitte = ((rechts - links) / 2 + links);
+//		System.out.print(links + ":" + alpha[links] + "/" + mitte + ":" + alpha[mitte] +
+//				"/" + rechts + ":" + alpha[rechts-1] + "; ");
+		
+		while (ch != alpha[mitte]) {
+			if (mitte == rechts || mitte == links) { return -1; }
+			if (ch < alpha[mitte]) { rechts = mitte; }
+			else if (ch > alpha[mitte]) { links = mitte; }
+			mitte = ((rechts - links) / 2 + links);
+//			System.out.print(links + ":" + alpha[links] + "/" + mitte + ":" + alpha[mitte] +
+//			"/" + rechts + ":" + alpha[rechts-1] + "; ");
+//			System.out.print(links + "/" + mitte + "/" + rechts + "; ");
+
+		}
+
+		
+		return mitte;
+	}
+
+	
+	public static void main(String[] args) {
+		
+		for ( char ch : alphabet) {
+			System.out.print(ch + ": ");
+			System.out.print(getIndex(ch,vokale) + " ////// ");
+//			System.out.println();
+			System.out.println(getIndex(ch, alphabet));
+		}
+
+		
+		
+		
+		
+	}
+}
+
+So kann ich das umgehen, mit einer do-while-Schleife:
+
+
+import java.util.Arrays;
+
+public class Playground {
+	
+	static char[] alphabet = 
+		{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+				'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', };
+	static char[] vokale = {'a', 'e', 'i', 'o', 'u' };
+
+	static int getIndex(char ch, char[] alpha) {
+		
+		int links = 0;
+		int rechts = alpha.length;
+		int mitte;
+				
+		do {
+			mitte = ((rechts - links) / 2 + links);
+			if (mitte == rechts || mitte == links) { return -1; }
+			if (ch < alpha[mitte]) { rechts = mitte; }
+			else if (ch > alpha[mitte]) { links = mitte; }
+//		System.out.print(links + ":" + alpha[links] + "/" + mitte + ":" + alpha[mitte] +
+//		"/" + rechts + ":" + alpha[rechts-1] + "; ");
+//		System.out.print(links + "/" + mitte + "/" + rechts + "; ");
+
+		} while 
+			(ch != alpha[mitte]);
+		
+
+		
+		return mitte;
+	}
+
+	
+	public static void main(String[] args) {
+		
+		for ( char ch : alphabet) {
+			System.out.print(ch + ": ");
+			System.out.print(getIndex(ch,vokale) + " ////// ");
+//			System.out.println();
+			System.out.println(getIndex(ch, alphabet));
+		}
+
+		
+		
+		
+		
+	}
+}
