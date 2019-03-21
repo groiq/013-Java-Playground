@@ -7,6 +7,10 @@ public class BinarySearchGameMaster {
 	
 	
 	
+	static int getUpperRange() {
+		return upperRange;
+	}
+
 	public static int checkGuess(int guess) {
 		
 		guess -= currWanted;
@@ -21,10 +25,19 @@ public class BinarySearchGameMaster {
 
 	public static void main(String[] args) {
 		
-		// test checkGuess()
-		for (currWanted = -2; currWanted < 3; currWanted++) {
-			for (int i = -2; i < 3; i++) {
-				System.out.println("currWanted: " + currWanted + ", guess: " + i + ", result: " + checkGuess(i));
+//		// test checkGuess()
+//		for (currWanted = -2; currWanted < 3; currWanted++) {
+//			for (int i = -2; i < 3; i++) {
+//				System.out.println("currWanted: " + currWanted + ", guess: " + i + ", result: " + checkGuess(i));
+//			}
+//		}
+		
+		for (int i = 0; i <= 10; i++) {
+			upperRange = i;
+			for (int j = 0; j < i; j++) {
+				currWanted = j + 1;
+				System.out.println("Asking for " + currWanted + " between 1 and " + upperRange + ".");
+				BinarySearchGuesser.playGame();
 			}
 		}
 
