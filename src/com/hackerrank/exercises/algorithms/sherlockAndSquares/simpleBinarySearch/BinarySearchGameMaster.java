@@ -66,6 +66,8 @@ public class BinarySearchGameMaster {
 		}
 		// yeah, that throws up -1 for currWanted = 1 and -(i-1) for currWanted = i.
 		// Meh, gonna fix that manually for now.
+		
+		// Okay, giving up.
 
 	}
 
