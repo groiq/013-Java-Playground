@@ -6,6 +6,7 @@ public class BinarySearchGuesser {
 		
 		int min = 1;
 		int max = BinarySearchGameMaster.getUpperRange();
+		System.out.println("range is from " + min + " to " + max);
 		int currGuess;
 		
 //		System.out.println("Playing game! Range is from " + min + " to " + max + ".");
@@ -20,10 +21,10 @@ public class BinarySearchGuesser {
 			}
 			if (BinarySearchGameMaster.checkGuess(currGuess) == 1) {
 				System.out.println("too high");
-				min = currGuess;
+				max = currGuess;
 			} else { // should trigger when currGuess == 0, but shouldn't matter since the loop shouldn't be re-entered then
 				System.out.println("too low");
-				max = currGuess;
+				min = currGuess;
 			}
 		} while (BinarySearchGameMaster.checkGuess(currGuess) != 0);
 		System.out.println("result is " + currGuess);
