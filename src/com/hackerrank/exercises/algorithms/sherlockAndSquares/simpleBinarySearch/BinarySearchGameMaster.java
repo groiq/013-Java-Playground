@@ -63,8 +63,9 @@ public class BinarySearchGameMaster {
 			currWanted = i;
 			System.out.println("Asking for " + currWanted + " between 1 and " + upperRange + ".");
 			BinarySearchGuesser.playGame();
-			
 		}
+		// yeah, that throws up -1 for currWanted = 1 and -(i-1) for currWanted = i.
+		// Meh, gonna fix that manually for now.
 
 	}
 
