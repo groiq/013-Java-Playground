@@ -31,11 +31,19 @@ public class BasicSquareRoot {
 		
 		return guess;
 	}
+	
+	public static void checkSqrt(int i) {
+		int selfCalc = getSquareRoot(i);
+		double librSqrt = Math.sqrt(i);
+		double libTester = Math.floor(librSqrt);
+		System.out.println(i + " -> " + selfCalc + ", " + librSqrt + ", " + libTester);
+	}
 
 	public static void main(String[] args) {
 		
 		for (int i = 1; i < 122; i++) {
-			System.out.println(i + " -> " + getSquareRoot(i));
+//			System.out.println(i + " -> " + getSquareRoot(i));
+			checkSqrt(i);
 		}
 
 	}
