@@ -36,12 +36,21 @@ public class BasicSquareRoot {
 		int selfCalc = getSquareRoot(i);
 		double librSqrt = Math.sqrt(i);
 		double libTester = Math.floor(librSqrt);
-		System.out.println(i + " -> " + selfCalc + ", " + librSqrt + ", " + libTester);
+//		System.out.println(i + " -> " + selfCalc + ", " + librSqrt + ", " + libTester);
+		int tester = (int) librSqrt;
+		if (librSqrt != libTester) {
+			tester *= -1; 
+		}
+//		System.out.println(i + " -> " + selfCalc + ", " + tester + " (" + librSqrt + ", " + libTester + ")");
+		if (selfCalc != tester) {
+			System.out.println("Error: number: " + i + ", self-calculated value: " + selfCalc + ", library-calculated value: " + tester);
+		}
 	}
 
 	public static void main(String[] args) {
 		
-		for (int i = 1; i < 122; i++) {
+		System.out.println("testing square root function");
+		for (int i = 1; i < 10; i++) {
 //			System.out.println(i + " -> " + getSquareRoot(i));
 			checkSqrt(i);
 		}
