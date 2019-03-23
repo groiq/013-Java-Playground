@@ -16,7 +16,9 @@ public class BasicSquareRoot {
 		do {
 			guess = (max + min) / 2;
 			if (guess == min || guess == max) {
-				return (guess * -1);
+				guess *= -1;
+				break;
+//				return (guess * -1);
 			}
 			if (guess * guess > number) {
 				max = guess;
