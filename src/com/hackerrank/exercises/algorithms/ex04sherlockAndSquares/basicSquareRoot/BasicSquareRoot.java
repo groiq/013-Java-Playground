@@ -13,13 +13,24 @@ public class BasicSquareRoot {
 		int max = number;
 		guess = number;
 		
+		do {
+			guess = (max + min) / 2;
+			if (guess == min || guess == max) {
+				return (guess * -1);
+			}
+			if (guess * guess > number) {
+				max = guess;
+			} else if (guess * guess < number) {
+				min = guess;
+			}
+		} while (guess * guess != number);
 		
 		return guess;
 	}
 
 	public static void main(String[] args) {
 		
-		for (int i = 1; i < 10; i++) {
+		for (int i = 1; i < 122; i++) {
 			System.out.println(i + " -> " + getSquareRoot(i));
 		}
 
