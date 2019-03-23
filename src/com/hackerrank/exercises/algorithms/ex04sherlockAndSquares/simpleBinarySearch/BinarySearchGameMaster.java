@@ -1,4 +1,4 @@
-package com.hackerrank.exercises.algorithms.sherlockAndSquares.simpleBinarySearch;
+package com.hackerrank.exercises.algorithms.ex04sherlockAndSquares.simpleBinarySearch;
 
 public class BinarySearchGameMaster {
 	

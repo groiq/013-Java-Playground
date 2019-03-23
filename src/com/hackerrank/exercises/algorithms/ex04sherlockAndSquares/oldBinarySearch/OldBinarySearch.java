@@ -1,4 +1,4 @@
-package com.hackerrank.exercises.algorithms.sherlockAndSquares.oldBinarySearch;
+package com.hackerrank.exercises.algorithms.ex04sherlockAndSquares.oldBinarySearch;
 
 //import java.util.Arrays;
 
