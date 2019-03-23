@@ -1,4 +1,4 @@
-package com.hackerrank.exercises.algorithms.ex04sherlockAndSquares;
+package com.hackerrank.exercises.algorithms.ex04sherlockAndSquares.firstTry;
 
 public class CalculateSquares {
 	
