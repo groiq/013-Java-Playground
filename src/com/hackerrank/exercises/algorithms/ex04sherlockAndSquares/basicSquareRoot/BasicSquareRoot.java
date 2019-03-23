@@ -7,6 +7,8 @@ public class BasicSquareRoot {
 	
 	public static int getSquareRoot(int number) {
 		
+		if (number == 1) {return 1;}
+		
 		int guess;
 		
 		int min = 1;
