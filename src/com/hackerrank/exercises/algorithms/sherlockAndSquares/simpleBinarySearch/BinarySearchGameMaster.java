@@ -43,19 +43,19 @@ public class BinarySearchGameMaster {
 		
 		// Okay, looks like we're getting errors on every first and last entry in the list. Gotta check those.
 		
-		// check all entries *except* the first and last
-		for (int i = 0; i <= 10; i++) {
-			upperRange = i;
-			for (int j = 1; j < i-1; j++) {
-				currWanted = j + 1;
-				System.out.println("Asking for " + currWanted + " between 1 and " + upperRange + ".");
-				BinarySearchGuesser.playGame();
-			}
-		}
-		// okay, that gives all the right results.
-		
+//		// check all entries *except* the first and last
+//		for (int i = 0; i <= 10; i++) {
+//			upperRange = i;
+//			for (int j = 1; j < i-1; j++) {
+//				currWanted = j + 1;
+//				System.out.println("Asking for " + currWanted + " between 1 and " + upperRange + ".");
+//				BinarySearchGuesser.playGame();
+//			}
+//		}
+//		// okay, that gives all the right results.
+//		
 		// check the first and last entry, respectively
-		for (int i = 0; i < 11; i++) {
+		for (int i = 4; i < 5; i++) {
 			upperRange = i;
 			currWanted = 1;
 			System.out.println("Asking for " + currWanted + " between 1 and " + upperRange + ".");
@@ -66,8 +66,8 @@ public class BinarySearchGameMaster {
 		}
 		// yeah, that throws up -1 for currWanted = 1 and -(i-1) for currWanted = i.
 		// Meh, gonna fix that manually for now.
-		
-		// Okay, giving up.
+//		
+
 
 	}
 
