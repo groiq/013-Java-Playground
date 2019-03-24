@@ -25,14 +25,22 @@ def squares(a,b):
         
         return guess
 
-    for i in range(1,10):
-        print("{} -> {}".format(i,sqrt(i))
-        
+##    # test sqrt() function
+##    for i in range(1,100):
+##        print("{} -> {}".format(i,sqrt(i)))
+##        
         
     sqrtA = sqrt(a)
     sqrtB = sqrt(b)
+
+    if sqrtA < 0:
+        sqrtA = (sqrtA * -1) + 1
+    if sqrtB < 0:
+        sqrtB = (sqrtB * -1)
+
+    result = (sqrtB - sqrtA) + 1
     
-    result = sqrtB - sqrtA
+    #print("{},{} -> {},{} -> {}".format(a,b,sqrtA,sqrtB,result))
     
     return result
 
@@ -88,12 +96,13 @@ outfile = open("./outfile.txt","w")
 # for i in range(12):
     # j = sqrtRange(i)
     # outfile.write("{} -> {}\n".format(i,j))
-for upper in range(1,5):
+for upper in range(1,10):
     for lower in range(upper):
         #print("{}-{}".format(lower+1,upper))
         k = squares(lower+1,upper)
-        print(k)
-        #outfile.write("range from {} to {}: {} squares\n".format(lower,upper,k))
+        #print(k)
+        #print("{},{} -> {}".format(lower+1,upper,k))
+        outfile.write("range from {} to {}: {} squares\n".format(lower+1,upper,k))
 
 # for i in range(5):
     # outfile.write("{},{} -> {} -> {}\n".format(begins[i],ends[i],solutions[i],squares(begins[i],ends[i])))
