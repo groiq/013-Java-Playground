@@ -13,7 +13,7 @@ def squares(a,b):
         square = guess * guess
         
         while square != number:
-            if (guess == min | guess == max):
+            if (guess == min or guess == max):
                 guess *= -1
                 break
             if square > number:
@@ -21,11 +21,13 @@ def squares(a,b):
             elif square < number:
                 min = guess
             guess = (max + min) // 2
-            square == guess * guess
+            square = guess * guess
         
         return guess
 
-    
+    for i in range(1,10):
+        print("{} -> {}".format(i,sqrt(i))
+        
         
     sqrtA = sqrt(a)
     sqrtB = sqrt(b)
