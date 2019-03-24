@@ -51,8 +51,8 @@ public class BasicSquareRoot {
 		
 		System.out.println("testing square root function");
 		for (int i = 1; i < 10; i++) {
-//			System.out.println(i + " -> " + getSquareRoot(i));
-			checkSqrt(i);
+			System.out.println(i + " -> " + getSquareRoot(i));
+//			checkSqrt(i);
 		}
 
 	}

@@ -7,7 +7,7 @@ def squares(a,b):
         
         if number == 1: return 1
         
-        min = 0
+        min = 1
         max = number
         guess = (max + min) // 2
         square = guess * guess
@@ -20,8 +20,12 @@ def squares(a,b):
                 max = guess
             elif square < number:
                 min = guess
+            guess = (max + min) // 2
+            square == guess * guess
         
         return guess
+
+    
         
     sqrtA = sqrt(a)
     sqrtB = sqrt(b)
@@ -84,9 +88,9 @@ outfile = open("./outfile.txt","w")
     # outfile.write("{} -> {}\n".format(i,j))
 for upper in range(1,5):
     for lower in range(upper):
-        j = lower + 1
-        k = upper - (j)
-        #k = squares(lower+1,upper)
+        #print("{}-{}".format(lower+1,upper))
+        k = squares(lower+1,upper)
+        print(k)
         #outfile.write("range from {} to {}: {} squares\n".format(lower,upper,k))
 
 # for i in range(5):
