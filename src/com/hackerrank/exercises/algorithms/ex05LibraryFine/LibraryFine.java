@@ -9,7 +9,13 @@ public class LibraryFine {
 
     	int fine = 0;
     	
-    	
+    	if (y1 > y2) {
+    		fine = 10000;
+    	} else if (m1 > m2) {
+    		fine = (m1 - m2) * 500;
+    	} else if (d1 > d2) {
+    		fine = (d1 - d2) * 15;
+    	}
     	
     	return fine;
 
@@ -21,6 +27,10 @@ public class LibraryFine {
 		System.out.println(libraryFine(30,10,2018,20,10,2018));
 		System.out.println(libraryFine(30,10,2018,20,5,2018));
 		System.out.println(libraryFine(30,10,2018,20,10,2017));
+		
+//		9 6 2015
+//		6 6 2015
+		System.out.println(libraryFine(9,6,2015,6,6,2015));
 		
 		
 
