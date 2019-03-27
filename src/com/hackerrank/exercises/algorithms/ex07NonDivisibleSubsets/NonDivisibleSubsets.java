@@ -6,6 +6,8 @@ public class NonDivisibleSubsets {
 	
    static int nonDivisibleSubset(int k, int[] S) {
 	   
+	   if (k == 1) return 0;
+	   
 	   int[] counter = new int[k];
 	   // counter is initialized with default value 0 for each entry
 	   for (int i : S) {
@@ -53,6 +55,7 @@ public class NonDivisibleSubsets {
 		
 		p(1, new int[] {1,2,3,4,5});
 		p(4, new int[] {1,2,3,4,5,6,7,8,9,10});
+		p(5, new int[] {1,4});
 
 	}
 	
