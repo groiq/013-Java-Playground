@@ -17,6 +17,8 @@ public class NonDivisibleSubsets {
 	   
 	   int total = 0;
 	   
+	   if (counter[0] > 0) { total += 1; }
+	   
 	   int lower;
 	   int higher;
 	   for (int i = 1; i <= k/2; i++) {
@@ -39,15 +41,18 @@ public class NonDivisibleSubsets {
 
 	public static void main(String[] args) {
 	
-		int[] S;
+//		int[] S;
+//		
+//		S = new int[] {1,7,2,4};
+//		p(3,S);
+//		
+//		p(3,new int[] {1,2,2,3,3,3});
+//		p(4,new int[] {1,2,2,3,3,3,4,4,4,4});
+//		p(5,new int[] {1,2,2,3,3,3,4,4,4,4,5,5,5,5,5});
+//		p(6,new int[] {1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6});
 		
-		S = new int[] {1,7,2,4};
-		p(3,S);
-		
-		p(3,new int[] {1,2,2,3,3,3});
-		p(4,new int[] {1,2,2,3,3,3,4,4,4,4});
-		p(5,new int[] {1,2,2,3,3,3,4,4,4,4,5,5,5,5,5});
-		p(6,new int[] {1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,6,6,6,6,6});
+		p(1, new int[] {1,2,3,4,5});
+		p(4, new int[] {1,2,3,4,5,6,7,8,9,10});
 
 	}
 	
