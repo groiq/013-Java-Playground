@@ -14,9 +14,23 @@ public class NonDivisibleSubsets {
 //	   System.out.println(Arrays.toString(counter));
 	   
 	   
+	   
 	   int total = 0;
 	   
-	   
+	   int lower;
+	   int higher;
+	   for (int i = 1; i <= k/2; i++) {
+		   lower = counter[i];
+		   higher = counter[k-i];
+//		   System.out.println("lower mod: " + i + ", lower count: " + lower + ", higher mod: " + (k-i) + ", higher count: " + higher);
+		   if (k-i == i) {
+//			   System.out.println("in middle of array");
+			   total += (lower > 0) ? 1 : 0;
+		   } else {
+			   total += (lower > higher) ? lower : higher;
+		   }
+		   
+	   }
 	   
 	   return total;
 
