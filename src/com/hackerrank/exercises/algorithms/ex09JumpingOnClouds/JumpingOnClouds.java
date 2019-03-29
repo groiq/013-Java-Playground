@@ -9,13 +9,13 @@ public class JumpingOnClouds {
 		System.out.println("length: " + c.length);
 		int counter = 0;
 		int pos = 0;
-		
+
 		while (pos < c.length) {
 			System.out.println(pos);
-			counter++;
 			pos += 2;
+			counter++;
 		}
-		
+
 
 		return counter;
 
@@ -27,7 +27,7 @@ public class JumpingOnClouds {
 		p(new int[] {0,0,0,0,0,0});
 
 	}
-	
+
 	static void p(int[] arr) {
 		System.out.println(Arrays.toString(arr) + " -> " + jumpingOnClouds(arr));
 	}
