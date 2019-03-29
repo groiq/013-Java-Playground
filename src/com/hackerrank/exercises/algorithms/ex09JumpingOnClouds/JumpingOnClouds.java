@@ -6,14 +6,25 @@ public class JumpingOnClouds {
 
 	static int jumpingOnClouds(int[] c) {
 
-		System.out.println("last index: " + (c.length-1));
+//		for (int i = 0; i < c.length; i++) {
+//			System.out.print(i + ",");
+//		}
+//		System.out.println();
+//		System.out.println("last index: " + (c.length-1));
 		int counter = 0;
 		int pos = 0;
+//		System.out.println("starting at 0");
 
 		while (pos < c.length-1) {
 			pos += 2;
 			counter++;
-			System.out.println(pos);
+//			System.out.println("jump to " + pos);
+			if (pos < c.length-1 && c[pos] == 1) {
+//				System.out.println("thundercloud!");
+//				System.out.println("thundercloud! jumping to " + (pos-1) + " and " + (pos+1) + " instead.");
+				pos++;
+				counter++;
+			}
 		}
 
 
@@ -25,6 +36,8 @@ public class JumpingOnClouds {
 
 		p(new int[] {0,0,0,0,0,0,0});
 		p(new int[] {0,0,0,0,0,0});
+		p(new int[] {0,0,1,0,0});
+		p(new int[] {0,0,1,0});
 
 	}
 
