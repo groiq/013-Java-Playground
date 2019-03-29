@@ -6,14 +6,14 @@ public class JumpingOnClouds {
 
 	static int jumpingOnClouds(int[] c) {
 
-		System.out.println("length: " + c.length);
+		System.out.println("last index: " + (c.length-1));
 		int counter = 0;
 		int pos = 0;
 
-		while (pos < c.length) {
-			System.out.println(pos);
+		while (pos < c.length-1) {
 			pos += 2;
 			counter++;
+			System.out.println(pos);
 		}
 
 
