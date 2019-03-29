@@ -6,7 +6,16 @@ public class JumpingOnClouds {
 
 	static int jumpingOnClouds(int[] c) {
 
+		System.out.println("length: " + c.length);
 		int counter = 0;
+		int pos = 0;
+		
+		while (pos < c.length) {
+			System.out.println(pos);
+			counter++;
+			pos += 2;
+		}
+		
 
 		return counter;
 
@@ -14,7 +23,8 @@ public class JumpingOnClouds {
 
 	public static void main(String[] args) {
 
-		p(new int[] {});
+		p(new int[] {0,0,0,0,0,0,0});
+		p(new int[] {0,0,0,0,0,0});
 
 	}
 	
