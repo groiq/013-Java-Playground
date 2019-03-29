@@ -42,7 +42,13 @@ public class JumpingOnClouds {
 	}
 
 	static void p(int[] arr) {
-		System.out.println(Arrays.toString(arr) + " -> " + jumpingOnClouds(arr));
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 1) System.out.print(".");
+			else System.out.print(i);
+			System.out.print("|");
+		}
+		System.out.println(" -> " + jumpingOnClouds(arr));
+//		System.out.println(Arrays.toString(arr) + " -> " + jumpingOnClouds(arr));
 	}
 
 }
