@@ -13,9 +13,16 @@ public class EqualizeArray {
     	for (int i : arr) {
     		counter.put(i, counter.getOrDefault(i, 0)+1);
 		}
-    	System.out.println(counter);
+//    	System.out.println(counter);
     	
-    	return 0;
+    	int result = 0;
+    	for (int i : counter.values()) {
+			result = Math.max(result, i);
+//			System.out.println(result);
+		}
+    	
+    	result = arr.length - result;
+    	return result;
 
     }
 
