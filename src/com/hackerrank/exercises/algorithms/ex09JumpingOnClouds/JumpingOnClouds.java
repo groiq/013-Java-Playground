@@ -38,6 +38,8 @@ public class JumpingOnClouds {
 		p(new int[] {0,0,0,0,0,0});
 		p(new int[] {0,0,1,0,0});
 		p(new int[] {0,0,1,0});
+		p(new int[] {0,0,0,0,1,0});
+		p(new int[] {0,0,1,0,1,0});
 
 	}
 
