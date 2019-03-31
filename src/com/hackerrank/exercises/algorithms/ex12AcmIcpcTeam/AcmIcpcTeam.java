@@ -6,13 +6,13 @@ public class AcmIcpcTeam {
 	
     static int[] acmTeam(String[] topic) {
 
-    	short[] asNums = new short[topic.length];
+    	int[] asNums = new int[topic.length];
     	int[] counter = new int[topic[0].length()+1];
     	
 //    	int runCounter = 0;
     	for (int i = 0; i < asNums.length; i++) {
 //    		runCounter++;
-			asNums[i] = (short) Integer.parseInt(topic[i],2);
+			asNums[i] =  Integer.parseInt(topic[i],2);
 //			System.out.println(topic[i] + " -> " + asNums[i]);
 			for (int j = 0; j < i; j++) {
 //				runCounter++;
