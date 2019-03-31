@@ -76,9 +76,12 @@ public class QueensAttack {
 //		System.out.println(queensAttack(7, 0, 2, 3, empty));
 //		System.out.println(queensAttack(7, 0, 4, 4, empty));
 //		System.out.println(queensAttack(7, 0, 6, 5, empty));
-		for (int i = 1; i < 6; i++) {
-			for (int j = 1; j < 6; j++) {
-				System.out.println(queensAttack(5, 0, i, j, empty));
+		int testSize;
+		testSize = 5;
+		testSize = 3;
+		for (int i = 1; i < testSize+1; i++) {
+			for (int j = 1; j < testSize+1; j++) {
+				System.out.println(queensAttack(testSize, 0, i, j, empty));
 				System.out.println("--------");
 			}
 		}
