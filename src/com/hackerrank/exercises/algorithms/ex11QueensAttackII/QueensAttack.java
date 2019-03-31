@@ -53,6 +53,31 @@ public class QueensAttack {
 		for (int[] obstacle : obstacles) {
 			if (obstacle == null) break;
 			System.out.println(Arrays.toString(obstacle));
+			if (obstacle[0] == queenX) {
+				if (obstacle[1] < queenY) {
+					vertLow = Math.max(vertLow, obstacle[1]);
+				} else {
+					vertHigh = Math.min(vertHigh, obstacle[1]);
+				}
+			} else if (obstacle[1] == queenY) {
+				if (obstacle[0] < queenX) {
+					horizLow = Math.max(horizLow, obstacle[0]);
+				} else {
+					horizHigh = Math.min(horizHigh, obstacle[0]);
+				} 
+			} else if (obstacle[1] - obstacle[0] == risingD) {
+				if (obstacle[1] < queenY) {
+					risingLow = Math.max(risingLow, obstacle[1]);
+				} else {
+					risingHigh = Math.min(risingHigh, obstacle[1]);
+				}
+			} else if (obstacle[0] + obstacle[1] == fallingD) {
+				if (obstacle[1] < queenY) {
+					fallingLow = Math.max(fallingLow, obstacle[1]);
+				} else {
+					fallingHigh = Math.min(fallingHigh, obstacle[1]);
+				}
+			}
 		}
 		
 		int result = 0;
@@ -77,7 +102,7 @@ public class QueensAttack {
 		int[][] empty = new int[][] {new int[] {}};
 		
 		System.out.println(queensAttack(5, 3, 4, 3, tester));
-		System.out.println(queensAttack(7, 0, 2, 3, empty));
+//		System.out.println(queensAttack(7, 0, 2, 3, empty));
 		System.out.println(queensAttack(7, 0, 2, 3, new int[][] {null}));
 //		System.out.println(queensAttack(7, 0, 4, 4, empty));
 //		System.out.println(queensAttack(7, 0, 6, 5, empty));
