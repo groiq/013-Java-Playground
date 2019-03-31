@@ -15,10 +15,13 @@ public class QueensAttack {
 		int vertLow = 0;
 		
 //		int risingHigh = boardSize+1;
-		int risingLow = 0;
-		int fallingHigh = boardSize+1;
-		int fallingLow = 0;
-		int risingHigh = Math.max(boardSize, boardSize+risingD);
+//		int risingLow = 0;
+//		int fallingHigh = boardSize+1;
+//		int fallingLow = 0;
+		int risingHigh = Math.min(boardSize, boardSize+risingD)+1;
+		int risingLow = Math.max(0, risingD);
+		int fallingHigh = Math.min(boardSize+1, fallingD);
+		int fallingLow = Math.max(0, fallingD-boardSize);
 		
 		for (int[] obstacle : obstacles) {
 			System.out.println(Arrays.toString(obstacle));
