@@ -25,27 +25,27 @@ public class QueensAttack {
 		int fallingLow = Math.max(0, fallingD-maxHigh);
 		int fallingHigh = Math.min(fallingD, maxHigh);
 		
-//		// for later: generate a board as an object, provide a drawBoard method using fields
-//		for (int y = boardSize; y > 0; y--) {
-//			for (int x = 1; x < maxHigh; x++) {
-//				if (x == queenX && y == queenY) {
-//					System.out.print("X");
-//				} else {
-//					if (x == queenX) {
-//						System.out.print("|");
-//					} else if (y == queenY) {
-//						System.out.print("-");
-//					} else if (x + y == fallingD) {
-//						System.out.print("\\");
-//					} else if (y - x == risingD) {
-//						System.out.print("/");
-//					} else {
-//						System.out.print(".");
-//					}
-//				}
-//			}
-//			System.out.println();
-//		}
+		// for later: generate a board as an object, provide a drawBoard method using fields
+		for (int y = boardSize; y > 0; y--) {
+			for (int x = 1; x < maxHigh; x++) {
+				if (x == queenX && y == queenY) {
+					System.out.print("X");
+				} else {
+					if (x == queenX) {
+						System.out.print("|");
+					} else if (y == queenY) {
+						System.out.print("-");
+					} else if (x + y == fallingD) {
+						System.out.print("\\");
+					} else if (y - x == risingD) {
+						System.out.print("/");
+					} else {
+						System.out.print(".");
+					}
+				}
+			}
+			System.out.println();
+		}
 		
 //		System.out.println("risingD: " + risingD + ", risingLow: " + risingLow + ", risingHigh: " + risingHigh);
 //		System.out.println("fallingD: " + fallingD + ", fallingLow: " + fallingLow + ", fallingHigh: " + fallingHigh);
@@ -77,7 +77,7 @@ public class QueensAttack {
 //		System.out.println(queensAttack(7, 0, 6, 5, empty));
 		int testSize;
 		testSize = 5;
-		testSize = 3;
+//		testSize = 3;
 		for (int i = 1; i < testSize+1; i++) {
 			for (int j = 1; j < testSize+1; j++) {
 				System.out.println(queensAttack(testSize, 0, i, j, empty));
