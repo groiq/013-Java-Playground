@@ -20,6 +20,44 @@ public class QueensAttack {
 		
 		System.out.println(risingD + "||" + fallingD);
 		
+//		for (int y = boardSize; y > 0; y--) {
+//			for (int x = 1; x < maxHigh; x++) {
+//				if (y - x == risingD) {
+//					if (x + y == fallingD) {
+//						System.out.print("X");
+//					} else {
+//						System.out.print("/");
+//					}
+//				} else if (x + y == fallingD) {
+//					System.out.print("\\");
+//				} else {
+//					System.out.print(".");
+//				}
+//			}
+//			System.out.println();
+//		}
+		
+		// Todo: generate a board as an object, provide a drawBoard method using fields
+		for (int y = boardSize; y > 0; y--) {
+			for (int x = 1; x < maxHigh; x++) {
+				if (x == queenX && y == queenY) {
+					System.out.print("X");
+				} else {
+					if (x == queenX) {
+						System.out.print("|");
+					} else if (y == queenY) {
+						System.out.print("-");
+					} else if (x + y == fallingD) {
+						System.out.print("\\");
+					} else if (y - x == risingD) {
+						System.out.print("/");
+					} else {
+						System.out.print(".");
+					}
+				}
+			}
+			System.out.println();
+		}
 		
 		
 		int result = 0;
@@ -44,9 +82,17 @@ public class QueensAttack {
 		int[][] empty = new int[][] {new int[] {}};
 		
 //		System.out.println(queensAttack(5, 3, 4, 3, tester));
-		System.out.println(queensAttack(7, 0, 3, 2, empty));
-		System.out.println(queensAttack(7, 0, 4, 4, empty));
-		System.out.println(queensAttack(7, 0, 5, 6, empty));
+//		System.out.println(queensAttack(7, 0, 2, 3, empty));
+//		System.out.println(queensAttack(7, 0, 4, 4, empty));
+//		System.out.println(queensAttack(7, 0, 6, 5, empty));
+		for (int i = 1; i < 6; i++) {
+			for (int j = 1; j < 6; j++) {
+				System.out.println(queensAttack(5, 0, i, j, empty));
+				System.out.println("--------");
+			}
+		}
+		
+//		System.out.println(queensAttack(27, 0, 18, 4, empty));
 		
 
 	}
