@@ -25,30 +25,35 @@ public class QueensAttack {
 		int fallingLow = Math.max(0, fallingD-maxHigh);
 		int fallingHigh = Math.min(fallingD, maxHigh);
 		
-		// for later: generate a board as an object, provide a drawBoard method using fields
-		for (int y = boardSize; y > 0; y--) {
-			for (int x = 1; x < maxHigh; x++) {
-				if (x == queenX && y == queenY) {
-					System.out.print("X");
-				} else {
-					if (x == queenX) {
-						System.out.print("|");
-					} else if (y == queenY) {
-						System.out.print("-");
-					} else if (x + y == fallingD) {
-						System.out.print("\\");
-					} else if (y - x == risingD) {
-						System.out.print("/");
-					} else {
-						System.out.print(".");
-					}
-				}
-			}
-			System.out.println();
-		}
+//		// for later: generate a board as an object, provide a drawBoard method using fields
+//		for (int y = boardSize; y > 0; y--) {
+//			for (int x = 1; x < maxHigh; x++) {
+//				if (x == queenX && y == queenY) {
+//					System.out.print("X");
+//				} else {
+//					if (x == queenX) {
+//						System.out.print("|");
+//					} else if (y == queenY) {
+//						System.out.print("-");
+//					} else if (x + y == fallingD) {
+//						System.out.print("\\");
+//					} else if (y - x == risingD) {
+//						System.out.print("/");
+//					} else {
+//						System.out.print(".");
+//					}
+//				}
+//			}
+//			System.out.println();
+//		}
 		
 //		System.out.println("risingD: " + risingD + ", risingLow: " + risingLow + ", risingHigh: " + risingHigh);
 //		System.out.println("fallingD: " + fallingD + ", fallingLow: " + fallingLow + ", fallingHigh: " + fallingHigh);
+		
+		for (int[] obstacle : obstacles) {
+			if (obstacle == null) break;
+			System.out.println(Arrays.toString(obstacle));
+		}
 		
 		int result = 0;
 		
@@ -71,19 +76,20 @@ public class QueensAttack {
 		tester = new int[][] {new int[]{5,5},new int[] {4,2}, new int[] {2,3}};
 		int[][] empty = new int[][] {new int[] {}};
 		
-//		System.out.println(queensAttack(5, 3, 4, 3, tester));
-//		System.out.println(queensAttack(7, 0, 2, 3, empty));
+		System.out.println(queensAttack(5, 3, 4, 3, tester));
+		System.out.println(queensAttack(7, 0, 2, 3, empty));
+		System.out.println(queensAttack(7, 0, 2, 3, new int[][] {null}));
 //		System.out.println(queensAttack(7, 0, 4, 4, empty));
 //		System.out.println(queensAttack(7, 0, 6, 5, empty));
-		int testSize;
-		testSize = 5;
-//		testSize = 3;
-		for (int i = 1; i < testSize+1; i++) {
-			for (int j = 1; j < testSize+1; j++) {
-				System.out.println(queensAttack(testSize, 0, i, j, empty));
-				System.out.println("--------");
-			}
-		}
+//		int testSize;
+//		testSize = 5;
+////		testSize = 3;
+//		for (int i = 1; i < testSize+1; i++) {
+//			for (int j = 1; j < testSize+1; j++) {
+//				System.out.println(queensAttack(testSize, 0, i, j, empty));
+//				System.out.println("--------");
+//			}
+//		}
 		
 //		System.out.println(queensAttack(27, 0, 18, 4, empty));
 		
