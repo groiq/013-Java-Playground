@@ -14,10 +14,11 @@ public class QueensAttack {
 		int vertHigh = boardSize+1;
 		int vertLow = 0;
 		
-		int risingHigh = boardSize+1;
+//		int risingHigh = boardSize+1;
 		int risingLow = 0;
 		int fallingHigh = boardSize+1;
 		int fallingLow = 0;
+		int risingHigh = Math.max(boardSize, boardSize+risingD);
 		
 		for (int[] obstacle : obstacles) {
 			System.out.println(Arrays.toString(obstacle));
