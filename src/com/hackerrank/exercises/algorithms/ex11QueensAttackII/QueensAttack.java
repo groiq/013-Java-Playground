@@ -6,7 +6,7 @@ public class QueensAttack {
 	
 	static int queensAttackHelper(int boardSize, int obstacleCount, int queenX, int queenY, int[][] obstacles) {
 		
-		System.out.println(boardSize + "x" + boardSize + "," + queenX + "," + queenY);
+//		System.out.println(boardSize + "x" + boardSize + "," + queenX + "," + queenY);
 		
 		int maxHigh = boardSize + 1;
 		
@@ -18,45 +18,44 @@ public class QueensAttack {
 		int risingD = queenY - queenX;
 		int fallingD = queenY + queenX;
 		
-//		System.out.println(risingD + "||" + fallingD);
 		
 		int risingLow = Math.max(0, risingD);
 		int risingHigh = Math.min(maxHigh, maxHigh+risingD);
 
-		int fallingLow = Math.max(0, fallingD-boardSize);
+		int fallingLow = Math.max(0, fallingD-maxHigh);
 		int fallingHigh = Math.min(fallingD, maxHigh);
 		
-		// for later: generate a board as an object, provide a drawBoard method using fields
-		for (int y = boardSize; y > 0; y--) {
-			for (int x = 1; x < maxHigh; x++) {
-				if (x == queenX && y == queenY) {
-					System.out.print("X");
-				} else {
-					if (x == queenX) {
-						System.out.print("|");
-					} else if (y == queenY) {
-						System.out.print("-");
-					} else if (x + y == fallingD) {
-						System.out.print("\\");
-					} else if (y - x == risingD) {
-						System.out.print("/");
-					} else {
-						System.out.print(".");
-					}
-				}
-			}
-			System.out.println();
-		}
+//		// for later: generate a board as an object, provide a drawBoard method using fields
+//		for (int y = boardSize; y > 0; y--) {
+//			for (int x = 1; x < maxHigh; x++) {
+//				if (x == queenX && y == queenY) {
+//					System.out.print("X");
+//				} else {
+//					if (x == queenX) {
+//						System.out.print("|");
+//					} else if (y == queenY) {
+//						System.out.print("-");
+//					} else if (x + y == fallingD) {
+//						System.out.print("\\");
+//					} else if (y - x == risingD) {
+//						System.out.print("/");
+//					} else {
+//						System.out.print(".");
+//					}
+//				}
+//			}
+//			System.out.println();
+//		}
 		
-		System.out.println("risingD: " + risingD + ", risingLow: " + risingLow + ", risingHigh: " + risingHigh);
-		System.out.println("fallingD: " + fallingD + ", fallingLow: " + fallingLow + ", fallingHigh: " + fallingHigh);
+//		System.out.println("risingD: " + risingD + ", risingLow: " + risingLow + ", risingHigh: " + risingHigh);
+//		System.out.println("fallingD: " + fallingD + ", fallingLow: " + fallingLow + ", fallingHigh: " + fallingHigh);
 		
 		int result = 0;
 		
 		result = result + horizHigh - horizLow - 2;
 		result = result + vertHigh - vertLow - 2;
-//		result = result + risingHigh - risingLow - 1;
-//		result = result + fallingHigh - fallingLow - 1;
+		result = result + risingHigh - risingLow - 2;
+		result = result + fallingHigh - fallingLow - 2;
 		
 		return result;
 	}
