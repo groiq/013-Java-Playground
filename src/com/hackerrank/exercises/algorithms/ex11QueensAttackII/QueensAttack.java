@@ -23,22 +23,44 @@ public class QueensAttack {
 			System.out.println(Arrays.toString(obstacle));
 			if (obstacle[0] == queenX) {
 				System.out.println("vertical");
-				if (obstacle[1] < queenX) {
+				if (obstacle[1] < queenY) {
 					vertLow = Math.max(vertLow, obstacle[1]);
 				} else {
 					vertHigh = Math.min(vertHigh, obstacle[1]);
 				}
 			} if (obstacle[1] == queenY) {
 				System.out.println("horizontal");
+				if (obstacle[0] < queenX) {
+					horizLow = Math.max(horizLow, obstacle[0]);
+				} else {
+					horizHigh = Math.min(horizHigh, obstacle[0]);
+				}
 				
 			} if (obstacle[1] - obstacle[0] == risingD) {
 				System.out.println("rising");
+				if (obstacle[0] < queenX) {
+					risingLow = Math.max(risingLow, obstacle[0]);
+				} else {
+					risingHigh = Math.min(risingHigh, obstacle[0]);
+				}
 			} if (obstacle[0] + obstacle[1] == fallingD) {
 				System.out.println("falling");
+				if (obstacle[0] < queenX) {
+					fallingLow = Math.max(fallingLow, obstacle[0]);
+				} else {
+					fallingHigh = Math.min(fallingHigh, obstacle[0]);
+				}
 			}
 		}
 		
-		return 0;
+		int result = 0;
+		
+		result = result + horizHigh - horizLow - 1;
+		result = result + vertHigh - vertLow - 1;
+		result = result + risingHigh - risingLow - 1;
+		result = result + fallingHigh - fallingLow - 1;
+		
+		return result;
 	}
 	
     static int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles) {
