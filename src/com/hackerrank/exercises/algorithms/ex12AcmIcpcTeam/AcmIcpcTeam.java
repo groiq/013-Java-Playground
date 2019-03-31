@@ -8,46 +8,20 @@ public class AcmIcpcTeam {
     static int[] acmTeam(String[] topic) {
 
     	BigInteger[] asNums = new BigInteger[topic.length];
-//    	int[] counter = new int[topic[0].length()+1];
     	
     	int maxTopicCount = 0;
     	int teamsCount = 0;
     	
-//    	int runCounter = 0;
     	for (int i = 0; i < asNums.length; i++) {
-//    		runCounter++;
 //    		System.out.println(topic[i]);
-//    		asNums[i] = Integer.parseInt(topic[i]);
-//    		System.out.println(asNums[i]);
-//			asNums[i] =  Integer.parseInt(topic[i].trim(),2);
 			asNums[i] = new BigInteger(topic[i],2);
 //			System.out.println(topic[i] + " -> " + asNums[i]);
 			for (int j = 0; j < i; j++) {
-//				runCounter++;
-//				BigInteger k = asNums[i] | asNums[j];
 				BigInteger k = asNums[i].or(asNums[j]);
-//				System.out.println("i: " + i + ", j: " + j + ", topic[i]: " + topic[i] + ", topic[j]: " + topic[j] + ", asNums[i]: " + asNums[i] + ", asNums[j]: " + asNums[j] + ", k: " + k);
-//				System.out.print(runCounter + ": ");
-//				System.out.println(topic[i] + ", " + topic[j] + " -> " + Integer.toBinaryString(k));
-				int topicCount = 0;
-				String kString = k.toString(2);
-				System.out.println(kString);
-				for (int l = 0; l < kString.length(); l++) {
-					if (kString.charAt(l) == '1') {
-						topicCount++;
-					}
-				}
-//				for (char curChar : kString) {
-//					
-//				}
-//				while (k > 0) {
-//					topicCount += (k & 1);
-////					topicCount += (k%2);
-//					k = k >> 1;
-////					k /= 2;
-////					System.out.println("k: " + k + ", topicCount: " + topicCount);
-//				}
-//				System.out.println("final topic count: " + topicCount);
+				int topicCount = k.bitCount();
+//				String kString = k.toString(2);
+//				System.out.println(asNums[i].toString(2) + " | " + asNums[j].toString(2) + " -> " + kString);
+//				System.out.println(k.bitCount());
 				if (topicCount > maxTopicCount) {
 					maxTopicCount = topicCount;
 					teamsCount = 1;
