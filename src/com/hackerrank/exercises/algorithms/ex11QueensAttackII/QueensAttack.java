@@ -18,26 +18,15 @@ public class QueensAttack {
 		int risingD = queenY - queenX;
 		int fallingD = queenY + queenX;
 		
-		System.out.println(risingD + "||" + fallingD);
+//		System.out.println(risingD + "||" + fallingD);
 		
-//		for (int y = boardSize; y > 0; y--) {
-//			for (int x = 1; x < maxHigh; x++) {
-//				if (y - x == risingD) {
-//					if (x + y == fallingD) {
-//						System.out.print("X");
-//					} else {
-//						System.out.print("/");
-//					}
-//				} else if (x + y == fallingD) {
-//					System.out.print("\\");
-//				} else {
-//					System.out.print(".");
-//				}
-//			}
-//			System.out.println();
-//		}
+		int risingLow = Math.max(0, risingD);
+		int risingHigh = Math.min(maxHigh, maxHigh+risingD);
+
+		int fallingLow = Math.max(0, fallingD-boardSize);
+		int fallingHigh = Math.min(fallingD, maxHigh);
 		
-		// Todo: generate a board as an object, provide a drawBoard method using fields
+		// for later: generate a board as an object, provide a drawBoard method using fields
 		for (int y = boardSize; y > 0; y--) {
 			for (int x = 1; x < maxHigh; x++) {
 				if (x == queenX && y == queenY) {
@@ -59,6 +48,8 @@ public class QueensAttack {
 			System.out.println();
 		}
 		
+		System.out.println("risingD: " + risingD + ", risingLow: " + risingLow + ", risingHigh: " + risingHigh);
+		System.out.println("fallingD: " + fallingD + ", fallingLow: " + fallingLow + ", fallingHigh: " + fallingHigh);
 		
 		int result = 0;
 		
