@@ -1,12 +1,29 @@
 package com.hackerrank.exercises.algorithms.ex14OrganizingContainers;
 
+import java.util.Arrays;
+
 public class OrganizingContainers {
 	
 	static boolean helper(int[][] container) {
 		
+		int[] slots = new int[container.length];
+		int[] items = new int[container.length];
+		
+		for (int i = 0; i < container.length; i++) {
+			for (int j = 0; j < container[i].length; j++) {
+//				System.out.println(i + "/" + j + ": " + container[i][j]);
+				slots[i] += container[i][j];
+				items[j] += container[i][j];
+			}
+		}
 		
 		
-		return (container[0][1] == container[1][0] || container[0][0] == container[1][1]);
+		
+		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
+		
+		
+		
+		return false;
 		
 	}
 	
