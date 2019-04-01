@@ -16,14 +16,32 @@ public class OrganizingContainers {
 				items[j] += container[i][j];
 			}
 		}
-		
-		
+
+		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
+
+		boolean result = true;
+
+		for (int i = 0; i < slots.length; i++) {
+			for (int j = 0; j < items.length; j++) {
+				if (slots[i] == items[j]) {
+					slots[i] = -1;
+					items[j] = -1;
+					break;
+				}
+			}
+			if (slots[i] > -1) {
+//				return false;
+				result = false;
+				break;
+			}
+			
+		}
 		
 		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
 		
 		
 		
-		return false;
+		return result;
 		
 	}
 	
@@ -43,6 +61,9 @@ public class OrganizingContainers {
 		System.out.println(helper(i01));
 		System.out.println(helper(i10));
 		System.out.println(helper(i11));
+		
+		int[][] own01 = {{0,1,0},{2,0,0},{0,0,3}};
+		System.out.println(helper(own01));
 //		1 1
 //		1 1
 //		2
