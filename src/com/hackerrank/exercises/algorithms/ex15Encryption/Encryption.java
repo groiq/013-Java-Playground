@@ -1,8 +1,13 @@
 package com.hackerrank.exercises.algorithms.ex15Encryption;
 
+import java.util.Arrays;
+
 public class Encryption {
 	
     static String encryption(String s) {
+    	
+    	System.out.println(s.length());
+    	System.out.println(Math.sqrt(s.length()));
     	
     	int strippedLen = s.length();
     	
@@ -12,6 +17,8 @@ public class Encryption {
 			}
 		}
     	int blockLen = (int) Math.sqrt(strippedLen);
+    	System.out.println(strippedLen);
+    	System.out.println(blockLen);
     	
 //    	// test 1: print string in order
 //    	for (int i = 0; i < s.length(); i++) {
@@ -32,6 +39,18 @@ public class Encryption {
     			}
     		}
     	}
+    	
+    	char[][] encrMap = new char[(strippedLen / blockLen)][blockLen+1];
+//    	System.out.println(Arrays.toString(encrMap));
+//    	System.out.println(Arrays.toString(encrMap[0]));
+    	
+
+    	
+    	for (char[] cs : encrMap) {
+			System.out.println(Arrays.toString(cs));
+		}
+    	
+    	
 
     	String result = "";
 
