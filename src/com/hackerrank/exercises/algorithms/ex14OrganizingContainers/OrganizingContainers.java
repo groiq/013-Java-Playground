@@ -17,7 +17,7 @@ public class OrganizingContainers {
 			}
 		}
 
-		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
+//		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
 
 		boolean result = true;
 
@@ -37,7 +37,7 @@ public class OrganizingContainers {
 			
 		}
 		
-		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
+//		System.out.println(Arrays.toString(slots) + " -- " + Arrays.toString(items));
 		
 		
 		
