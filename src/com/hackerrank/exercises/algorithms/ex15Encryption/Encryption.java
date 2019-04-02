@@ -26,6 +26,20 @@ public class Encryption {
     	System.out.println(Arrays.toString(resultAsArray));
     	System.out.println(resultAsArray.length);
     	
+    	int[] tester = new int[12];
+    	for (int i = 0; i < tester.length; i++) {
+			tester[i] = i;
+		}
+    	System.out.println(Arrays.toString(tester));
+    	int highest = tester.length;
+    	for (int i = 0; i < tester.length; i++) {
+    		int col = (i>0) ? (highest/i) : 0;
+    		int row = (i>0) ? (highest%i) : 0;
+			int j = (highest/3)*(col) + (row);
+			tester[i] = j;
+		}
+    	System.out.println(Arrays.toString(tester));
+    	
 //    	// test 1: print string in order
 //    	for (int i = 0; i < s.length(); i++) {
 //			System.out.print(s.charAt(i));
@@ -54,11 +68,42 @@ public class Encryption {
 
     	return result;
     }
+    
+    
 
 	public static void main(String[] args) {
 		
-		System.out.println(encryption("have a nice day"));
+//		System.out.println(encryption("have a nice day"));
+		int[] tester = new int[12];
+		for (int i = 0; i < tester.length; i++) {
+			tester[i] = i;
+		}
+		System.out.println(Arrays.toString(tester));
+		System.out.println(Arrays.toString(reshuffle(tester)));
 
+	}
+	
+	static int[] reshuffle(int[] input) {
+		
+		int len = input.length;
+		int rowLen = (int) Math.sqrt(len);
+		int colLen = len / rowLen;
+//		System.out.println("len: " + len + ", rowLen: " + rowLen + ", colLen: " + colLen);
+		
+		for (int i = 0; i < input.length; i++) {
+			int curBlock;
+			int curSection;
+			curSection = i / rowLen;
+			curBlock = i % rowLen;
+			int newVal;
+			newVal = (curBlock * colLen) + curSection;
+//			newVal = colLen * curBlock + curSection;
+			System.out.println(i + "->" + curBlock + "," + curSection + "->" + newVal);
+			input[i] = newVal;
+		}
+		
+		return input;
+		
 	}
 
 }
