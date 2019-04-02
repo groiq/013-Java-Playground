@@ -74,7 +74,7 @@ public class Encryption {
 	public static void main(String[] args) {
 		
 //		System.out.println(encryption("have a nice day"));
-		int[] tester = new int[12];
+		int[] tester = new int[6];
 		for (int i = 0; i < tester.length; i++) {
 			tester[i] = i;
 		}
@@ -89,7 +89,12 @@ public class Encryption {
 		int rowLen = (int) Math.sqrt(len);
 		int colLen = len / rowLen;
 //		System.out.println("len: " + len + ", rowLen: " + rowLen + ", colLen: " + colLen);
+		int[] output = new int[len+colLen];
+		for (int i = 0; i < output.length; i++) {
+			output[i] = -1;
+		}
 		
+		int outputPos = 0;
 		for (int i = 0; i < input.length; i++) {
 			int curBlock;
 			int curSection;
@@ -98,11 +103,16 @@ public class Encryption {
 			int newVal;
 			newVal = (curBlock * colLen) + curSection;
 //			newVal = colLen * curBlock + curSection;
-			System.out.println(i + "->" + curBlock + "," + curSection + "->" + newVal);
-			input[i] = newVal;
+//			System.out.println(i + "->" + curBlock + "," + curSection + "->" + newVal);
+			output[outputPos] = newVal;
+			outputPos++;
+			if (i % rowLen == rowLen-1) {
+				outputPos++;
+			}
+			
 		}
 		
-		return input;
+		return output;
 		
 	}
 
