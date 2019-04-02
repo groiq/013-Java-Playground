@@ -6,8 +6,8 @@ public class Encryption {
 	
     static String encryption(String s) {
     	
-    	System.out.println(s.length());
-    	System.out.println(Math.sqrt(s.length()));
+//    	System.out.println(s.length());
+//    	System.out.println(Math.sqrt(s.length()));
     	
     	int strippedLen = s.length();
     	
@@ -17,8 +17,14 @@ public class Encryption {
 			}
 		}
     	int blockLen = (int) Math.sqrt(strippedLen);
+    	int blockHeight = strippedLen / blockLen;
     	System.out.println(strippedLen);
     	System.out.println(blockLen);
+    	System.out.println(blockHeight);
+    	
+    	char[] resultAsArray = new char[(blockLen+1)*blockHeight];
+    	System.out.println(Arrays.toString(resultAsArray));
+    	System.out.println(resultAsArray.length);
     	
 //    	// test 1: print string in order
 //    	for (int i = 0; i < s.length(); i++) {
@@ -28,27 +34,19 @@ public class Encryption {
 //			}
 //		}
 
-    	// test 2: same thing without spaces
-    	int counter = 0;
-    	for (int i = 0; i < s.length(); i++) {
-    		if (s.charAt(i) != ' ') {
-    			System.out.print(s.charAt(i));
-    			counter++;
-    			if (counter % blockLen == 0) {
-    				System.out.println();
-    			}
-    		}
-    	}
-    	
-    	char[][] encrMap = new char[(strippedLen / blockLen)][blockLen+1];
-//    	System.out.println(Arrays.toString(encrMap));
-//    	System.out.println(Arrays.toString(encrMap[0]));
+//    	// test 2: same thing without spaces
+//    	int counter = 0;
+//    	for (int i = 0; i < s.length(); i++) {
+//    		if (s.charAt(i) != ' ') {
+//    			System.out.print(s.charAt(i));
+//    			counter++;
+//    			if (counter % blockLen == 0) {
+//    				System.out.println();
+//    			}
+//    		}
+//    	}
     	
 
-    	
-    	for (char[] cs : encrMap) {
-			System.out.println(Arrays.toString(cs));
-		}
     	
     	
 
