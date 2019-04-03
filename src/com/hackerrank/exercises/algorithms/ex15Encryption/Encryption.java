@@ -21,47 +21,48 @@ public class Encryption {
     	System.out.println(strippedLen);
     	System.out.println(blockLen);
     	System.out.println(blockHeight);
+
+
+    	StringBuilder sb = new StringBuilder();
     	
-    	char[] resultAsArray = new char[(blockLen+1)*blockHeight];
-    	System.out.println(Arrays.toString(resultAsArray));
-    	System.out.println(resultAsArray.length);
-    	
-    	int[] tester = new int[12];
-    	for (int i = 0; i < tester.length; i++) {
-			tester[i] = i;
+    	int curBlock;
+    	int curSection;
+    	int posInStrippedString = 0;
+    	for (int i = 0; i < s.length(); i++) {
+    		if (s.charAt(i) == ' ') {
+    			continue;
+    		}
+//    		System.out.println(posInStrippedString + ":" + s.charAt(i));
+			curSection = posInStrippedString / blockLen;
+			curBlock = posInStrippedString % blockLen;
+			
+    		
+    		posInStrippedString++;
 		}
-    	System.out.println(Arrays.toString(tester));
-    	tester = reshuffle(tester);
-
-    	System.out.println(Arrays.toString(tester));
     	
-//    	// test 1: print string in order
-//    	for (int i = 0; i < s.length(); i++) {
-//			System.out.print(s.charAt(i));
-//			if ((i+1) % blockLen == 0) {
-//				System.out.println();
-//			}
-//		}
-
-//    	// test 2: same thing without spaces
-//    	int counter = 0;
-//    	for (int i = 0; i < s.length(); i++) {
-//    		if (s.charAt(i) != ' ') {
-//    			System.out.print(s.charAt(i));
-//    			counter++;
-//    			if (counter % blockLen == 0) {
-//    				System.out.println();
-//    			}
-//    		}
-//    	}
-    	
-
     	
     	
 
-    	String result = "";
+    	String result = sb.toString();
 
     	return result;
+    	
+    	
+    	
+//    	// legacy testing code
+//    	char[] resultAsArray = new char[(blockLen+1)*blockHeight];
+//    	System.out.println(Arrays.toString(resultAsArray));
+//    	System.out.println(resultAsArray.length);
+    	
+//    	int[] tester = new int[12];
+//    	for (int i = 0; i < tester.length; i++) {
+//			tester[i] = i;
+//		}
+//    	System.out.println(Arrays.toString(tester));
+//    	tester = reshuffle(tester);
+//
+//    	System.out.println(Arrays.toString(tester));
+//    	
     }
     
     
@@ -78,6 +79,9 @@ public class Encryption {
 
 	}
 	
+	/*
+	 * test: reorder an array
+	 */
 	static int[] reshuffle(int[] input) {
 		
 		int len = input.length;
