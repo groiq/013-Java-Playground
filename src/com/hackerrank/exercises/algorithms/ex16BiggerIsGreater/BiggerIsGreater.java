@@ -1,5 +1,5 @@
 /*
- * Idea: This is all about permutations. Try a permutation generator first? Didn't I have such a thing already?
+ * better solution: https://www.nayuki.io/page/next-lexicographical-permutation-algorithm
  */
 package com.hackerrank.exercises.algorithms.ex16BiggerIsGreater;
 
