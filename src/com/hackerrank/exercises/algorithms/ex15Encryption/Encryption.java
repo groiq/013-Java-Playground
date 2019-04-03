@@ -6,70 +6,71 @@ public class Encryption {
 	
     static String encryption(String s) {
     	
-//    	System.out.println(s.length());
-//    	System.out.println(Math.sqrt(s.length()));
-    	
-    	int strippedLen = s.length();
-    	
+    	/*
+    	 * generate a string with the blanks stripped.
+    	 * 
+    	 * more specifically, the blanks are moved to the end.
+    	 */
+    	int strippedLen = 0;
+    	char[] strippedString = new char[s.length()];
     	for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == ' ') {
-				strippedLen--;
-			}
-		}
-    	int blockLen = (int) Math.sqrt(strippedLen);
-    	int blockHeight = strippedLen / blockLen;
-    	System.out.println(strippedLen);
-    	System.out.println(blockLen);
-    	System.out.println(blockHeight);
-
-
+    		char c = s.charAt(i);
+    		if (c != ' ') {
+    			strippedString[strippedLen] = c;
+    			strippedLen++;
+    		}
+    	}
+//    	System.out.println(Arrays.toString(strippedString));
+    	int newWidth = (int) Math.sqrt(strippedLen);
+//    	int newHeight = strippedLen / newWidth;
+    	int newHeight = (int) Math.ceil((double)strippedLen/(double)newWidth);
+//    	System.out.println(strippedLen + ":" + newWidth + "," + newHeight);
+    	
+    	
+    	
     	StringBuilder sb = new StringBuilder();
     	
     	int curBlock;
     	int curSection;
-    	int posInStrippedString = 0;
-    	for (int i = 0; i < s.length(); i++) {
-    		if (s.charAt(i) == ' ') {
-    			continue;
+    	int oldPos;
+    	for (int i = 0; i <= s.length(); i++) {
+    		curSection = i / newWidth;
+    		curBlock = i % newWidth;
+    		oldPos = (curBlock * newHeight) + curSection;
+//    		System.out.print(i + "->" + curBlock + "," + curSection + "->" + oldPos + "->");
+    		if (oldPos < strippedLen) {
+//    			System.out.print(strippedString[oldPos]);
+    			sb.append(strippedString[oldPos]);
     		}
-//    		System.out.println(posInStrippedString + ":" + s.charAt(i));
-			curSection = posInStrippedString / blockLen;
-			curBlock = posInStrippedString % blockLen;
-			
-    		
-    		posInStrippedString++;
-		}
-    	
-    	
-    	
-
+//    		System.out.println();
+//    		sb.append(strippedString[oldPos]);
+//    		if (i == strippedLen - 1) { // don't insert last space, also failsafe
+//    			break;
+//    		}
+    		if (i % newWidth == newWidth - 1 && i < strippedLen - 1) {
+    			sb.append('.'); // for debugging
+//    			sb.append(' ');
+    		}
+    	}
+    
     	String result = sb.toString();
 
     	return result;
-    	
-    	
-    	
-//    	// legacy testing code
-//    	char[] resultAsArray = new char[(blockLen+1)*blockHeight];
-//    	System.out.println(Arrays.toString(resultAsArray));
-//    	System.out.println(resultAsArray.length);
-    	
-//    	int[] tester = new int[12];
-//    	for (int i = 0; i < tester.length; i++) {
-//			tester[i] = i;
-//		}
-//    	System.out.println(Arrays.toString(tester));
-//    	tester = reshuffle(tester);
-//
-//    	System.out.println(Arrays.toString(tester));
-//    	
+
     }
-    
-    
+
+
 
 	public static void main(String[] args) {
 		
 		System.out.println(encryption("have a nice day"));
+		System.out.println(encryption("123 456"));
+		System.out.println(encryption("1234"));
+		System.out.println(encryption("12345"));
+//		System.out.println("feedthedog".length());
+//		System.out.println("0123456789".length());
+		System.out.println(encryption("0123456789"));
+		System.out.println(encryption("feedthedog"));
 //		int[] tester = new int[6];
 //		for (int i = 0; i < tester.length; i++) {
 //			tester[i] = i;
