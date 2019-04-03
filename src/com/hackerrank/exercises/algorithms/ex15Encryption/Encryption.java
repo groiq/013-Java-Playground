@@ -31,13 +31,8 @@ public class Encryption {
 			tester[i] = i;
 		}
     	System.out.println(Arrays.toString(tester));
-    	int highest = tester.length;
-    	for (int i = 0; i < tester.length; i++) {
-    		int col = (i>0) ? (highest/i) : 0;
-    		int row = (i>0) ? (highest%i) : 0;
-			int j = (highest/3)*(col) + (row);
-			tester[i] = j;
-		}
+    	tester = reshuffle(tester);
+
     	System.out.println(Arrays.toString(tester));
     	
 //    	// test 1: print string in order
@@ -73,13 +68,13 @@ public class Encryption {
 
 	public static void main(String[] args) {
 		
-//		System.out.println(encryption("have a nice day"));
-		int[] tester = new int[6];
-		for (int i = 0; i < tester.length; i++) {
-			tester[i] = i;
-		}
-		System.out.println(Arrays.toString(tester));
-		System.out.println(Arrays.toString(reshuffle(tester)));
+		System.out.println(encryption("have a nice day"));
+//		int[] tester = new int[6];
+//		for (int i = 0; i < tester.length; i++) {
+//			tester[i] = i;
+//		}
+//		System.out.println(Arrays.toString(tester));
+//		System.out.println(Arrays.toString(reshuffle(tester)));
 
 	}
 	
