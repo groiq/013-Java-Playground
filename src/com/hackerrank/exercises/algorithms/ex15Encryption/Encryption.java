@@ -21,9 +21,12 @@ public class Encryption {
     		}
     	}
 //    	System.out.println(Arrays.toString(strippedString));
-    	int newWidth = (int) Math.sqrt(strippedLen);
+    	double a = Math.sqrt(strippedLen);
+    	int newWidth = (int) a;
+    	int newHeight = (int) Math.ceil(a);
 //    	int newHeight = strippedLen / newWidth;
-    	int newHeight = (int) Math.ceil((double)strippedLen/(double)newWidth);
+//    	int newHeight = (int) Math.ceil((double)strippedLen/(double)newWidth);
+    	if (newWidth * newHeight < strippedLen) newWidth++;
 //    	System.out.println(strippedLen + ":" + newWidth + "," + newHeight);
     	
     	
@@ -33,7 +36,7 @@ public class Encryption {
     	int curBlock;
     	int curSection;
     	int oldPos;
-    	for (int i = 0; i <= s.length(); i++) {
+    	for (int i = 0; i < (newWidth*newHeight); i++) {
     		curSection = i / newWidth;
     		curBlock = i % newWidth;
     		oldPos = (curBlock * newHeight) + curSection;
@@ -48,8 +51,8 @@ public class Encryption {
 //    			break;
 //    		}
     		if (i % newWidth == newWidth - 1 && i < strippedLen - 1) {
-    			sb.append('.'); // for debugging
-//    			sb.append(' ');
+//    			sb.append('.'); // for debugging
+    			sb.append(' ');
     		}
     	}
     
@@ -67,10 +70,11 @@ public class Encryption {
 		System.out.println(encryption("123 456"));
 		System.out.println(encryption("1234"));
 		System.out.println(encryption("12345"));
-//		System.out.println("feedthedog".length());
-//		System.out.println("0123456789".length());
 		System.out.println(encryption("0123456789"));
 		System.out.println(encryption("feedthedog"));
+		System.out.println(encryption("01234567"));
+		System.out.println(encryption("chillout"));
+//		
 //		int[] tester = new int[6];
 //		for (int i = 0; i < tester.length; i++) {
 //			tester[i] = i;
