@@ -3,10 +3,7 @@ package at.bfi.assignments.sorters.tools;
 public class ArrayOps {
 	
 	/*
-	 * TODO
-	 * - void partial reverse method
-	 * - "total" reverse reverses an array from 0 to its length
-	 * - overloaded constructor - reverse(arr) calls reverse(arr,begin,end)
+	 * for later: handle the entire DataContainer thing from here?
 	 */
 	
 	public static void reverse(int[] input, int from, int to) {
