@@ -36,15 +36,16 @@ public class Reverse {
 		
 		tester = new DataContainer(testData);
 		
-		print(fetch());
+//		print(fetch());
 		
-//		System.out.println(testData);
-		
+		System.out.println("testing partial reverse");
 		for (int i = 0; i < testData.length; i++) {
 			testData = fetch();
 			ArrayOps.reverse(testData, i, testData.length-1);
 			print(testData);
 		}
+		System.out.println();
+
 
 	}
 
