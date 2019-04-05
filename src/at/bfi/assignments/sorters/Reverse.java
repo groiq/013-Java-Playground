@@ -1,4 +1,4 @@
-package at.bfi.assignments.sorters.tools;
+package at.bfi.assignments.sorters;
 
 public class Reverse {
 	

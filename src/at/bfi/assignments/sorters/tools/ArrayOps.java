@@ -9,6 +9,16 @@ public class ArrayOps {
 	 * - overloaded constructor - reverse(arr) calls reverse(arr,begin,end)
 	 */
 	
+	public static void reverse(int[] input, int from, int to) {
+		while (from < to) {
+			swap(input,from,to);
+			from++;
+			to--;
+		}
+	}
+	
+	
+	
 	/**
 	 * Reverses an array.
 	 * @param input - an int[]
