@@ -47,9 +47,9 @@ public class ArrayExercisesApp {
 		sortedInt = Arr.sortWithLinkedList(testInt);
 		pprint(sortedInt);
 		
-		int[] reversedInt;
-		reversedInt = Arr.reverse(testInt);
-		pprint(reversedInt);
+//		int[] reversedInt;
+//		reversedInt = Arr.reverse(testInt);
+//		pprint(reversedInt);
 		
 		double[] testDouble = new double[testInt.length];
 		for (int i = 0; i < testDouble.length; i++) {

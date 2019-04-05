@@ -119,22 +119,12 @@ public class Arr {
 		}
 		return input;
 	}
-
-	/**
-	 * Reverses an array.
-	 * @param input - an int[]
-	 * @return an int[] - input reversed
+	
+	/*
+	 * array reversal moved to ArrayOps
 	 */
-	public static int[] reverse(int[] input) {
-		int i = 0;
-		int j = input.length - 1;
-		while (j > i) {
-			input = swap(input, i, j);
-			i++;
-			j--;
-		}
-		return input;
-	}
+
+
 }
 
 
