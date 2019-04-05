@@ -1,6 +1,6 @@
-package at.bfi.assignments.sorters;
+package at.bfi.assignments.sorters.tools;
 
-public class partialReverse {
+public class Reverse {
 	
 	
 
