@@ -1,8 +1,8 @@
-package at.bfi.assignments.sorters;
+package at.bfi.assignments.sorters.tools;
 
 import java.util.Arrays;
 
-class DataContainer {
+public class DataContainer {
 	
 	private final int[] unsortedArray;
 

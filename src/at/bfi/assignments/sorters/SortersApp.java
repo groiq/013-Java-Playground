@@ -2,6 +2,8 @@ package at.bfi.assignments.sorters;
 
 import java.util.Arrays;
 
+import at.bfi.assignments.sorters.tools.DataContainer;
+
 public class SortersApp {
 
 	private static DataContainer tester;
