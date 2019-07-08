@@ -1,6 +1,5 @@
 package other.exercises.e01.data.cube.size.calculator;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -26,13 +25,6 @@ public class DataCubeSizeCalculator {
 		int dimensions = input.nextInt();
 		System.out.println("Calculating a cube with " + dimensions + " dimensions...");
 		
-		int[] tupleCount = new int[dimensions];
-		
-		for (int i = 0; i < tupleCount.length; i++) {
-			System.out.println("Dimension #" + (i+1) + ": How many tuples are there?");
-			tupleCount[i] = input.nextInt();
-		}
-		System.out.println("Stats of your data cube: " + Arrays.toString(tupleCount));
 		
 		input.close();
 
