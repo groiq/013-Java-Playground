@@ -14,9 +14,6 @@ import java.util.Scanner;
  * https://lagunita.stanford.edu/courses/DB/OLAP/SelfPaced/courseware/ch-on-line_analytical_processing/seq-vid-olap/?activate_block_id=i4x%3A%2F%2FDB%2FOLAP%2Fsequential%2Fseq-vid-olap
  * 
  * Thought I'd write a calculator for that.
- * 
- * After setting everything up I noticed that the calculation is actually much simpler than that, 
- * but for practicing purposes I'll pretend I didn't notice.
  *
  */
 public class DataCubeSizeCalculator {
