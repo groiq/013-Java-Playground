@@ -1,5 +1,7 @@
 package other.exercises.e01.data.cube.size.calculator;
 
+import java.util.Scanner;
+
 /**
  * 
  * @author HAL
@@ -17,6 +19,14 @@ public class DataCubeSizeCalculator {
 
 	public static void main(String[] args) {
 		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("How many dimensions does the cube have?");
+		int dimensions = input.nextInt();
+		System.out.println("Calculating a cube with " + dimensions + " dimensions...");
+		
+		
+		input.close();
 
 	}
 
