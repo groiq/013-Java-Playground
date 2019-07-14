@@ -3,7 +3,8 @@ package other.exercises.e01.simple.recursion;
 import java.util.Arrays;
 
 /**
- * Simple example for recursion from https://www.essentialsql.com/recursive-ctes-explained/
+ * Simple example for recursion from https://www.quora.com/How-should-I-explain-recursion-to-a-4-year-old 
+ * via https://www.essentialsql.com/recursive-ctes-explained/
  * @author HAL
  *
  */
