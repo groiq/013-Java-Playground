@@ -31,7 +31,32 @@ Zurück                   17.40 EUR
 public class ReceiptApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		String[] theGoods;
+		double[] thePrices;
+		int[] theAmounts;
+		double wallet;
+		
+		Store groceryStore;
+		ShoppingList groceryList;
+		
+		theGoods = new String[] { "apples","onions","potatoes","rice","vinegar","milk" };
+		thePrices = new double[] {1.0,1.5,2.0,2.5,3.0,3.5};
+		
+		groceryStore = new Store(theGoods, thePrices);
+		
+		theAmounts = new int[] {0,1,2,3};
+//		theAmounts = new int[] {0,1,2,3,4,5,6,7};
+		theAmounts = new int[] {0,1,2,3,4,5};
+		
+		groceryList = new ShoppingList(groceryStore,theAmounts);
+//		System.out.println(groceryList);
+		
+		wallet = 47.0;
+		
+		ReceiptPrinter.printReceipt(groceryStore, groceryList, wallet);
+		
+
 
 	}
 

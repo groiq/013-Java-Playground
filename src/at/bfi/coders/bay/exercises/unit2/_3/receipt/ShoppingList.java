@@ -1,5 +1,7 @@
 package at.bfi.coders.bay.exercises.unit2._3.receipt;
 
+import java.util.Arrays;
+
 public class ShoppingList {
 	
 	String[] goods;
@@ -30,6 +32,10 @@ public class ShoppingList {
 			}
 		}
 		
+	}
+	@Override
+	public String toString() {
+		return "ShoppingList [goods=" + Arrays.toString(goods) + ", amounts=" + Arrays.toString(amounts) + "]";
 	}
 	
 	
