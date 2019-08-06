@@ -36,7 +36,7 @@ public class ReceiptPrinter {
 
 	public static void main(String[] args) {
 		
-		hr = "------------";
+//		hr = "------------";
 		
 		String[] theGoods;
 		double[] thePrices;
@@ -51,7 +51,8 @@ public class ReceiptPrinter {
 		
 		int size = Math.min(theGoods.length, thePrices.length);
 		
-		double total = 0.0;
+		double total =	 	0.0;
+		int lineLength =	0;
 		
 		shoppingList = new ShoppedItem[size];
 		
@@ -64,6 +65,12 @@ public class ReceiptPrinter {
 			}
 			shoppingList[i] = new ShoppedItem(theGoods[i], curAmount, thePrices[i]);
 			total += shoppingList[i].getPrice();
+			lineLength = Math.max(lineLength, shoppingList[i].toString().length());
+		}
+		
+		hr = "";
+		for (int i = 0; i < lineLength; i++) {
+			hr += "-";
 		}
 		
 		if (total > wallet) {
