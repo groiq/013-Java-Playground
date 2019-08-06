@@ -36,6 +36,8 @@ public class ShoppedItem {
 		this.amount = amount;
 		this.piecePrice = piecePrice;
 	}
+	
+	// toString
 	@Override
 	public String toString() {
 		return name + "\t" + amount + " x " + piecePrice + " EUR\t" + getPrice() + " EUR";
