@@ -66,12 +66,15 @@ public class ReceiptPrinter {
 			shoppingList[i] = new ShoppedItem(theGoods[i], curAmount, thePrices[i]);
 			total += shoppingList[i].getPrice();
 			lineLength = Math.max(lineLength, shoppingList[i].toString().length());
+//			System.out.println(lineLength);
+			
 		}
 		
 		hr = "";
 		for (int i = 0; i < lineLength; i++) {
 			hr += "-";
 		}
+//		System.out.println(hr.length());
 		
 		if (total > wallet) {
 			System.out.println("Total price exceeds budget. Please be more wealthy.");
@@ -82,6 +85,7 @@ public class ReceiptPrinter {
 			for (ShoppedItem curItem : shoppingList) {
 				if (curItem.getAmount() > 0) {
 					System.out.println(curItem);
+//					System.out.println(curItem.toString().length());
 				}
 			}
 			System.out.println(hr);
