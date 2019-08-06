@@ -31,6 +31,8 @@ public class ShoppedItem {
 	public double getPrice() {
 		return piecePrice * amount;
 	}
+	
+	// Constructor
 	public ShoppedItem(String name, int amount, double piecePrice) {
 		this.name = name;
 		this.amount = amount;
