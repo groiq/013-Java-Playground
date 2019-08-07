@@ -78,7 +78,7 @@ public class DeclareVariables {
 		} else if (newStatus == "unmarried") {
 			setMarried(false);
 		} else {
-			// for later: throw an exception
+			throw new IllegalArgumentException("no recognized marriage status.");
 		}
 	}
 
