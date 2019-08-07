@@ -7,6 +7,7 @@ public class DeclareVariables {
 	int sampleInt;
 	String sampleString;
 	double sampleDouble;
+	boolean isMarried;
 	
 	// Constructor
 	public DeclareVariables(boolean sampleBool, int sampleInt, String sampleString, double sampleDouble) {
@@ -15,6 +16,8 @@ public class DeclareVariables {
 		this.sampleInt = sampleInt;
 		this.sampleString = sampleString;
 		this.sampleDouble = sampleDouble;
+		// let's assume each object starts its life single
+		this.isMarried = false;
 	}
 
 	// Getters and Setters
@@ -52,11 +55,40 @@ public class DeclareVariables {
 		this.sampleDouble = sampleDouble;
 	}
 
+	public boolean isMarried() {
+		return isMarried;
+	}
+
+	public void setMarried(boolean isMarried) {
+		this.isMarried = isMarried;
+	}
+	
+	// marriage status as a string
+	public String getMarriageStatus() {
+		if (isMarried) {
+			return "married";
+		} else {
+			return "unmarried";
+		}
+	}
+	
+	public void setMarriageStatus(String newStatus) {
+		if (newStatus == "married") {
+			setMarried(true);
+		} else if (newStatus == "unmarried") {
+			setMarried(false);
+		} else {
+			// for later: throw an exception
+		}
+	}
+
 	// toString
 	
 	@Override
 	public String toString() {
 		return ("a boolean: " + sampleBool + ", an int: " + sampleInt + ", a String: " + sampleString + ", a double: " + sampleDouble + ".");
 	}
+	
+	
 
 }
