@@ -10,6 +10,11 @@ package at.bfi.coders.bay.exercises.unit2._2;
  * -String
  * -double
  * 2. Gib sie mit einem System.out.println in der Konsole aus
+ * 
+ * Aufgabe: verheiratet oder nicht
+ * Verwende die Aufgabe wo wir Datentypen initialisiert haben
+ * Lege eine Variable isMarried an
+ * Je nachdem ob jemand verheiratet ist oder nicht, sollen unterschiedliche Systemausgaben in der Konsole erscheinen
  *
  */
 public class DeclareVariablesApp {
@@ -25,16 +30,18 @@ public class DeclareVariablesApp {
 		
 		System.out.println("initial state");
 		checkMarriage(declareVariablesSample);
+		
 		System.out.println("setting true...");
 		declareVariablesSample.setMarried(true);
 		checkMarriage(declareVariablesSample);
 		System.out.println("setting false...");
 		declareVariablesSample.setMarried(false);
 		checkMarriage(declareVariablesSample);
-		System.out.println("setting married...");
+		
+		System.out.println("setting string married...");
 		declareVariablesSample.setMarriageStatus("married");
 		checkMarriage(declareVariablesSample);
-		System.out.println("setting unmarried...");
+		System.out.println("setting string unmarried...");
 		declareVariablesSample.setMarriageStatus("unmarried");
 		checkMarriage(declareVariablesSample);
 		System.out.println("setting invalid string...");
