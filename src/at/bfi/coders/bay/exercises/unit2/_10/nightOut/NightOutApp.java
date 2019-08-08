@@ -21,12 +21,19 @@ public class NightOutApp {
 	public static void main(String[] args) {
 		
 		/**
-		 *  Definiere eine Variable in der du ml abspeichern kannst (egal ob mit oder ohne Nachkommazahlen).
+		 * 1. Definiere eine Variable in der du ml abspeichern kannst (egal ob mit oder ohne Nachkommazahlen).
 		 *  Lege einen Wert fest und überprüfe mit einer geigneten Verzweigung, folgende Situation:
-		 *     Das Glas hat genau  250ml Inhalt --> Ausgabe "Das Glas ist voll"
-		 *     Das Glas hat weniger als 250ml Inhalt --> Ausgabe "Das Glas ist nicht mehr voll"
-		 *     Das Glas hat weniger als 20ml oder ist ganz leer --> Ausgabe "Kellner neues Bier*"
-		 *     *Statt Bier kann gerne auch Spritzer bestellt werden
+		 * 
+		 *        Das Glas hat genau  250ml Inhalt --> Ausgabe "Das Glas ist voll"
+		 *        Das Glas hat weniger als 250ml Inhalt --> Ausgabe "Das Glas ist nicht mehr voll"
+		 *        Das Glas hat weniger als 20ml oder ist ganz leer --> Ausgabe "Kellner neues Bier*" 
+		 * 
+		 *    *Statt Bier kann gerne auch Spritzer bestellt werden
+		 * 
+		 *    Optional: Du verbringst den ganzen Abend in einem Lokal 
+		 *    und wirst eine bestimmte Anzahl an Gläsern trinken. 
+		 *    Speichere dir deine Anzahl an getrunkenen Gläsern in eine Variable 
+		 *    die wir später brauchen werden.
 		 */
 		
 		Celebrant adam = new Celebrant("Adam");
@@ -42,17 +49,19 @@ public class NightOutApp {
 		testGlassContents(adam, 250.1);
 		System.out.println("Adam has drunk " + adam.getGlassesDrunk() + " glasses so far.");
 		
-		/*
-		 * 2. Als nächsten Stop in eurer Abendgestaltung gehst du in eine Spielbar in der ihr bowlen geht. Für die Punktevergabe gibt es folgende Regeln.
-  Wenn alle 10 Pins getroffen werden dann ist das ein Strike. Ausgabe auf der Punktetafel soll daher "X - Strike!!!" sein.
-  Wenn 7-9 Pins getroffen werden dann soll "Guter Treffer" ausgegeben werden
-  Wenn 4-6 Pins getroffen werden dann soll "Normaler Treffer" ausgegeben werden
-  Wenn 1-3 Pins getroffen werden dann soll "Schwacher Treffer" ausgegeben werden
-  Wenn kein Pin getroffen wird dann "- Miss" ausgegeben
-
+		/**
+		 * 2. Als nächsten Stop in eurer Abendgestaltung gehst du in eine Spielbar in der ihr bowlen geht.
+		 * Für die Punktevergabe gibt es folgende Regeln.
+		 * 
+		 *       Wenn alle 10 Pins getroffen werden dann ist das ein Strike. Ausgabe auf der Punktetafel soll daher "X - Strike!!!" sein.
+		 *       Wenn 7-9 Pins getroffen werden dann soll "Guter Treffer" ausgegeben werden
+		 *       Wenn 4-6 Pins getroffen werden dann soll "Normaler Treffer" ausgegeben werden
+		 *       Wenn 1-3 Pins getroffen werden dann soll "Schwacher Treffer" ausgegeben werden
+		 *       Wenn kein Pin getroffen wird dann "- Miss" ausgegeben
+		 * 
+		 *    Optional: Du darfst nur Spielen wenn du im vorherigen Lokal weniger als 4 Getränke hattest
 		 */
 		
-		// first, another celebrant for testing the "too drunk for bowling" condition...
 		BowlingAlley koeoe = new BowlingAlley();
 		
 		Celebrant bob = new Celebrant("Bob");
