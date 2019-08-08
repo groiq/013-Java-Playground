@@ -28,10 +28,11 @@ public class DeclareVariablesApp {
 	private static void trySettingMarriageStatus(String newStatus) {
 		System.out.println("Trying setting marriage status to: " + newStatus);
 		try {
-			declareVariablesSample.setMarriageStatus("married");
+			declareVariablesSample.setMarriageStatus(newStatus);
 		} catch (IllegalArgumentException exc) {
-			System.out.println("ERROR: Relationship status \"" + newStatus + "\". Marriage status unchanged.");
+			System.out.println("ERROR: Relationship status \"" + newStatus + "\" not implemented. Marriage status unchanged.");
 		}
+		checkMarriage(declareVariablesSample);
 	}
 
 	public static void main(String[] args) {
@@ -49,15 +50,10 @@ public class DeclareVariablesApp {
 		declareVariablesSample.setMarried(false);
 		checkMarriage(declareVariablesSample);
 		
-		System.out.println("setting string married...");
-		declareVariablesSample.setMarriageStatus("married");
-		checkMarriage(declareVariablesSample);
-		System.out.println("setting string unmarried...");
-		declareVariablesSample.setMarriageStatus("unmarried");
-		checkMarriage(declareVariablesSample);
-		System.out.println("setting invalid string...");
-		declareVariablesSample.setMarriageStatus("in wilder Ehe");
-		checkMarriage(declareVariablesSample);
+		trySettingMarriageStatus("unmarried");
+		trySettingMarriageStatus("married");
+		trySettingMarriageStatus("concubinage");
+		
 		
 	}
 
