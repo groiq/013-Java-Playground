@@ -19,13 +19,24 @@ package at.bfi.coders.bay.exercises.unit2._2;
  */
 public class DeclareVariablesApp {
 	
+	private static DeclareVariables declareVariablesSample;
+
 	private static void checkMarriage(DeclareVariables declareVariables) {
 		System.out.println("The sample is " + declareVariables.getMarriageStatus() + ".");
+	}
+	
+	private static void trySettingMarriageStatus(String newStatus) {
+		System.out.println("Trying setting marriage status to: " + newStatus);
+		try {
+			declareVariablesSample.setMarriageStatus("married");
+		} catch (IllegalArgumentException exc) {
+			System.out.println("ERROR: Relationship status \"" + newStatus + "\". Marriage status unchanged.");
+		}
 	}
 
 	public static void main(String[] args) {
 		
-		DeclareVariables declareVariablesSample = new DeclareVariables(false, 5, "some String", 1.2);
+		declareVariablesSample = new DeclareVariables(false, 5, "some String", 1.2);
 		System.out.println(declareVariablesSample);
 		
 		System.out.println("initial state");
