@@ -29,7 +29,8 @@ public class BowlingAlley {
 		if (result <= 10 && result >= 0) {
 			this.result = result;
 			
-		} else {
+		} else if (result > 10) {
+			this.result = 0;
 
 		}
 	}
