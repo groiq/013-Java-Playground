@@ -1,32 +1,32 @@
-Aufgabe: Night Out
-
-
-   Optional: Du verbringst den ganzen Abend in einem Lokal und wirst eine bestimmte Anzahl an Gläsern trinken. Speichere dir deine Anzahl an getrunkenen Gläsern in eine Variable die wir später brauchen werden.
-
-2. Als nächsten Stop in eurer Abendgestaltung gehst du in eine Spielbar in der ihr bowlen geht. Für die Punktevergabe gibt es folgende Regeln.
-  Wenn alle 10 Pins getroffen werden dann ist das ein Strike. Ausgabe auf der Punktetafel soll daher "X - Strike!!!" sein.
-  Wenn 7-9 Pins getroffen werden dann soll "Guter Treffer" ausgegeben werden
-  Wenn 4-6 Pins getroffen werden dann soll "Normaler Treffer" ausgegeben werden
-  Wenn 1-3 Pins getroffen werden dann soll "Schwacher Treffer" ausgegeben werden
-  Wenn kein Pin getroffen wird dann "- Miss" ausgegeben
-
-   Optional: Du darfst nur Spielen wenn du im vorherigen Lokal weniger als 4 Getränke hattest
-
-3. Nach eurem erfolgreichen Spiel wollt ihr eine Gruppe von Mädels (Jungs) beeindrucken und noch Klimmzüge am Türrahmen (Alternativ Sit-ups) machen.
-   Um den Gruppeneffekt zu stärken zählen alle laut mit. 
-   Programmiere mit allen Schleifenvarianten die du kennst, die Ausgabe der Zählung "1", "2",...
-   Anmerkung: Für die Anzahl soll eine Variable verwendet werden die in der Schleife hochgezählt wird.
-
-   Optional: Bei 10 Liegestütz (Sit-Ups) fängst du zum schnaufen an und sagst laut "Phu ich hoffe das ist bald vorbei"
-             Bei 15 sagst du "Ich glaub ich schaff das nicht"
-             Bei 19 sagst du "JA ICH SCHAFFE ES!!!!!"
-             Bei 20 jubeln alle und singen "OLEOLEOLEEEEE"
-
-4.  Am Abend liegst du im Bett und es gibt nun folgende Fälle abzudecken:
-    Fall 1: Du hast nur ein Getränk getrunken und gehst dich daher noch Duschen, Zähne putzen und ziehst dir deine Schlafkleidung an. Aufgabe, du sollst deine Tätigkeiten mit einer println Funktion ausgeben. 
-    Fall 2: Du hast weniger als 3 Gläser getrunken und machst das selbe wie in Fall 1. Zusätzlich bemerkst du, dass du Hunger hast. Du gehst zum Kühlschrank und isst alle Kekse die du findest. Aufgabe: Du gibst deine Tätigkeiten aus. Für die Anzahl der Kekse soll immer ausgegeben werden "Keks "+Nr.1 +"gegessen",  "Keks "+Nr.2 +"gegessen", .......
-   Fall 3: Du hast mehr als 3 Gläser getrunken und willst direkt ins Bett gehen. Du versuchst über die Stufen zu gehen, schaffst aber die Anzahl der Stufen NICHT die du Getränke getrunken hast. Die Stiege hat 15 Stufen. Hast du also 4 Getränke getrunken, schaffst du es nur bis zur 11 Stufe. Aufgabe: Gib jede einzelne Stufe die du erklommen hast aus. Bei der letzten Stufe die du schaffst gibst du aus "Jetzt muss ich schlafen"
-
-5.  Ändere dein Programm so, dass du für die erste Aufgabenstellung eine Liste an ml hast (mindestens 3) die du in einer Schleife auf die bestehenden Abfragen überprüfst.
-
-6.  Ändere dein Programm so, dass du mindestens 10 mal bowlst und immer unterschiedliche Ergebnisse erzielst (Verwendung einer Liste)
+ * Aufgabe: Night Out
+ * 
+ * 
+ *    Optional: Du verbringst den ganzen Abend in einem Lokal und wirst eine bestimmte Anzahl an Gläsern trinken. Speichere dir deine Anzahl an getrunkenen Gläsern in eine Variable die wir später brauchen werden.
+ * 
+ * 2. Als nächsten Stop in eurer Abendgestaltung gehst du in eine Spielbar in der ihr bowlen geht. Für die Punktevergabe gibt es folgende Regeln.
+ *   Wenn alle 10 Pins getroffen werden dann ist das ein Strike. Ausgabe auf der Punktetafel soll daher "X - Strike!!!" sein.
+ *   Wenn 7-9 Pins getroffen werden dann soll "Guter Treffer" ausgegeben werden
+ *   Wenn 4-6 Pins getroffen werden dann soll "Normaler Treffer" ausgegeben werden
+ *   Wenn 1-3 Pins getroffen werden dann soll "Schwacher Treffer" ausgegeben werden
+ *   Wenn kein Pin getroffen wird dann "- Miss" ausgegeben
+ * 
+ *    Optional: Du darfst nur Spielen wenn du im vorherigen Lokal weniger als 4 Getränke hattest
+ * 
+ * 3. Nach eurem erfolgreichen Spiel wollt ihr eine Gruppe von Mädels (Jungs) beeindrucken und noch Klimmzüge am Türrahmen (Alternativ Sit-ups) machen.
+ *    Um den Gruppeneffekt zu stärken zählen alle laut mit. 
+ *    Programmiere mit allen Schleifenvarianten die du kennst, die Ausgabe der Zählung "1", "2",...
+ *    Anmerkung: Für die Anzahl soll eine Variable verwendet werden die in der Schleife hochgezählt wird.
+ * 
+ *    Optional: Bei 10 Liegestütz (Sit-Ups) fängst du zum schnaufen an und sagst laut "Phu ich hoffe das ist bald vorbei"
+ *              Bei 15 sagst du "Ich glaub ich schaff das nicht"
+ *              Bei 19 sagst du "JA ICH SCHAFFE ES!!!!!"
+ *              Bei 20 jubeln alle und singen "OLEOLEOLEEEEE"
+ * 
+ * 4.  Am Abend liegst du im Bett und es gibt nun folgende Fälle abzudecken:
+ *     Fall 1: Du hast nur ein Getränk getrunken und gehst dich daher noch Duschen, Zähne putzen und ziehst dir deine Schlafkleidung an. Aufgabe, du sollst deine Tätigkeiten mit einer println Funktion ausgeben. 
+ *     Fall 2: Du hast weniger als 3 Gläser getrunken und machst das selbe wie in Fall 1. Zusätzlich bemerkst du, dass du Hunger hast. Du gehst zum Kühlschrank und isst alle Kekse die du findest. Aufgabe: Du gibst deine Tätigkeiten aus. Für die Anzahl der Kekse soll immer ausgegeben werden "Keks "+Nr.1 +"gegessen",  "Keks "+Nr.2 +"gegessen", .......
+ *    Fall 3: Du hast mehr als 3 Gläser getrunken und willst direkt ins Bett gehen. Du versuchst über die Stufen zu gehen, schaffst aber die Anzahl der Stufen NICHT die du Getränke getrunken hast. Die Stiege hat 15 Stufen. Hast du also 4 Getränke getrunken, schaffst du es nur bis zur 11 Stufe. Aufgabe: Gib jede einzelne Stufe die du erklommen hast aus. Bei der letzten Stufe die du schaffst gibst du aus "Jetzt muss ich schlafen"
+ * 
+ * 5.  Ändere dein Programm so, dass du für die erste Aufgabenstellung eine Liste an ml hast (mindestens 3) die du in einer Schleife auf die bestehenden Abfragen überprüfst.
+ * 
+ * 6.  Ändere dein Programm so, dass du mindestens 10 mal bowlst und immer unterschiedliche Ergebnisse erzielst (Verwendung einer Liste)
