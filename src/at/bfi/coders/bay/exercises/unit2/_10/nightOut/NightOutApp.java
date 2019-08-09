@@ -1,5 +1,7 @@
 package at.bfi.coders.bay.exercises.unit2._10.nightOut;
 
+import java.util.Arrays;
+
 /**
  * 
  * @author groiq
@@ -36,17 +38,26 @@ public class NightOutApp {
 		 *    die wir später brauchen werden.
 		 */
 		
-		Celebrant adam = new Celebrant("Adam");
+		Celebrant adam = new Celebrant("Adam",5);
 		
 		System.out.println("Adam has drunk " + adam.getGlassesDrunk() + " glasses so far.");
 		System.out.println("Adam is getting a new glass...");
-		testGlassContents(adam, 250.0);
-		System.out.println("Adam is taking a few gulps");
-		testGlassContents(adam, 249.9);
-		testGlassContents(adam, 20.1);
-		testGlassContents(adam, 20.0);
-		testGlassContents(adam, 19.9);
-		testGlassContents(adam, 250.1);
+		adam.orderGlass();
+		
+		/**
+		 * 
+		 * 5.  Ändere dein Programm so, dass du für die erste Aufgabenstellung eine Liste an ml hast (mindestens 3)
+		 * die du in einer Schleife auf die bestehenden Abfragen überprüfst.
+		 */
+		double[] glassContentValues;
+		glassContentValues = new double[] {250.0,249.9,20.1,30.0,20.0,19.9,240.0};
+		
+		for (double d : glassContentValues) {
+			System.out.println("<setting glass content from " + adam.getGlassContents() + " to " + d + ">");
+			adam.setGlassContents(d);
+			adam.checkGlass();
+		}
+		
 		System.out.println("Adam has drunk " + adam.getGlassesDrunk() + " glasses so far.");
 		
 		/**
@@ -60,26 +71,88 @@ public class NightOutApp {
 		 *       Wenn kein Pin getroffen wird dann "- Miss" ausgegeben
 		 * 
 		 *    Optional: Du darfst nur Spielen wenn du im vorherigen Lokal weniger als 4 Getränke hattest
+		 *    
+		 * 6.  Ändere dein Programm so, dass du mindestens 10 mal bowlst und immer unterschiedliche Ergebnisse erzielst (Verwendung einer Liste)
 		 */
 		
 		BowlingAlley koeoe = new BowlingAlley();
 		
-		Celebrant bob = new Celebrant("Bob");
+		Celebrant bob = new Celebrant("Bob",5);
 		bob.setGlassesDrunk(5);
 		System.out.println("Bob wants to try his luck at the bowling alley...");
 		koeoe.setContestant(bob);
 		System.out.println("Then Adam has a go...");
 		koeoe.setContestant(adam);
-		for (int i = 0; i < 11; i++) {
+		
+		int[] bowlingSeries = new int[15];
+		for (int i = 0; i < bowlingSeries.length; i++) {
+			bowlingSeries[i] = i % 11;
+		}
+		System.out.println(Arrays.toString(bowlingSeries));
+		for (int i : bowlingSeries) {
 			if (i == 5) {
 				koeoe.bowl(bob, 5);
 			}
-			koeoe.bowl(adam,i);
+			koeoe.bowl(adam, i);
 			System.out.println(koeoe);
 		}
+		
+//		for (int i = 0; i < 11; i++) {
+//			if (i == 5) {
+//				koeoe.bowl(bob, 5);
+//			}
+//			koeoe.bowl(adam,i);
+//			System.out.println(koeoe);
+//		}
 		System.out.println("Bob appears to have magically sobered up and has another go...");
+		bob.setGlassesDrunk(0);
+		koeoe.setContestant(bob);
+		koeoe.bowl(bob, -1);
+		koeoe.bowl(bob, 11);
 		
+		/**
+		 * 3. Nach eurem erfolgreichen Spiel wollt ihr eine Gruppe von Mädels (Jungs) beeindrucken und noch Klimmzüge am Türrahmen (Alternativ Sit-ups) machen.
+		 *    Um den Gruppeneffekt zu stärken zählen alle laut mit. 
+		 *    Programmiere mit allen Schleifenvarianten die du kennst, die Ausgabe der Zählung "1", "2",...
+		 *    Anmerkung: Für die Anzahl soll eine Variable verwendet werden die in der Schleife hochgezählt wird.
+		 * 
+		 *    Optional: Bei 10 Liegestütz (Sit-Ups) fängst du zum schnaufen an und sagst laut "Phu ich hoffe das ist bald vorbei"
+		 *              Bei 15 sagst du "Ich glaub ich schaff das nicht"
+		 *              Bei 19 sagst du "JA ICH SCHAFFE ES!!!!!"
+		 *              Bei 20 jubeln alle und singen "OLEOLEOLEEEEE"
+		 * 
+		 */
+		int count;
+//		count = 3;
+		count = 20;
+		adam.doSitups(count, 0);
+		adam.doSitups(count, 1);
+		adam.doSitups(count, 2);
+		adam.doSitups(count, 3);
 		
+		/**
+		 * 4.  Am Abend liegst du im Bett und es gibt nun folgende Fälle abzudecken:
+		 * 
+		 *         Fall 1: Du hast nur ein Getränk getrunken und gehst dich daher noch Duschen, Zähne putzen und ziehst dir deine Schlafkleidung an. 
+		 *         		Aufgabe, du sollst deine Tätigkeiten mit einer println Funktion ausgeben. 
+		 *         Fall 2: Du hast weniger als 3 Gläser getrunken und machst das selbe wie in Fall 1. 
+		 *         		Zusätzlich bemerkst du, dass du Hunger hast. Du gehst zum Kühlschrank und isst alle Kekse die du findest. 
+		 *         		Aufgabe: Du gibst deine Tätigkeiten aus. Für die Anzahl der Kekse soll immer ausgegeben werden 
+		 *         		"Keks "+Nr.1 +"gegessen",  "Keks "+Nr.2 +"gegessen", .......
+		 *        Fall 3: Du hast mehr als 3 Gläser getrunken und willst direkt ins Bett gehen. 
+		 *        		Du versuchst über die Stufen zu gehen, schaffst aber die Anzahl der Stufen NICHT die du Getränke getrunken hast. 
+		 *        		Die Stiege hat 15 Stufen. Hast du also 4 Getränke getrunken, schaffst du es nur bis zur 11 Stufe. 
+		 *        		Aufgabe: Gib jede einzelne Stufe die du erklommen hast aus. 
+		 *        		Bei der letzten Stufe die du schaffst gibst du aus "Jetzt muss ich schlafen"
+		 * 
+		 */
+		adam.setGlassesDrunk(1);
+		adam.goHome();
+		bob.setGlassesDrunk(2);
+		bob.goHome();
+		Celebrant charlie = new Celebrant("Charlie", 5);
+		charlie.setGlassesDrunk(4);
+		charlie.goHome();
 
 	}
 
