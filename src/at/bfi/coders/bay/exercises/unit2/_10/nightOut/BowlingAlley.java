@@ -25,11 +25,15 @@ public class BowlingAlley {
 		System.out.println("You cannot just write down any result. Result unchanged. Contestant " + contestant + " reported for cheating.");
 	}
 	
-	public void bowl(int result) {
-		if (result <= 10 && result >= 0) {
-			this.result = result;
-			
-		} else if (result > 10) {
+	public void bowl(Celebrant contestant, int newResult) {
+		if (contestant != this.contestant) {
+			System.out.println("Hey, it's not your turn! Contestant " + contestant.getName() + " reported for cheating.");
+			return;
+		}
+		if (newResult <= 10 && newResult >= 0) {
+			this.result = newResult;
+
+		} else if (newResult > 10) {
 			this.result = 0;
 
 		}

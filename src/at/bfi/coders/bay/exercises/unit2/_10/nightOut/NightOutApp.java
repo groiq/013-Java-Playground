@@ -70,7 +70,14 @@ public class NightOutApp {
 		koeoe.setContestant(bob);
 		System.out.println("Then Adam has a go...");
 		koeoe.setContestant(adam);
-		System.out.println("Bob has magically sobered up, but appears to be cheating. Who is this guy anyway?");
+		for (int i = 0; i < 11; i++) {
+			if (i == 5) {
+				koeoe.bowl(bob, 5);
+			}
+			koeoe.bowl(adam,i);
+			System.out.println(koeoe);
+		}
+		System.out.println("Bob appears to have magically sobered up and has another go...");
 		
 		
 
