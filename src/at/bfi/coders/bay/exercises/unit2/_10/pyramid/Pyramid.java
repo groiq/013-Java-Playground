@@ -31,7 +31,7 @@ public class Pyramid {
 			int curLine = i + 1;
 			for (int j = -lineLen; j < lineLen + 1; j++) {
 //				System.out.print(j);
-				if (Math.abs(j) < (curLine * 2) - 2 && j % 2 == 0) {
+				if (Math.abs(j) <= (curLine * 2) - 2 && j % 2 == 0) {
 					System.out.print(sign);
 				} else {
 					System.out.print(blank);
