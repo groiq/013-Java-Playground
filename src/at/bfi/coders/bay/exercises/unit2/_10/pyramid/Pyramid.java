@@ -8,7 +8,7 @@ public class Pyramid {
 	public static void main(String[] args) {
 		
 		blank = "_";
-//		blank = " ";
+		blank = " ";
 		sign = "X";
 		
 //		buildPyramid(4);
