@@ -7,6 +7,7 @@ public class Calendar {
 		result = "MO|DI|MI|DO|FR|SA|SO";
 		
 		//result += weekdayOfFirst;
+		// string concat: https://redfin.engineering/java-string-concatenation-which-way-is-best-8f590a7d22a8
 		
 		return result;
 	}
