@@ -8,6 +8,11 @@ public class Calendar {
 	static int methodUsed = 0;
 	private static String result;
 	
+	/**
+	 * 
+	 * @param weekdayOfFirst - the weekday the first of the month falls on.
+	 * @return a calendar table as a multi-line string
+	 */
 	public static String printCalendar(int weekdayOfFirst) {
 		result = "";
 		result += "MO|DI|MI|DO|FR|SA|SO\n";
@@ -26,18 +31,11 @@ public class Calendar {
 			noWeekdayVariable(weekdayOfFirst);
 		}
 		
-		
-		// variant: two variables in for loop
-		
-		
-		// variant: calculate weekday on the fly
-		
-		
 		return result;
 	}
 
+	// variant: weekday handled seperately in a variable
 	private static void curWeekdayInSeperateVar(int weekdayOfFirst) {
-		// variant: weekday handled seperately in a variable
 		int curWeekday = weekdayOfFirst;
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
 			result += "00";
@@ -50,8 +48,8 @@ public class Calendar {
 		}
 	}
 
-	private static void curWeekdayInLoopHeader(int weekdayOfFirst) {
 		// variant: current weekday gets its own variable in the loop header
+		private static void curWeekdayInLoopHeader(int weekdayOfFirst) {
 		for (int curDay = 1, curWeekday = weekdayOfFirst; curDay <= monthLen; curDay++, curWeekday++) {
 			result += "11";
 			if (curWeekday % 7 == 0) {
@@ -63,6 +61,7 @@ public class Calendar {
 		
 	}
 	
+	// variant: no weedkay variable, weekday is calculated on-the-fly
 	private static void noWeekdayVariable(int weekdayOfFirst) {
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
 			result += "22";
