@@ -5,7 +5,7 @@ package at.bfi.coders.bay.exercises.unit2._10.calendar;
 public class Calendar {
 	
 	static int monthLen = 31;
-	static int methodUsed = 0;
+	static int methodUsed = 2;
 	private static String result;
 	
 	/**
@@ -23,6 +23,7 @@ public class Calendar {
 			result += "  |";
 		}
 		
+		System.out.println("<using method " + methodUsed + ">");
 		if (methodUsed == 0) {
 			curWeekdayInSeperateVar(weekdayOfFirst);
 		} else if (methodUsed == 1) {
@@ -36,9 +37,11 @@ public class Calendar {
 
 	// variant: weekday handled seperately in a variable
 	private static void curWeekdayInSeperateVar(int weekdayOfFirst) {
+//		System.out.println("<method 0>");
 		int curWeekday = weekdayOfFirst;
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
-			result += "00";
+//			result += "00";
+			result += String.format("%2d", curDay);
 			if (curWeekday % 7 == 0) {
 				result += "\n";
 			} else {
@@ -51,7 +54,7 @@ public class Calendar {
 		// variant: current weekday gets its own variable in the loop header
 		private static void curWeekdayInLoopHeader(int weekdayOfFirst) {
 		for (int curDay = 1, curWeekday = weekdayOfFirst; curDay <= monthLen; curDay++, curWeekday++) {
-			result += "11";
+			result += String.format("%2d", curDay);
 			if (curWeekday % 7 == 0) {
 				result += "\n";
 			} else {
@@ -64,7 +67,7 @@ public class Calendar {
 	// variant: no weedkay variable, weekday is calculated on-the-fly
 	private static void noWeekdayVariable(int weekdayOfFirst) {
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
-			result += "22";
+			result += String.format("%2d", curDay);
 			if ((weekdayOfFirst + curDay - 1) % 7 == 0) {
 				result += "\n";
 			} else {
