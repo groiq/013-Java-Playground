@@ -1,7 +1,10 @@
 package at.bfi.coders.bay.exercises.unit2._10.calendar;
 
-// string concat: https://redfin.engineering/java-string-concatenation-which-way-is-best-8f590a7d22a8
-
+/**
+ * Calendar printing utility.
+ * @author groiq
+ *
+ */
 public class Calendar {
 	
 	static int monthLen = 31;
@@ -9,6 +12,19 @@ public class Calendar {
 	private static String result;
 	
 	/**
+	 * Generates a multi-line string depicting a one-month calendar in table format.
+	 * 
+	 * For now, the month is hardcoded to have 31 days.
+	 * 
+	 * Takes the weekday of the first of the month as argument.
+	 * Week starts with Monday, counting with 1. thus:
+	 * 1 - Monday
+	 * 2 - Tuesday
+	 * 3 - Wednesday
+	 * 4 - Thursday
+	 * 5 - Friday
+	 * 6 - Saturday
+	 * 7 - Sunday
 	 * 
 	 * @param weekdayOfFirst - the weekday the first of the month falls on.
 	 * @return a calendar table as a multi-line string
@@ -23,6 +39,10 @@ public class Calendar {
 			result += "  |";
 		}
 		
+		/*
+		 * I've tried out several ways of tracking the day of week.
+		 * Methods are switched through the field "methodUsed".
+		 */
 		System.out.println("<using method " + methodUsed + ">");
 		switch (methodUsed) {
 		case 0:
