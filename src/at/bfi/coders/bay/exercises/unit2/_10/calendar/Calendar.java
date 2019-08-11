@@ -5,7 +5,7 @@ package at.bfi.coders.bay.exercises.unit2._10.calendar;
 public class Calendar {
 	
 	static int monthLen = 31;
-	static int methodUsed = 2;
+	static int methodUsed = 4;
 	private static String result;
 	
 	/**
@@ -24,19 +24,47 @@ public class Calendar {
 		}
 		
 		System.out.println("<using method " + methodUsed + ">");
-		if (methodUsed == 0) {
-			curWeekdayInSeperateVar(weekdayOfFirst);
-		} else if (methodUsed == 1) {
-			curWeekdayInLoopHeader(weekdayOfFirst);
-		} else if (methodUsed == 2) {
+		switch (methodUsed) {
+		case 0:
+			weekdayInLoopBodyResetting(weekdayOfFirst);
+			break;
+		case 1:
+			weekdayInLoopBodyContinuing(weekdayOfFirst);
+			break;
+		case 2:
+			weekdayInLoopHeaderResetting(weekdayOfFirst);
+			break;
+		case 3:
+			weekdayInLoopHeaderContinuing(weekdayOfFirst);
+			break;
+		case 4:
 			noWeekdayVariable(weekdayOfFirst);
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + methodUsed);
 		}
 		
 		return result;
 	}
 
-	// variant: weekday handled seperately in a variable
-	private static void curWeekdayInSeperateVar(int weekdayOfFirst) {
+	// variant: weekday gets its own variable in the loop body, reset weekly
+	private static void weekdayInLoopBodyResetting(int weekdayOfFirst) {
+//		System.out.println("<method 0>");
+		int curWeekday = weekdayOfFirst % 7;
+		for (int curDay = 1; curDay <= monthLen; curDay++) {
+//			result += "00";
+			result += String.format("%2d", curDay);
+			if (curWeekday == 0) {
+				result += "\n";
+			} else {
+				result += "|";
+			}
+			curWeekday = (curWeekday + 1) %7;
+		}
+	}
+
+	// variant: weekday gets its own variable in the loop body, not reset weekly
+	private static void weekdayInLoopBodyContinuing(int weekdayOfFirst) {
 //		System.out.println("<method 0>");
 		int curWeekday = weekdayOfFirst;
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
@@ -51,11 +79,11 @@ public class Calendar {
 		}
 	}
 
-		// variant: current weekday gets its own variable in the loop header
-		private static void curWeekdayInLoopHeader(int weekdayOfFirst) {
-		for (int curDay = 1, curWeekday = weekdayOfFirst; curDay <= monthLen; curDay++, curWeekday++) {
+	// variant: current weekday gets its own variable in the loop header, reset weekly
+		private static void weekdayInLoopHeaderResetting(int weekdayOfFirst) {
+		for (int curDay = 1, curWeekday = weekdayOfFirst % 7; curDay <= monthLen; curDay++, curWeekday = (curWeekday + 1) % 7) {
 			result += String.format("%2d", curDay);
-			if (curWeekday % 7 == 0) {
+			if (curWeekday == 0) {
 				result += "\n";
 			} else {
 				result += "|";
@@ -63,7 +91,21 @@ public class Calendar {
 		}
 		
 	}
+
+	// variant: current weekday gets its own variable in the loop header, not reset weekly
+	private static void weekdayInLoopHeaderContinuing(int weekdayOfFirst) {
+	for (int curDay = 1, curWeekday = weekdayOfFirst; curDay <= monthLen; curDay++, curWeekday++) {
+		result += String.format("%2d", curDay);
+		if (curWeekday % 7 == 0) {
+			result += "\n";
+		} else {
+			result += "|";
+		}
+	}
 	
+}
+		
+		
 	// variant: no weedkay variable, weekday is calculated on-the-fly
 	private static void noWeekdayVariable(int weekdayOfFirst) {
 		for (int curDay = 1; curDay <= monthLen; curDay++) {
