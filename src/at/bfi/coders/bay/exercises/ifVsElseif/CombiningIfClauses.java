@@ -36,6 +36,75 @@ public class CombiningIfClauses {
 		coffeeBreak(true,false);
 		coffeeBreak(true,true);
 		
+		/*
+		 * Else-if clauses are practical when checking multiple mutually exclusive conditions, for example number ranges.
+		 * 
+		 * In case I forgot to mention, Alice and Bob are temporal field agents.
+		 * In order to blend in when on a mission, they need a little program that takes the target year as an argument
+		 * and returns the current trends in music for the decade in question.
+		 * 
+		 * I'm working with these music trends:
+		 * 40s: Swing, Jazz, Blues and Big Band
+		 * 50s: Rock ’N Roll, B-bop, Big Band, Country
+		 * 60s: Motown, Rock ‘N Roll, and The British Invasion
+		 * 70s: Disco, Motown, and R&B
+		 *  80s: Glam rock, Pop, Hip-Hop, Country
+		 *  90s: Grunge, Alternative, Rap, and Country
+		 *  00s: Adult Contemporary and R&B
+		 *  10s: EDM and Hip-Hop
+		 * 
+		 * source: https://medium.com/@Rifftime_Music/music-trends-through-the-decades-b8c5cbbae08b
+		 */
+		
+		int targetYear = 1955;
+		String curMusic = "";
+		
+		/*
+		 * With simple if-else clauses, this will be needlessly convoluted:
+		 */
+		System.out.println("using if-else nesting...");
+		if (targetYear < 1940) {
+			curMusic = "no data";
+		} else {
+			if (targetYear < 1950) {
+				curMusic = "Swing, Jazz, Blues and Big Band";
+			} else {
+				if (targetYear < 1960) {
+					curMusic = "";
+				} else {
+					if (targetYear < 1970) {
+						curMusic = "";
+					} else {
+						if (targetYear < 1980) {
+							curMusic = "";
+						} else {
+							if (targetYear < 1990) {
+								curMusic = "";
+							} else {
+								if (targetYear < 2000) {
+									curMusic = "";
+								} else {
+									if (targetYear < 2010) {
+										curMusic = "";
+									} else {
+										if (targetYear < 2020) {
+											curMusic = "";
+										} else {
+											curMusic = "no data";
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		System.out.println("The cool kids are listening to " + curMusic + ".");
+		
+		/*
+		 * else-if makes the code cleaner:
+		 */
 
 	}
 
