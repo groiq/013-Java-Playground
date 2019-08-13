@@ -48,10 +48,10 @@ public class CombiningIfClauses {
 		 * 50s: Rock ’N Roll, B-bop, Big Band, Country
 		 * 60s: Motown, Rock ‘N Roll, and The British Invasion
 		 * 70s: Disco, Motown, and R&B
-		 *  80s: Glam rock, Pop, Hip-Hop, Country
-		 *  90s: Grunge, Alternative, Rap, and Country
-		 *  00s: Adult Contemporary and R&B
-		 *  10s: EDM and Hip-Hop
+		 * 80s: Glam rock, Pop, Hip-Hop, Country
+		 * 90s: Grunge, Alternative, Rap, and Country
+		 * 00s: Adult Contemporary and R&B
+		 * 10s: EDM and Hip-Hop
 		 * 
 		 * source: https://medium.com/@Rifftime_Music/music-trends-through-the-decades-b8c5cbbae08b
 		 */
