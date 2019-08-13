@@ -31,7 +31,7 @@ public class CombiningIfClausesNoMethods {
 		 * let's start with a bit of debug output...
 		 */
 		
-		System.out.println("<method called with these parameters:>");
+		System.out.println("<using these parameters:>");
 		System.out.println("<aliceIsThere: " + aliceIsThere + ", bobIsThere: " + bobIsThere + ">");
 		System.out.println();
 
