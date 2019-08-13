@@ -1,6 +1,6 @@
 package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
 
-public class student {
+public class Student {
 	
 	private final String name;
 	private int budget;
@@ -14,7 +14,7 @@ public class student {
 	public String getName() {
 		return name;
 	}
-	public student(String name, int budget) {
+	public Student(String name, int budget) {
 		this.name = name;
 		this.budget = budget;
 	}
@@ -23,14 +23,23 @@ public class student {
 		return "student [name=" + name + ", budget=" + budget + "]";
 	}
 	
-	public void bargain(Sleuth sleuth, ProfessorAccount professor, int amount) {
+	public void bargain(Sleuth sleuth, Professor professor, int amount) {
 		
 		System.out.println("trying to hire " + sleuth.getName() + " to steal the solutions from " + professor.getName() + "...");
 		
-		while (amount <= budget) {
-			// try-except handling
-			amount += 10;
-		}
+		String result;
+		do {
+			result = sleuth.buySolution(amount, professor);
+			amount += 100;
+			if (amount > budget) {
+				System.out.println("over budget");
+				break;
+			}
+		} while (result.equals(sleuth.getDeclineMessage()));
+		
+		System.out.println("The solution is:");
+		System.out.println(result);
+
 		
 	}
 
