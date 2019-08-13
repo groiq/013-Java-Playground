@@ -8,6 +8,14 @@ package at.bfi.coders.bay.exercises.ifVsElseif;
 public class IfVsElseif {
 	
 	/*
+	 * order:
+	 * whosHavingCoffee
+	 * whosHavingCookies
+	 * whosMakingCoffee
+	 * whosLoadingTheDishwasher
+	 */
+	
+	/*
 	 * In my example I assume that Alice and Bob are two coworkers who often have coffee break together.
 	 * Right now it's coffee break time, and what's happening in the break room depends on
 	 * (a) whether Alice is having a break right now and 
