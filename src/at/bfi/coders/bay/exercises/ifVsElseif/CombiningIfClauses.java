@@ -64,33 +64,33 @@ public class CombiningIfClauses {
 		 */
 		System.out.println("using if-else nesting...");
 		if (targetYear < 1940) {
-			curMusic = "no data";
+			curMusic = "<no data>";
 		} else {
 			if (targetYear < 1950) {
 				curMusic = "Swing, Jazz, Blues and Big Band";
 			} else {
 				if (targetYear < 1960) {
-					curMusic = "";
+					curMusic = "Rock ’N Roll, B-bop, Big Band, Country";
 				} else {
 					if (targetYear < 1970) {
-						curMusic = "";
+						curMusic = "Motown, Rock ‘N Roll, and The British Invasion";
 					} else {
 						if (targetYear < 1980) {
-							curMusic = "";
+							curMusic = "Disco, Motown, and R&B";
 						} else {
 							if (targetYear < 1990) {
-								curMusic = "";
+								curMusic = "Glam rock, Pop, Hip-Hop, Country";
 							} else {
 								if (targetYear < 2000) {
-									curMusic = "";
+									curMusic = "Grunge, Alternative, Rap, and Country";
 								} else {
 									if (targetYear < 2010) {
-										curMusic = "";
+										curMusic = "Adult Contemporary and R&B";
 									} else {
 										if (targetYear < 2020) {
-											curMusic = "";
+											curMusic = "EDM and Hip-Hop";
 										} else {
-											curMusic = "no data";
+											curMusic = "<no data>";
 										}
 									}
 								}
@@ -101,10 +101,72 @@ public class CombiningIfClauses {
 			}
 		}
 		System.out.println("The cool kids are listening to " + curMusic + ".");
+		System.out.println();
 		
 		/*
 		 * else-if makes the code cleaner:
 		 */
+		System.out.println("using else-if...");
+		if (targetYear < 1940) {
+			curMusic = "<no data>";
+		} else if (targetYear < 1950) {
+			curMusic = "Swing, Jazz, Blues and Big Band";
+		} else if (targetYear < 1960) {
+			curMusic = "Rock ’N Roll, B-bop, Big Band, Country";
+		} else if (targetYear < 1970) {
+			curMusic = "Motown, Rock ‘N Roll, and The British Invasion";
+		} else if (targetYear < 1980) {
+			curMusic = "Disco, Motown, and R&B";
+		} else if (targetYear < 1990) {
+			curMusic = "Glam rock, Pop, Hip-Hop, Country";
+		} else if (targetYear < 2000) {
+			curMusic = "Grunge, Alternative, Rap, and Country";
+		} else if (targetYear < 2010) {
+			curMusic = "Adult Contemporary and R&B";
+		} else if (targetYear < 2020) {
+			curMusic = "EDM and Hip-Hop";
+		} else {
+			curMusic = "<no data>";
+		}
+		System.out.println("The cool kids are listening to " + curMusic + ".");
+		System.out.println();
+		
+		System.out.println("-----------------------------------");
+		System.out.println();
+		
+		
+		/*
+		 * Note that when conditions are mutually exclusive, else-if is equivalent to independent if checks.
+		 * In this case, else-if is more efficient because it doesn't waste time on checks that don't change the result anyway.
+		 * Let's say Alice and Bob have a new assignment and need to check whether to go forward or back in time...
+		 */
+		
+		targetYear = 1965;
+		int currentYear = 1941;
+		
+		System.out.println("using else-if...");
+		if (currentYear < targetYear) {
+			System.out.println("We need to go forward in time!");
+		} else if (currentYear > targetYear) {
+			System.out.println("We need to go backward in time!");
+		} else {
+			System.out.println("Looks like we're already there!");
+		}
+		System.out.println();
+		
+		System.out.println("using independent if clauses...");
+		System.out.println("testing whether we need to go forward...");
+		if (currentYear < targetYear) {
+			System.out.println("We need to go forward in time!");
+		}
+		System.out.println("Testing whether we need to go back...");
+		if (currentYear > targetYear) {
+			System.out.println("We need to go back in time!");
+		}
+		System.out.println("Testing whether we're already there...");
+		if (currentYear == targetYear) {
+			System.out.println("Looks like we're already there!");
+		}
 
 	}
 
