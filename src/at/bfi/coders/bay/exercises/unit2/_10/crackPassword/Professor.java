@@ -60,14 +60,8 @@ public class Professor {
 	 */
 	public String getSolution(String passwordGuess) {
 		char[] castOfPwdGuess = passwordGuess.toCharArray();
-		if (enterPassword(castOfPwdGuess)) {
-			return this.solution;
-		} else {
-			return "Wrong password!";
-		}
-		
+		return getSolution(castOfPwdGuess);
 	}
-	
 	
 	/**
 	 * Checks if a given password is correct.
@@ -76,7 +70,7 @@ public class Professor {
 	 */
 	public boolean enterPassword(String passwordGuess) {
 		char[] castOfPwdGuess = passwordGuess.toCharArray();
-		return (Arrays.equals(castOfPwdGuess, password));
+		return enterPassword(castOfPwdGuess);
 	}
 	
 	/**
@@ -86,7 +80,6 @@ public class Professor {
 	 */
 	public boolean enterPassword(char[] passwordGuess) {
 		return (Arrays.equals(passwordGuess, password));
-
 	}
 
 	/**
