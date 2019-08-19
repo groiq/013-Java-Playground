@@ -23,11 +23,22 @@ Erweitere dein Programm so, dass es in der Lage ist, einen beliebigen mit einer 
 public class CesarChiffreTester {
 
 	public static void main(String[] args) {
-		
+	
 		String test1 = "The quick brown fox jumps over the lazy dog.";
 		int pwd1 = 1;
 		String result1 = CesarChiffre.encode(test1,pwd1);
 		System.out.println(result1);
+		
+		String encoded2;
+		String decoded2;
+		String text2 = "abcdefghijklmnopqrstuvwxyz | ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String pwdFormatted;
+		for (int i = 0; i < 27; i++) {
+			encoded2 = CesarChiffre.encode(text2, i); 
+			decoded2 = CesarChiffre.decode(encoded2, i);
+			pwdFormatted = String.format("%02d", i);
+			System.out.println(pwdFormatted +  ": " + encoded2 + " || " + decoded2);
+		}
 
 	}
 
