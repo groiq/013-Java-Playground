@@ -1,5 +1,7 @@
 package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
 
+import java.util.Arrays;
+
 public class Professor {
 	
 	private final char[] password;
@@ -19,8 +21,8 @@ public class Professor {
 		return "You didn't think this would work, did you?";
 	}
 	
-	public String getSolution(String password) {
-		if (password.equals(this.password)) {
+	public String getSolution(char[] passwordGuess) {
+		if (enterPassword(passwordGuess)) {
 			return this.solution;
 		} else {
 			return "Wrong password!";
@@ -28,7 +30,9 @@ public class Professor {
 	}
 	
 	public boolean enterPassword(char[] passwordGuess) {
-		return (passwordGuess.equals(this.password));
+//		System.out.println("password guess: " + Arrays.toString(passwordGuess) + ", password: " + Arrays.toString(password));
+		return (Arrays.equals(passwordGuess, password));
+//		return (passwordGuess.equals(this.password));
 
 	}
 
@@ -44,11 +48,14 @@ public class Professor {
 
 	public Professor(String solution, String name, int passwordLen) {
 		/* next milestone: generate pwd at random */
-		this.password = new char[] {'a','b','c','1'};
+//		this.password = new char[] {'a','b','c','1'};
+//		this.password = new char[] {'0','1','0','1'};
+		this.password = new char[] {'0','1'};
 		this.solution = solution;
 		this.name = name;
 		/* next milestone: generate pwd char range dynamically */
-		this.pwdChars = new char[] {'a','b','c','0','1','2'};
+//		this.pwdChars = new char[] {'a','b','c','0','1','2'};
+		this.pwdChars = new char[] {'0','1'};
 	}
 
 	@Override
