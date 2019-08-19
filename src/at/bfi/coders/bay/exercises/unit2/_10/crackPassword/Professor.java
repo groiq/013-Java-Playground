@@ -99,24 +99,26 @@ public class Professor {
 	}
 
 	/**
-	 * The professor's namem, the solution and the password length are given as parameters.
+	 * The professor's name, the solution and the password length are given as parameters.
 	 * The character set is hardcoded for now. The password is random generated.
 	 * @param solution - a String
 	 * @param name - a String
 	 * @param pwdLen - an int, the password length
 	 */
 	public Professor(String solution, String name, int pwdLen) {
+		this.solution = solution;
+		this.name = name;
 		/* next milestone: generate pwd char set dynamically from a handy notation */
 		this.pwdChars = new char[] {'a','b'};
 		this.password = new char[pwdLen];
+		/*
+		 * For each position in the password char[], 
+		 * fetch a random entry from pwdChars by generating a random number for its index 
+		 */
 		for (int i = 0; i < password.length; i++) {
 			int posNextChar = ThreadLocalRandom.current().nextInt(0,pwdChars.length);
-			
 			this.password[i] = pwdChars[posNextChar];
 		}
-		System.out.println(Arrays.toString(password));
-		this.solution = solution;
-		this.name = name;
 	}
 
 	/**

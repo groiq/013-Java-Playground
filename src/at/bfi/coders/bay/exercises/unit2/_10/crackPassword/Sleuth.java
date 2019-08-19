@@ -90,7 +90,12 @@ public class Sleuth {
 		this.name = name;
 	}
 	
-	
+	/*
+	 * Runs through all possible values of the char at the current position.
+	 * If this is the last char in the password, check the password.
+	 * If it's correct, save it to the local password field.
+	 * If there are more characters in the password, run this method on the next position.
+	 */
 	/* next milestone: stop running through possibilities once the password is found */
 	private void tryForPosition(int pos) {
 		for (char c : chars) {
@@ -107,12 +112,16 @@ public class Sleuth {
 		}
 	}
 	
-	/* next milestone: separate password cracking from solution cracking */
 	/**
 	 * Hire the sleuth to crack a solution from a professor
 	 * @param professor the professor to be spied out
 	 * @return the solution the professor is hiding
 	 */
+	/*
+	 * Assign the local fields, then call tryForPosition().
+	 * When the password is found, fetch and return the solution.
+	 */
+	/* next milestone: separate password cracking from solution cracking */
 	public String crackSolution(Professor professor) {
 		this.professor = professor;
 		int pwdLen = professor.getPasswordLength();
