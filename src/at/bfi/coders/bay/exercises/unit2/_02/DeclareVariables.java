@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._2;
+package at.bfi.coders.bay.exercises.unit2._02;
 
 public class DeclareVariables {
 	

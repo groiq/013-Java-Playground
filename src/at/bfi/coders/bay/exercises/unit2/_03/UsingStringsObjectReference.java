@@ -1,14 +1,7 @@
-package at.bfi.coders.bay.exercises.unit2._3;
+package at.bfi.coders.bay.exercises.unit2._03;
 
-/*
- * assignment:
- Zwei String Variablen deklarieren mit "Hello World" und "Good Night"
-Die beiden Strings zusammenfügen
-String 1 mit dem Wert von String 2 überschreiben
-Alle einzelnen Schritte über die Systemausgaben die Werte ausgeben
- */
-public class UsingStrings {
-	
+public class UsingStringsObjectReference {
+
 	static String hello;
 	static String goodbye;
 	
@@ -28,9 +21,14 @@ public class UsingStrings {
 		check();
 		
 		// overwrite the first String with the value of the second String
+//		hello = new String(goodbye);
 		hello = goodbye;
+		// apparently these two commands do the same thing.
+		check();
+		goodbye = "whut?";
 		check();
 
 	}
 
+	
 }

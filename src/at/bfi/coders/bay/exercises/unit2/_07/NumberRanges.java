@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._7;
+package at.bfi.coders.bay.exercises.unit2._07;
 
 /*
 assignment:

@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._3.receipt;
+package at.bfi.coders.bay.exercises.unit2._03.receipt;
 
 public class Store {
 	

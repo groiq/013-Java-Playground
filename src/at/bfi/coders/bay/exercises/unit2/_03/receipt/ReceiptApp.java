@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._3.receipt;
+package at.bfi.coders.bay.exercises.unit2._03.receipt;
 
 /*
  * Es soll ein Programm geschrieben werden, das einen Kassenbon auf der Konsole anzeigt (mit System.out.println). Am Anfang des Programmes werden in Form von Variablen folgende Werte festgelegt:

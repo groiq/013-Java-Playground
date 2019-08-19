@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._3;
+package at.bfi.coders.bay.exercises.unit2._03;
 
 /*
  * Wir wollen das kleine 1x1 bis 10 ausgeben 

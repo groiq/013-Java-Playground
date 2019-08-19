@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._3.receipt.intermediates;
+package at.bfi.coders.bay.exercises.unit2._03.receipt.intermediates;
 
 public class WriteATable {
 
