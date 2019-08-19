@@ -72,11 +72,8 @@ public class Sleuth {
 		for (char c : chars) {
 			guess[pos] = c;
 			if (pos == guess.length - 1) {
-//				System.out.println(Arrays.toString(guess));
 				if (professor.enterPassword(guess)) {
-//					System.out.println("true");
 					this.password = Arrays.copyOf(guess, guess.length);
-//					System.out.println("password set to: " + Arrays.toString(password));
 					return;
 				}
 			} else {
@@ -91,12 +88,9 @@ public class Sleuth {
 		int pwdLen = professor.getPasswordLength();
 		chars = professor.getPwdChars();
 		guess = new char[pwdLen];
-//		System.out.println("guess: " + Arrays.toString(guess));
 		tryForPosition(0);
 		String solution = professor.getSolution(password);
 		return solution;
-		/* todo: crack the whole thing */
-//		return "placeholder";
 	}
 
 		

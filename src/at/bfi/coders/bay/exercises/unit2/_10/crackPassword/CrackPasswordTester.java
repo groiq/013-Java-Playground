@@ -22,7 +22,7 @@ public class CrackPasswordTester {
 		System.out.println("cracking password properly...");
 		Sleuth samSpade = new Sleuth("Sam Spade");
 		
-		System.out.println("the solution is: " + samSpade.crackSolution(drPepper));
+		System.out.println("the solution is: \'" + samSpade.crackSolution(drPepper) + "\'");
 		
 
 	}

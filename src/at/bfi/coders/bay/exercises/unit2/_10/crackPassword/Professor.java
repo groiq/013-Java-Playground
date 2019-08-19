@@ -50,7 +50,7 @@ public class Professor {
 		/* next milestone: generate pwd at random */
 //		this.password = new char[] {'a','b','c','1'};
 //		this.password = new char[] {'0','1','0','1'};
-		this.password = new char[] {'0','1'};
+		this.password = new char[] {'0','0'};
 		this.solution = solution;
 		this.name = name;
 		/* next milestone: generate pwd char range dynamically */
