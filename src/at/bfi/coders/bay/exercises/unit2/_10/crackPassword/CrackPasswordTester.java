@@ -14,7 +14,7 @@ public class CrackPasswordTester {
 
 	public static void main(String[] args) {
 		
-		Professor drPepper = new Professor("System.out.println(\"Hello world!\");", "Professor Pepper");
+		Professor drPepper = new Professor("System.out.println(\"Hello world!\");", "Professor Pepper", 4);
 		
 		System.out.println("calling getter for solution...");
 		System.out.println(drPepper.getSolution());
@@ -23,7 +23,7 @@ public class CrackPasswordTester {
 		System.out.println("fetching solution with wrong password...");
 		System.out.println(drPepper.getSolution(wrongPassword));
 		
-		System.out.println("calling getter for password password...");
+		System.out.println("calling getter for password...");
 		System.out.println(drPepper.getPassword());
 		
 		System.out.println("cracking password properly...");

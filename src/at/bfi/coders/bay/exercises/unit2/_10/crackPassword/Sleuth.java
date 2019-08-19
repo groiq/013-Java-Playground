@@ -25,21 +25,6 @@ public class Sleuth {
 		return name;
 	}
 	
-//	public char[] getChars() {
-//		return chars;
-//	}
-//
-//	public void setChars(char[] chars) {
-//		this.chars = chars;
-//	}
-//
-//	public char[] getGuess() {
-//		return guess;
-//	}
-//
-//	public void setGuess(char[] guess) {
-//		this.guess = guess;
-//	}
 
 	/**
 	 * Returns the professor currently monitored.

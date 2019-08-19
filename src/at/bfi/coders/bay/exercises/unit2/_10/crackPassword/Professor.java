@@ -1,6 +1,7 @@
 package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Stores a solution that is only accessible through a password.
@@ -105,21 +106,24 @@ public class Professor {
 	}
 
 	/**
-	 * The professor's name and the solution are given as parameters.
-	 * Character set and password are hardcoded for now.
+	 * The professor's namem, the solution and the password length are given as parameters.
+	 * The character set is hardcoded for now. The password is random generated.
 	 * @param solution - a String
 	 * @param name - a String
+	 * @param pwdLen - an int, the password length
 	 */
-	public Professor(String solution, String name) {
-		/* next milestone: generate pwd at random, take length and character set as parameters */
-//		this.password = new char[] {'a','b','c','1'};
-//		this.password = new char[] {'0','1','0','1'};
-		this.password = new char[] {'0','0'};
+	public Professor(String solution, String name, int pwdLen) {
+		/* next milestone: generate pwd char set dynamically from a handy notation */
+		this.pwdChars = new char[] {'a','b'};
+		this.password = new char[pwdLen];
+		for (int i = 0; i < password.length; i++) {
+			int posNextChar = ThreadLocalRandom.current().nextInt(0,pwdChars.length);
+			
+			this.password[i] = pwdChars[posNextChar];
+		}
+		System.out.println(Arrays.toString(password));
 		this.solution = solution;
 		this.name = name;
-		/* next milestone: generate pwd char set dynamically from a char range */
-//		this.pwdChars = new char[] {'a','b','c','0','1','2'};
-		this.pwdChars = new char[] {'0','1'};
 	}
 
 	/**
