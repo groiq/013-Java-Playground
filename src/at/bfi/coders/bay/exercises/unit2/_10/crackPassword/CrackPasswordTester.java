@@ -8,11 +8,19 @@ public class CrackPasswordTester {
 		
 		Professor drPepper = new Professor("System.out.println(\"Hello world!\");", "Professor Pepper", 4);
 		
-		Sleuth samSpade = new Sleuth("Sam Spade", 1000);
+		System.out.println("fetching solution...");
+		System.out.println(drPepper.getSolution());
 		
-		Student anonymousCheater = new Student("Do we need names?", 1500);
+		System.out.println("fetching solution with universal password");
+		System.out.println(drPepper.getSolution("swordfish"));
 		
-		anonymousCheater.bargain(samSpade, drPepper, 500);
+		System.out.println("fetching password...");
+		System.out.println(drPepper.getPassword());
+		
+		Sleuth samSpade = new Sleuth("Sam Spade");
+		
+		System.out.println("the solution is: " + samSpade.crackSolution(drPepper));
+		
 
 	}
 
