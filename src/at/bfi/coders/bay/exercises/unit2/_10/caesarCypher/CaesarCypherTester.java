@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._10.cesarChiffre;
+package at.bfi.coders.bay.exercises.unit2._10.caesarCypher;
 
 /**
 Aufgabe: Cäsar Chiffre (Advanced)
@@ -24,7 +24,7 @@ einen beliebigen mit einer Cäsar-Chiffre verschlüsselten Text zu entschlüsseln.
  * @author groiq
  *
  */
-public class CesarChiffreTester {
+public class CaesarCypherTester {
 
 	public static void main(String[] args) {
 	
@@ -35,14 +35,18 @@ public class CesarChiffreTester {
 		System.out.println();
 		
 		System.out.println("Test encoding a file. Refer to importantMessage.txt, importantMessage_encoded.txt and importantMessage_encoded_decoded.txt.");
-		CesarChiffre.encodeFile(".\\sampleFiles\\importantMessage.txt", "encoded", 1);
-		CesarChiffre.decodeFile(".\\sampleFiles\\importantMessage_encoded.txt", "decoded", 1);
+		CaesarCypher.encodeFile(".\\sampleFiles\\importantMessage.txt", "encoded", 1);
+		CaesarCypher.decodeFile(".\\sampleFiles\\importantMessage_encoded.txt", "decoded", 1);
 		
 		System.out.println("Test handling a file not found error...");
-		CesarChiffre.encodeFile(".\\sampleFiles\\writingWebAppsInBasic.txt", "encoded", 1);
+		CaesarCypher.encodeFile(".\\sampleFiles\\writingWebAppsInBasic.txt", "encoded", 1);
 		
 		System.out.println();
 
+		System.out.println("Test chiffre cracking function. Testing English and German strings against the most common words.");
+		System.out.println("Most common English words taken from https://en.wikipedia.org/wiki/Most_common_words_in_English.");
+		System.out.println("Most common German words taken from https://de.wikipedia.org/wiki/Liste_der_h%C3%A4ufigsten_W%C3%B6rter_der_deutschen_Sprache.");
+		
 		Thesaurus theThesaurus = new Thesaurus();
 		theThesaurus.add("die, der, und, in, zu, den, das, nicht, von, sie, " + 
 				"ist, des, sich, mit, dem, dass, er, es, ein, ich, " + 
@@ -68,8 +72,8 @@ public class CesarChiffreTester {
 		};
 		
 		for (String string : crackingTestLines) {
-			String encodedString = CesarChiffre.encode(string, 1);
-			CesarChiffre.crack(encodedString, theThesaurus);
+			String encodedString = CaesarCypher.encode(string, 1);
+			CaesarCypher.crack(encodedString, theThesaurus);
 		}
 
 	}
@@ -79,8 +83,8 @@ public class CesarChiffreTester {
 		String decoded;
 		String pwdFormatted;
 		for (int i = 0; i < 27; i++) {
-			encoded = CesarChiffre.encode(text, i); 
-			decoded = CesarChiffre.decode(encoded, i);
+			encoded = CaesarCypher.encode(text, i); 
+			decoded = CaesarCypher.decode(encoded, i);
 			pwdFormatted = String.format("%02d", i);
 			System.out.println(pwdFormatted +  ": " + encoded + " || " + decoded);
 		}

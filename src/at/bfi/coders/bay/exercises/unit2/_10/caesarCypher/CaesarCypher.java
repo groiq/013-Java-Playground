@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._10.cesarChiffre;
+package at.bfi.coders.bay.exercises.unit2._10.caesarCypher;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,13 +8,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class CesarChiffre {
+/**
+ * Encodes and decodes text using a Caesar Cypher.
+ * 
+ * 
+ * 
+ * @author groiq
+ *
+ */
+public class CaesarCypher {
 	
 	private static final int aAscii = (int) 'a';
 	private static final int zAscii = (int) 'z';
 	private static final int AAscii = (int) 'A';
 	private static final int ZAscii = (int) 'Z';
-	
 	
 	
 	/* next milestone: handle negative numbers */

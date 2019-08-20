@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._10.cesarChiffre;
+package at.bfi.coders.bay.exercises.unit2._10.caesarCypher;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
