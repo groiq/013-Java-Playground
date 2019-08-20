@@ -42,7 +42,7 @@ public class CopyInputToOutput {
 			}
 			outputWriter.write(output);
 		} catch (IOException e) {
-			System.out.println("whoops, something went wrong there...");
+			System.out.println(e);
 		}
 		
 
