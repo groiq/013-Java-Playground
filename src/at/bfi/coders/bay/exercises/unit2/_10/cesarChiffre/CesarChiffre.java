@@ -40,5 +40,11 @@ public class CesarChiffre {
 		int encoder = (zAscii - aAscii) - pwd + 1;
 		return encode(text, encoder);
 	}
+	
+	public static void encodeFile(String path, String outfileAppend) {
+		
+		System.out.println("inside encode file method");
+		
+	}
 
 }

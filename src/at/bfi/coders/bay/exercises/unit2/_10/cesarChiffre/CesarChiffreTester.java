@@ -43,6 +43,8 @@ public class CesarChiffreTester {
 			pwdFormatted = String.format("%02d", i);
 			System.out.println(pwdFormatted +  ": " + encoded2 + " || " + decoded2);
 		}
+		
+		CesarChiffre.encodeFile(".\\sampleFiles\\importantMessage.txt", "encoded");
 
 	}
 
