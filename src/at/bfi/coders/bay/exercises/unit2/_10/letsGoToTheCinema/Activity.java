@@ -2,7 +2,7 @@ package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
 
 import java.time.LocalTime;
 
-public class Activity {
+public abstract class Activity {
 
 	private static int duration;
 	private static String description;
@@ -39,7 +39,10 @@ public class Activity {
 		return time;
 	}
 	
-	private static void furtherActions() {}
+	public static void furtherActions() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
