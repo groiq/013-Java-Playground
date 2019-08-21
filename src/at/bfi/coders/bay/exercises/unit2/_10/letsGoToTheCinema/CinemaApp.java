@@ -91,8 +91,10 @@ public class CinemaApp {
 
 	}
 	
+	// check times for activities
+	// execute activities accordingly
 	
-	
+	// for later: generate a Cinema object that has, among others, a local time that can be influenced by the activities
 	
 
 }
