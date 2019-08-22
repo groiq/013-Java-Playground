@@ -1,5 +1,14 @@
 package at.bfi.coders.bay.exercises.unit2._02;
 
+/**
+ * <h1>Declare and initialize variables</h1>
+ * 
+ * Declares and initializes variables of various types.
+ * 
+ * @author  groiq
+ * @version 1.0
+ * @since   2019-08-06
+ */
 public class DeclareVariables {
 	
 	// Fields
