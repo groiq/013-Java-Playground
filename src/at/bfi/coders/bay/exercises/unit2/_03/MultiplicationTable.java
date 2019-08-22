@@ -3,7 +3,8 @@ package at.bfi.coders.bay.exercises.unit2._03;
 /*
  * Wir wollen das kleine 1x1 bis 10 ausgeben 
 Ausgabe von 1x1, 1x2, 1x3, 1x4.....1x10
-Dazu brauchen wir 3 Variablen: 2 Zahlen (number1 und number2) und ein Ergebnis (int number1, int number2, int result)
+Dazu brauchen wir 3 Variablen: 2 Zahlen (number1 und number2) 
+und ein Ergebnis (int number1, int number2, int result)
 Variablen Initialisierung
 Speicherung des jeweiligen Ergebnisses in die Variable result
  */

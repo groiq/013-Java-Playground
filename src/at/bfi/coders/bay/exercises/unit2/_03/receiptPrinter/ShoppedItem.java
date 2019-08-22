@@ -1,5 +1,13 @@
 package at.bfi.coders.bay.exercises.unit2._03.receiptPrinter;
 
+/**
+ * <h1>A shopped item</h1>
+ * An item that can be shopped for the receipt printer.
+ * 
+ * @author  groiq
+ * @version 1.0
+ * @since   22.08.2019
+ */
 public class ShoppedItem {
 	
 	// Fields
@@ -42,7 +50,8 @@ public class ShoppedItem {
 	// toString
 	@Override
 	public String toString() {
-		return name + "\t" + amount + " x " + piecePrice + " EUR\t" + getPrice() + " EUR";
+		return name + "\t" + amount + " x " + piecePrice 
+				+ " EUR\t" + getPrice() + " EUR";
 	}
 	
 	

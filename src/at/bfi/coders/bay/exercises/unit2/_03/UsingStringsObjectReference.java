@@ -6,7 +6,8 @@ public class UsingStringsObjectReference {
 	static String goodbye;
 	
 	private static void check() {
-		System.out.println("value of first string: \"" + hello + "\"; value of second string: \"" + goodbye + "\".");
+		System.out.println("value of first string: \"" 
+	+ hello + "\"; value of second string: \"" + goodbye + "\".");
 	}
 
 	public static void main(String[] args) {
