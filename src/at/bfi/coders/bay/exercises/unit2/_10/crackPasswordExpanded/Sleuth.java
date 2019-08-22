@@ -1,36 +1,31 @@
-package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
+package at.bfi.coders.bay.exercises.unit2._10.crackPasswordExpanded;
 
 import java.util.Arrays;
 
 /**
  * Cracks a password from a professor object.
- * 
- * algorithm:
- * 
-1. Find out the list of possible characters in the password.
-2. Find out the length of the password.
-3. Create an array with that length.
-4. Move to the first position in this array.
-5. Try to replace the character at the current position with its successor in the list of possible characters.
-	5.1 If the current position is empty, fill in the first of the possible characters.
-	5.2 If the character is already the last in the list, clear the current position and move one position backwards.
-6. Check whether you are on the last positon in the array.
-	6.1 If not, move forward one position and continue from step 7.
-	6.2 If yes, check whether the sequence stored in the array is the password.
-		6.2.1 if yes, exit returning the stored password.
-		6.2.2 if no, continue from step 5.
-
- * 
  * @author groiq
  *
  */
 public class Sleuth {
+	
+	private final String name;
+	
 	
 	private char[] chars;
 	private char[] guess;
 	private char[] password;
 	private Professor professor;
 	private boolean verbose;
+
+	/**
+	 * returns the sleuth's name.
+	 * @return the sleuth's name
+	 */
+	public String getName() {
+		return name;
+	}
+	
 
 	/**
 	 * Returns the professor currently monitored.
@@ -80,6 +75,21 @@ public class Sleuth {
 		this.password = password;
 	}
 
+	/**
+	 * returns basic information.
+	 */
+	@Override
+	public String toString() {
+		return "Sleuth [name=" + name + "]";
+	}
+
+	/**
+	 * Creates a new sleuth with a given name.
+	 * @param name the name for the sleuth
+	 */
+	public Sleuth(String name) {
+		this.name = name;
+	}
 	
 	/*
 	 * Runs through all possible values of the char at the current position.
@@ -98,9 +108,7 @@ public class Sleuth {
 //				System.out.println(Arrays.toString(guess));
 				if (professor.enterPassword(guess)) {
 					this.password = Arrays.copyOf(guess, guess.length);
-					if (verbose) {
-						System.out.println("Password found!");
-						}
+					System.out.println("Password found!");
 					return;
 				}
 			} else {
@@ -110,10 +118,6 @@ public class Sleuth {
 		}
 	}
 	
-	/*
-	 * Assign the local fields, then call tryForPosition().
-	 * When the password is found, fetch and return the solution.
-	 */
 	public String crackPassword(Professor professor,boolean verbose) {
 		this.verbose = verbose;
 		this.professor = professor;
@@ -124,6 +128,27 @@ public class Sleuth {
 		return new String(this.password);
 	}
 	
+	/**
+	 * Hire the sleuth to crack a solution from a professor
+	 * @param professor the professor to be spied out
+	 * @return the solution the professor is hiding
+	 */
+	/*
+	 * Assign the local fields, then call tryForPosition().
+	 * When the password is found, fetch and return the solution.
+	 */
+	/* next milestone: separate password cracking from solution cracking */
+	public String crackSolution(Professor professor) {
+		this.professor = professor;
+		int pwdLen = professor.getPasswordLength();
+		chars = professor.getPwdChars();
+		guess = new char[pwdLen];
+		tryForPosition(0);
+		System.out.println("The password is: " + Arrays.toString(this.password));
+		String solution = professor.getSolution(password);
+		return solution;
+	}
+
 		
 
 }

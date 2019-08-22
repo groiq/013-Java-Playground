@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
+package at.bfi.coders.bay.exercises.unit2._10.crackPasswordExpanded;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -11,8 +11,58 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Professor {
 	
 	private final char[] password;
+	private final String solution;
+	private final String name;
 	private final char[] pwdChars;
+	private String failMsg = "You didn't think this would work, did you?";
 
+	/**
+	 * Each professor has a name.
+	 * @return the name - a string
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * The getter for the password blocks access.
+	 * @return a String announcing failure
+	 */
+	public String getPassword() {
+		return failMsg;
+	}
+	
+	/**
+	 * The parameterless getter for the solution blocks access.
+	 * @return a String announcing failure 
+	 */
+	public String getSolution() {
+		return failMsg;
+	}
+
+	/**
+	 * Returns the solution if fed with the right password.
+	 * @param passwordGuess - the password to be tried as a char[]
+	 * @return a String - if the password was correct, the solution; otherwise an error message
+	 */
+	public String getSolution(char[] passwordGuess) {
+		if (enterPassword(passwordGuess)) {
+			return this.solution;
+		} else {
+			return "Wrong password!";
+		}
+	}
+	
+	/**
+	 * Returns the solution if fed with the right password.
+	 * @param passwordGuess - the password to be tried as a String
+	 * @return a String - if the password was correct, the solution; otherwise an error message
+	 */
+	public String getSolution(String passwordGuess) {
+		char[] castOfPwdGuess = passwordGuess.toCharArray();
+		return getSolution(castOfPwdGuess);
+	}
+	
 	/**
 	 * Checks if a given password is correct.
 	 * @param passwordGuess - the password to be checked as a String
@@ -56,11 +106,15 @@ public class Professor {
 	}
 
 	/**
-	 * The password length is given as a parameter.
+	 * The professor's name, the solution and the password length are given as parameters.
 	 * The character set is hardcoded for now. The password is random generated.
+	 * @param solution - a String
+	 * @param name - a String
 	 * @param pwdLen - an int, the password length
 	 */
-	public Professor(int pwdLen) {
+	public Professor(String solution, String name, int pwdLen) {
+		this.solution = solution;
+		this.name = name;
 		/* next milestone: generate pwd char set dynamically from a handy notation */
 		this.pwdChars = "0123456789!'$%&/()=?".toCharArray();
 		this.password = new char[pwdLen];
@@ -76,11 +130,11 @@ public class Professor {
 	}
 
 	/**
-	 * toString() delivers no useful information
+	 * toString() delivers only the name
 	 */
 	@Override
 	public String toString() {
-		return "Professor [password=<REDACTED>]";
+		return "ProfessorAccount [password=<REDACTED>, solution=<REDACTED>, name=" + name + "]";
 	}
 
 
