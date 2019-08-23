@@ -16,7 +16,7 @@ import java.util.Arrays;
 	5.a If the current position is empty, fill in the first of the possible characters.
 	5.b If the character is already the last in the list, clear the current position and move one position backwards.
 6. Check whether you are on the last positon in the array.
-	6.a If not, move forward one position and continue from step 7.
+	6.a If not, move forward one position and continue from step 5.
 	6.b If yes, check whether the sequence stored in the array is the password.
 		6.b.a if yes, exit returning the stored password.
 		6.b.b if no, continue from step 5.
@@ -45,6 +45,26 @@ public class Sleuth {
 		char[] guess = new char[pwdLen];
 		int position = 0;
 		
+		/*
+		 * idea: track an int[] and a char[] at the same time. 
+		 * The int[] tells me which entry in the possible chars is currently filled in.
+		 * That way, I can easily replace it with the following.
+		 * Use -1 for empty fields.
+		 * 
+		 * e.g.:
+		 * chars: (a,b,c)
+		 * guess as ints	guess as chars
+		 * 0,0,0			a,a,a
+		 * 0,0,1			a,a,b
+		 * 0,0,2			a,a,c
+		 * 0,1,0			a,b,a
+		 * 0,1,1			a,b,b
+		 * 0,1,2			a,b,c
+		 * etc.
+		 * 
+		 * two possibilities: Either the char is set immediately when the int is set,
+		 * or the password is set before each run.
+		 */
 		
 		return guess;
 		
