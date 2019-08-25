@@ -1,16 +1,6 @@
 package at.bfi.coders.bay.exercises.unit2._10.crackPassword;
 
 /**
- Crack the Password!
-Nachdem du dich erfolgreich in Prof. Peppers Computer gehackt hast, stehst du jetzt vor der letzten Barriere, bevor du dir die Musterlösung pünktlich vor der Klausur saugen kannst.
-
-Finde das 4 Stellige Passwort das sowohl aus Zahlen als auch aus Sonderzeichen besteht. Lege fest welche Sonderzahlen im Passwort enthalten sein können.
-
-- Finde die 4 gültigen Zahlen mittels Brute-Force und gib sie auf der Konsole aus (Brute-Force = Rohe Gewalt, darunter versteht man das simple Ausprobieren aller möglichen Kombinationen).
-- Für die absoluten Cracks: Wie funktioniert der Algorithmus?
-- Erzeuge auch das Passwort zufällig bevor du es knackst
- */
-/**
  * <h1>Exercise: Crack the password</h1>
  * 
  * Assignment:<br>
