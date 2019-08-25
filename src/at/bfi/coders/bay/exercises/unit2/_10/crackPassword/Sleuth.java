@@ -40,10 +40,23 @@ public class Sleuth {
 	
 	public char[] crackPasswordAsCharArray(Professor professor, boolean verbose) {
 		
+		/*
+		 * 1. Get the list of allowed characters (character list).
+		 * 2. Fetch password length.
+		 * 3. Create an array with that length.
+		 * 4. Move to the first position in this array.
+		 * 5. As long as the password is not found:
+		 *     5.1 Read the character at the current position:
+		 *         5.1.a If the position is empty, fill in the first entry in the character list.
+		 *               (Starts looping through the character list on this position.)
+		 *         5.1.b If the character is the last in the character list:
+		 *                 5.1.b.1 Clear the current position.
+		 *                 5.1.b.2 Move one position to the left.
+		 */
+		
 		int pwdLen = professor.getPasswordLength();
 		char[] chars = professor.getPwdChars();
 		int numOfChars = chars.length;
-//		int[] charIndices = new int[numOfChars];
 		int[] guessAsCharacterIndices = new int[pwdLen];
 		for (int i = 0; i < guessAsCharacterIndices.length; i++) {
 			guessAsCharacterIndices[i] = -1;
