@@ -62,7 +62,8 @@ public class Professor {
 	 */
 	public Professor(int pwdLen) {
 		/* next milestone: generate pwd char set dynamically from a handy notation */
-		this.pwdChars = "0123456789!'$%&/()=?".toCharArray();
+//		this.pwdChars = "0123456789!'$%&/()=?".toCharArray();
+		this.pwdChars = "ab".toCharArray();
 		this.password = new char[pwdLen];
 		/*
 		 * For each position in the password char[], 

@@ -42,8 +42,69 @@ public class Sleuth {
 		
 		int pwdLen = professor.getPasswordLength();
 		char[] chars = professor.getPwdChars();
+		int numOfChars = chars.length;
+//		int[] charIndices = new int[numOfChars];
+		int[] guessAsCharacterIndices = new int[pwdLen];
+		for (int i = 0; i < guessAsCharacterIndices.length; i++) {
+			guessAsCharacterIndices[i] = -1;
+		}
 		char[] guess = new char[pwdLen];
+		boolean passwordFound = false;
+		
 		int position = 0;
+		int run = 0;
+		while (!passwordFound) {
+			
+//			int indexOfCurrentCharacter = guessAsCharacterIndices[position];
+			if (guessAsCharacterIndices[position] < numOfChars - 1) {
+				guessAsCharacterIndices[position] += 1;
+				guess[position] = chars[guessAsCharacterIndices[position]];
+				if (position == pwdLen - 1) {
+					if (verbose) {
+						System.out.println("guessing: " + Arrays.toString(guess) + 
+								" from " + Arrays.toString(guessAsCharacterIndices));
+					}
+					passwordFound = professor.enterPassword(guess);
+				} else {
+					position++;
+				}
+			} else {
+				guessAsCharacterIndices[position] = -1;
+				position--;
+
+			}
+//			if (guessAsCharacterIndices[position] < numOfChars - 1 ) {
+//				guessAsCharacterIndices[position] += 1;
+//				guess[position] = chars[guessAsCharacterIndices][position];
+//			} else {
+//
+//			}
+//			if (verbose) {
+//				System.out.println(guess);
+//			}
+			
+//			run++;
+			if (run > 100) {
+				passwordFound = true;
+			}
+		}
+		
+		
+		/*
+		 * 
+1. Find out the list of possible characters in the password.
+2. Find out the length of the password.
+3. Create an array with that length.
+4. Move to the first position in this array.
+5. Try to replace the character at the current position with its successor in the list of possible characters.
+	5.a If the current position is empty, fill in the first of the possible characters.
+	5.b If the character is already the last in the list, clear the current position and move one position backwards.
+6. Check whether you are on the last positon in the array.
+	6.a If not, move forward one position and continue from step 5.
+	6.b If yes, check whether the sequence stored in the array is the password.
+		6.b.a if yes, exit returning the stored password.
+		6.b.b if no, continue from step 5.
+		 */
 		
 		/*
 		 * idea: track an int[] and a char[] at the same time. 
