@@ -36,29 +36,16 @@ public class NightOutApp {
 		 *    und wirst eine bestimmte Anzahl an Gläsern trinken. 
 		 *    Speichere dir deine Anzahl an getrunkenen Gläsern in eine Variable 
 		 *    die wir später brauchen werden.
-		 */
-		
-		Celebrant adam = new Celebrant("Adam",5);
-		
-		System.out.println("Adam has drunk " + adam.getGlassesDrunk() + " glasses so far.");
-		System.out.println("Adam is getting a new glass...");
-		adam.orderGlass();
-		
-		/**
-		 * 
+		 *    
 		 * 5.  Ändere dein Programm so, dass du für die erste Aufgabenstellung eine Liste an ml hast (mindestens 3)
 		 * die du in einer Schleife auf die bestehenden Abfragen überprüfst.
 		 */
+		
+		Celebrant adam = new Celebrant("Adam",5);
 		double[] glassContentValues;
 		glassContentValues = new double[] {250.0,249.9,20.1,30.0,20.0,19.9,240.0};
 		
-		for (double d : glassContentValues) {
-			System.out.println("<setting glass content from " + adam.getGlassContents() + " to " + d + ">");
-			adam.setGlassContents(d);
-			adam.checkGlass();
-		}
-		
-		System.out.println("Adam has drunk " + adam.getGlassesDrunk() + " glasses so far.");
+		drink(adam, glassContentValues);
 		
 		/**
 		 * 2. Als nächsten Stop in eurer Abendgestaltung gehst du in eine Spielbar in der ihr bowlen geht.
@@ -76,39 +63,8 @@ public class NightOutApp {
 		 */
 		
 		BowlingAlley koeoe = new BowlingAlley();
-		
 		Celebrant bob = new Celebrant("Bob",5);
-		bob.setGlassesDrunk(5);
-		System.out.println("Bob wants to try his luck at the bowling alley...");
-		koeoe.setContestant(bob);
-		System.out.println("Then Adam has a go...");
-		koeoe.setContestant(adam);
-		
-		int[] bowlingSeries = new int[15];
-		for (int i = 0; i < bowlingSeries.length; i++) {
-			bowlingSeries[i] = i % 11;
-		}
-		System.out.println(Arrays.toString(bowlingSeries));
-		for (int i : bowlingSeries) {
-			if (i == 5) {
-				koeoe.bowl(bob, 5);
-			}
-			koeoe.bowl(adam, i);
-			System.out.println(koeoe);
-		}
-		
-//		for (int i = 0; i < 11; i++) {
-//			if (i == 5) {
-//				koeoe.bowl(bob, 5);
-//			}
-//			koeoe.bowl(adam,i);
-//			System.out.println(koeoe);
-//		}
-		System.out.println("Bob appears to have magically sobered up and has another go...");
-		bob.setGlassesDrunk(0);
-		koeoe.setContestant(bob);
-		koeoe.bowl(bob, -1);
-		koeoe.bowl(bob, 11);
+		bowl(adam, bob, koeoe);
 		
 		/**
 		 * 3. Nach eurem erfolgreichen Spiel wollt ihr eine Gruppe von Mädels (Jungs) beeindrucken und noch Klimmzüge am Türrahmen (Alternativ Sit-ups) machen.
@@ -123,12 +79,8 @@ public class NightOutApp {
 		 * 
 		 */
 		int count;
-//		count = 3;
 		count = 20;
-		adam.doSitups(count, 0);
-		adam.doSitups(count, 1);
-		adam.doSitups(count, 2);
-		adam.doSitups(count, 3);
+		adam.doSitups(count);
 		
 		/**
 		 * 4.  Am Abend liegst du im Bett und es gibt nun folgende Fälle abzudecken:
@@ -154,6 +106,49 @@ public class NightOutApp {
 		charlie.setGlassesDrunk(4);
 		charlie.goHome();
 
+	}
+
+	private static void bowl(Celebrant soberContestant, Celebrant drunkContestant, BowlingAlley bowlingAlley) {
+		drunkContestant.setGlassesDrunk(5);
+		
+		System.out.println("Bob wants to try his luck at the bowling alley...");
+		bowlingAlley.setContestant(drunkContestant);
+		System.out.println("Then Adam has a go...");
+		bowlingAlley.setContestant(soberContestant);
+		
+		int[] bowlingSeries = new int[15];
+		for (int i = 0; i < bowlingSeries.length; i++) {
+			bowlingSeries[i] = i % 11;
+		}
+		System.out.println(Arrays.toString(bowlingSeries));
+		for (int i : bowlingSeries) {
+			if (i == 5) {
+				bowlingAlley.bowl(drunkContestant, 5);
+			}
+			bowlingAlley.bowl(soberContestant, i);
+			System.out.println(bowlingAlley);
+		}
+		
+		System.out.println(drunkContestant.getName() + " appears to have magically sobered up and has another go...");
+		drunkContestant.setGlassesDrunk(0);
+		bowlingAlley.setContestant(drunkContestant);
+		bowlingAlley.bowl(drunkContestant, -1);
+		bowlingAlley.bowl(drunkContestant, 11);
+	}
+
+	private static void drink(Celebrant adam, double[] glassContentValues) {
+		System.out.println(adam.getName() + " has drunk " + adam.getGlassesDrunk() + " glasses so far.");
+		System.out.println(adam.getName() + " is getting a new glass...");
+		adam.orderGlass();
+		
+		
+		for (double d : glassContentValues) {
+			System.out.println("<setting glass content from " + adam.getGlassContents() + " to " + d + ">");
+			adam.setGlassContents(d);
+			adam.checkGlass();
+		}
+		
+		System.out.println(adam.getName() + " has drunk " + adam.getGlassesDrunk() + " glasses so far.");
 	}
 
 }
