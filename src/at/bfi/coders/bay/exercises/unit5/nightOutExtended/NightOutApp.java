@@ -96,28 +96,6 @@ package at.bfi.coders.bay.exercises.unit5.nightOutExtended;
  * hast<br>
  * 
  * 
- * Erweiterung "Night out"<br>
- * Unser Programm "Night out" soll nun folgende Erweiterungen bekommen:<br>
- * <br>
- * 1) Wir bauen eine Methode drink(), die EINE Ausgansvariable hat, nämlich die
- * Anzahl an getrunkenen Gläsern<br>
- * <br>
- * 2) Unseren Bowlingabend verpacken wir ebenfalls in eine eigene Methode die
- * EINE Eingangsvariable hat, die Anzahl der getrunkenen Gläser aus unserer
- * ersten Methode<br>
- * <br>
- * 3) Die Liegestütze/Klimmzüge/Situps sollen in EINE Methode gepackt werden,
- * welche unterschiedliche Schleifen durchgehen. Die Entscheidung, welche
- * Schleife gewählt wird soll aufgrund einer Zufallszahl von 1 bis 3 gewählt
- * werden. Ich übergebe der Methode also einen Eingangsparamenter int, welche
- * eine Zahl von 1 bis 3 ist. Je nach Ausprägung wird eine andere Schleife
- * verwendet<br>
- * <br>
- * 4) Unser Nach Hause kommen wird in eine neue Methode verpackt die eine
- * Eingangs und eine Ausgangsvariable hat. Eingangsvariable ist die Anzahl der
- * getrunkenen Gläser und Ausgangsvariable sind die Stufen die du geschafft
- * hast<br>
- * 
  * 
  * @author groiq
  * @version
