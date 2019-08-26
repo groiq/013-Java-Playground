@@ -103,12 +103,21 @@ package at.bfi.coders.bay.exercises.unit5.nightOutExtended;
  * 
  */
 public class NightOutApp {
+	
+	
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		// drink a few glasses
+		//start at zero, have a few drinks
+		// meet the others
+		// fill in history for the others
+		// go bowling
+		// do situps
+		// go home
 
 	}
 

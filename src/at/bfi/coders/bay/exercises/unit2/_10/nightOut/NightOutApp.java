@@ -14,11 +14,11 @@ import java.util.Arrays;
  */
 public class NightOutApp {
 	
-	private static void testGlassContents(Celebrant celebrant, double contents) {
-		celebrant.setGlassContents(contents);
-		System.out.println("<glass contents: " + celebrant.getGlassContents() + ">");
-		celebrant.checkGlass();
-	}
+//	private static void testGlassContents(Celebrant celebrant, double contents) {
+//		celebrant.setGlassContents(contents);
+//		System.out.println("<glass contents: " + celebrant.getGlassContents() + ">");
+//		celebrant.checkGlass();
+//	}
 
 	public static void main(String[] args) {
 		
