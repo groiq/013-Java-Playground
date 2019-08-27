@@ -1,5 +1,7 @@
 package at.bfi.coders.bay.exercises.unit2._10.nightOut;
 
+import java.util.Random;
+
 public class Celebrant {
 	
 	/*
@@ -71,6 +73,12 @@ public class Celebrant {
 	 * Task: do situps
 	 */
 	
+	public void doSitups(int count) {
+		Random ran = new Random();
+		int loopSwitcher = ran.nextInt(4);
+		doSitups(count,loopSwitcher);
+	}
+	
 	public void doSitups(int count, int loopSwitcher) {
 		 System.out.println("doing " + count + " situps...");
 		switch (loopSwitcher) {
@@ -86,6 +94,8 @@ public class Celebrant {
 		case 3:
 			doSitupsWithForeach(count);
 			break;
+		default:
+			doSitups(count);
 		}
 	}
 	
