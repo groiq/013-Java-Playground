@@ -1,4 +1,4 @@
-package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
+package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema.legacy;
 
 import java.time.LocalTime;
 
