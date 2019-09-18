@@ -99,7 +99,7 @@ public class CinemaApp {
 
 	private static void printTonight() {
 
-		System.out.println(String.format("%10s", "Film") + "\tTime\tCinema Hall");
+		System.out.println(String.format("%20s", "Film") + "\tTime\tCinema Hall");
 		System.out.println("----------------------------------------------------");
 
 		for (Showing showing : tonight) {

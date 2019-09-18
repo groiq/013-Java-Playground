@@ -3,6 +3,9 @@
  */
 package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
 /**
  * <h1>Cinema simulator</h1>
  * 
@@ -43,20 +46,107 @@ package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
  */
 public class CinemaApp {
 
+	private static BoxOffice boxOffice;
+	private static LocalTime now;
+	private static Ticket ticket;
+	private static double budget;
+//	private static long timeLeft;
+
+//	private static boolean debug = true;
+
+	private static void buyTicket(int showingNo) {
+		now = now.plusMinutes(5);
+		ticket = boxOffice.purchase(showingNo, budget);
+		// next milestone: throw exceptions in purchase() and catch them here
+		if (ticket != null) {
+			budget -= ticket.getShowing().getPrice();
+		}
+		System.out.println("You have " + budget + " Euros left.");
+	}
+
+//	private static void checkTime() {
+//		System.out.println("> Check time");
+//		System.out.println("It is now " + now + ".");
+//	}
+
+//	private static long silentCheckTimeLeft() {
+//		long mins = now.until(ticket.getShowing().getTime(), ChronoUnit.MINUTES);
+////		timeLeft = mins;
+//		return mins;
+//	}
+
+//	private static void checkTimeLeft() {
+//		System.out.println("> Check time left");
+//		long mins = silentCheckTimeLeft();
+////		System.out.println(ticket.getShowing().getTime());
+//		System.out.println("You have " + mins + " minutes left.");
+////		timeLeft = mins;
+//	}
+
+	private static void goToToilet() {
+		System.out.println("> Go to toilet");
+		now = now.plusMinutes(4);
+		System.out.println("I'll skip over the details.");
+	}
+
+	private static void buySnacks() {
+		System.out.println("> buy snacks");
+		now = now.plusMinutes(4);
+	}
+
+	private static void makeSchedule() {
+		System.out.println("> check time left");
+		long mins = now.until(ticket.getShowing().getTime(), ChronoUnit.MINUTES);
+		System.out.println("It is " + now + " and the film starts at " + ticket.getShowing().getTime()
+				+ ", so there are " + mins + " minutes left.");
+		goToToilet();
+		if (mins > 10) {
+			buySnacks();
+		}
+		System.out.println();
+	}
+
+//	private static void 
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		System.out.println();
+
+		// sample data from mockaroo.com
+		String[] films = { "Daddy and Them", "Gone Girl", "Otakus in Love", "Dark Angel, The", "Mon Oncle Antoine",
+				"Human Scale, The", "Spring Forward", "Signs" };
+		now = LocalTime.of(19, 30);
+		LocalTime firstShowing = now.plusMinutes(30);
+		boxOffice = new BoxOffice(films, firstShowing);
+		budget = 7.00;
+
+		boxOffice.prettyPrintFilmGuide();
+		System.out.println("<setting one of the films to sold out>");
+		boxOffice.getFilmGuide()[1].setSoldOut(true);
+		boxOffice.prettyPrintFilmGuide();
+
+		System.out.println("<try purchasing a sold out ticket>");
+		buyTicket(1);
+		System.out.println("<try purchasing a too expensive ticket>");
+		buyTicket(7);
+		System.out.println("<try purchasing a ticket not on the list>");
+		buyTicket(10);
+		System.out.println("<try purchasing a valid ticket>");
+		buyTicket(2);
+		System.out.println();
+
+		System.out.println("<Case: less than 10 minutes left>");
+		System.out.println("<simulating the passing of time...>");
+		now = LocalTime.of(20, 55);
+		makeSchedule();
 		
-		
-		
-		System.out.println("start up program...");
-		System.out.println("look at screen");
-		System.out.println("try buying a sold out ticket");
-		System.out.println("buy a ticket");
-		System.out.println("check watch");
-		System.out.println("first case: too little time left");
-		
+		System.out.println("<Case: more than 10 minutes left>");
+		System.out.println("<manipulating spacetime...>");
+		now = LocalTime.of(20, 30);
+		makeSchedule();
 
 	}
 
