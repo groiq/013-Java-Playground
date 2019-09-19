@@ -5,6 +5,8 @@ package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h1>Cinema simulator</h1>
@@ -51,17 +53,23 @@ public class CinemaApp {
 	private static Ticket ticket;
 	private static double budget;
 //	private static long timeLeft;
+	private static ConcessionStand concessionStand;
+	private static final List<String> snacks = new ArrayList<String>();
 
 //	private static boolean debug = true;
 
+	private static void printBudget() {
+		System.out.println(String.format("You have %2.2f Euros left.", budget));
+	}
+	
 	private static void buyTicket(int showingNo) {
 		now = now.plusMinutes(5);
 		ticket = boxOffice.purchase(showingNo, budget);
 		// next milestone: throw exceptions in purchase() and catch them here
 		if (ticket != null) {
-			budget -= ticket.getShowing().getPrice();
+			budget -= ticket.getPrice();
 		}
-		System.out.println("You have " + budget + " Euros left.");
+		printBudget();
 	}
 
 //	private static void checkTime() {
@@ -88,17 +96,53 @@ public class CinemaApp {
 		now = now.plusMinutes(4);
 		System.out.println("I'll skip over the details.");
 	}
+	
+	private static void playLottery() {
+		// cheat from within the lottery method
+		System.out.println("> draw lottery ticket");
+		int lotteryTicket = concessionStand.drawLotteryTicket();
+		System.out.println("Drawn number " + lotteryTicket);
+//		System.out.println("<...but for testing purposes, we'll manipulate the lottery>");
+//		lotteryTicket = 36;
+	}
+	
+	private static void tryToBuy(String product) {
+		System.out.println("> buy " + product);
+		double purchased = concessionStand.purchase(product, budget);
+		if (purchased >= 0) {
+			budget -= purchased;
+			snacks.add(product);
+			System.out.println(product + " is now in your inventory.");
+		}
+		printBudget();
+	}
 
 	private static void buySnacks() {
 		System.out.println("> buy snacks");
+		System.out.println("going over to the concession stand...");
 		now = now.plusMinutes(4);
+		concessionStand.printMenu();
+		System.out.println("<trying to buy something not on menu>");
+		tryToBuy("ordinary popcorn");
+		System.out.println("<trying to buy something too expensive>");
+		System.out.println("<setting budget to 2,50");
+		budget = 2.50;
+		tryToBuy("Calaloo");
+		System.out.println("<successful purchase>");
+		System.out.println("<setting budget to 10.00>");
+		budget = 10.0;
+		tryToBuy("Calaloo");
+
+
+		
+//		playLottery();
 	}
 
 	private static void makeSchedule() {
 		System.out.println("> check time left");
-		long mins = now.until(ticket.getShowing().getTime(), ChronoUnit.MINUTES);
-		System.out.println("It is " + now + " and the film starts at " + ticket.getShowing().getTime()
-				+ ", so there are " + mins + " minutes left.");
+		long mins = now.until(ticket.getTime(), ChronoUnit.MINUTES);
+		System.out.println("It is " + now + " and the film starts at " + ticket.getTime() + ", so there are " + mins
+				+ " minutes left.");
 		goToToilet();
 		if (mins > 10) {
 			buySnacks();
@@ -121,6 +165,11 @@ public class CinemaApp {
 		now = LocalTime.of(19, 30);
 		LocalTime firstShowing = now.plusMinutes(30);
 		boxOffice = new BoxOffice(films, firstShowing);
+		String[] products = { "Oneshot Automatic Soap System", "Coffee Cup 12oz 5342cd", "Yogurt - Raspberry, 175 Gr",
+				"Rum - White, Gg White", "Fireball Whisky", "Calaloo", "Pineapple - Regular", "Yogurt - Peach, 175 Gr",
+				"Mushroom - Porcini, Dry", "Tamarind Paste" };
+		concessionStand = new ConcessionStand(products);
+
 		budget = 7.00;
 
 		boxOffice.prettyPrintFilmGuide();
@@ -142,11 +191,13 @@ public class CinemaApp {
 		System.out.println("<simulating the passing of time...>");
 		now = LocalTime.of(20, 55);
 		makeSchedule();
-		
+
 		System.out.println("<Case: more than 10 minutes left>");
 		System.out.println("<manipulating spacetime...>");
 		now = LocalTime.of(20, 30);
 		makeSchedule();
+		
+		
 
 	}
 

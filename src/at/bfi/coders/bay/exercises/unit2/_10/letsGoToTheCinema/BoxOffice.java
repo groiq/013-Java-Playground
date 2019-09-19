@@ -73,7 +73,7 @@ public class BoxOffice {
 	
 	@Override
 	public String toString() {
-		return "BoxOffice [tonight=" + Arrays.toString(filmGuide) + "]";
+		return "BoxOffice [filmGuide=" + Arrays.toString(filmGuide) + "]";
 	}
 
 	/**
