@@ -1,6 +1,3 @@
-/**
- * 
- */
 package at.bfi.coders.bay.exercises.unit2._10.letsGoToTheCinema;
 
 import java.time.LocalTime;
@@ -8,16 +5,23 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * @author  Hannes Alkin
- * @version 
- * @since   18.09.2019
-
+ * Simulates a cinema box office.
+ * 
+ * @author Hannes Alkin
+ * @version 1.0
+ * @since 18.09.2019
  */
 public class BoxOffice {
-	
+
 	private Showing[] filmGuide;
 
 	/**
+	 * Generate a film guide from a list of film titles and the start time of the
+	 * first film.<br>
+	 * For simplicity it's assumed that each film is shown once, in a new cinema
+	 * hall, and 30 minutes after the last.<br>
+	 * Tickets start at 6.00 and increase by .50 for each showing. 3d is randomly
+	 * chosen.
 	 * 
 	 * @param films
 	 * @param firstBegin
@@ -49,7 +53,11 @@ public class BoxOffice {
 	public void setFilmGuide(Showing[] filmGuide) {
 		this.filmGuide = filmGuide;
 	}
-	
+
+	/**
+	 * get the list of film titles.
+	 * @return the list of film titles.
+	 */
 	public String[] getFilms() {
 		String[] result = new String[filmGuide.length];
 		for (int i = 0; i < result.length; i++) {
@@ -57,20 +65,19 @@ public class BoxOffice {
 		}
 		return result;
 	}
+
 	
 	public void prettyPrintFilmGuide() {
 		System.out.println("\n> examine film guide\n");
 		System.out.println(String.format("%20s", "Film") + "\tTime\tCinema Hall");
 		System.out.println("----------------------------------------------------");
-		
+
 		for (Showing showing : filmGuide) {
 			System.out.println(showing.inTable());
 		}
 		System.out.println();
-
-
 	}
-	
+
 	@Override
 	public String toString() {
 		return "BoxOffice [filmGuide=" + Arrays.toString(filmGuide) + "]";
@@ -96,14 +103,12 @@ public class BoxOffice {
 //				budget -= theShowing.price;
 				System.out.println("You've got a ticket for " + theShowing.getFilm() + "!");
 				result = new Ticket(theShowing);
-			} 
+			}
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("> Purchase ticket for <unknown film>");
 			System.out.println("Sorry, that's not playing tonight.");
 		}
 		return result;
 	}
-	
-
 
 }

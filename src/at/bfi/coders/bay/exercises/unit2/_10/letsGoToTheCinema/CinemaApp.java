@@ -42,21 +42,25 @@ import java.util.List;
  * 
  * 
  * @author Hannes Alkin
- * @version
+ * @version 1.0
  * @since 16.09.2019
  * 
  */
 public class CinemaApp {
+	
+	static boolean debug = true;
 
-	private static BoxOffice boxOffice;
-	private static LocalTime now;
-	private static Ticket ticket;
 	private static double budget;
-//	private static long timeLeft;
+
+	private static LocalTime now;
+	private static BoxOffice boxOffice;
+	private static Ticket ticket;
 	private static ConcessionStand concessionStand;
 	private static final List<String> snacks = new ArrayList<String>();
-
-//	private static boolean debug = true;
+	
+	static void dbg(String debugInfo) {
+		System.out.println("[" + debugInfo + "]");
+	}
 
 	private static void printBudget() {
 		System.out.println(String.format("You have %2.2f Euros left.", budget));
@@ -72,38 +76,10 @@ public class CinemaApp {
 		printBudget();
 	}
 
-//	private static void checkTime() {
-//		System.out.println("> Check time");
-//		System.out.println("It is now " + now + ".");
-//	}
-
-//	private static long silentCheckTimeLeft() {
-//		long mins = now.until(ticket.getShowing().getTime(), ChronoUnit.MINUTES);
-////		timeLeft = mins;
-//		return mins;
-//	}
-
-//	private static void checkTimeLeft() {
-//		System.out.println("> Check time left");
-//		long mins = silentCheckTimeLeft();
-////		System.out.println(ticket.getShowing().getTime());
-//		System.out.println("You have " + mins + " minutes left.");
-////		timeLeft = mins;
-//	}
-
 	private static void goToToilet() {
 		System.out.println("> Go to toilet");
 		now = now.plusMinutes(4);
 		System.out.println("I'll skip over the details.");
-	}
-	
-	private static void playLottery() {
-		// cheat from within the lottery method
-		System.out.println("> draw lottery ticket");
-		int lotteryTicket = concessionStand.drawLotteryTicket();
-		System.out.println("Drawn number " + lotteryTicket);
-//		System.out.println("<...but for testing purposes, we'll manipulate the lottery>");
-//		lotteryTicket = 36;
 	}
 	
 	private static void tryToBuy(String product) {
@@ -122,20 +98,20 @@ public class CinemaApp {
 		System.out.println("going over to the concession stand...");
 		now = now.plusMinutes(4);
 		concessionStand.printMenu();
-		System.out.println("<trying to buy something not on menu>");
+		dbg("trying to buy something not on the menu");
 		tryToBuy("ordinary popcorn");
-		System.out.println("<trying to buy something too expensive>");
-		System.out.println("<setting budget to 2,50");
+		dbg("trying to buy something too expensive");
+		dbg("setting budget to 2.50");
 		budget = 2.50;
 		tryToBuy("Calaloo");
-		System.out.println("<successful purchase>");
-		System.out.println("<setting budget to 10.00>");
+		dbg("successful purchase");
+		dbg("setting budget to 10.00");
 		budget = 10.0;
 		tryToBuy("Calaloo");
-
-
-		
-//		playLottery();
+		concessionStand.playRaffle();
+		concessionStand.printMenu();
+		dbg("trying to buy something that would be too expensive without the raffle...");
+		tryToBuy("Tamarind Paste");
 	}
 
 	private static void makeSchedule() {
@@ -144,60 +120,54 @@ public class CinemaApp {
 		System.out.println("It is " + now + " and the film starts at " + ticket.getTime() + ", so there are " + mins
 				+ " minutes left.");
 		goToToilet();
-		if (mins > 10) {
+		if (mins > 6) {
 			buySnacks();
 		}
 		System.out.println();
 	}
 
-//	private static void 
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
 		System.out.println();
 
+		budget = 7.00;
+		now = LocalTime.of(19, 30);
+		LocalTime firstShowing = now.plusMinutes(30);
 		// sample data from mockaroo.com
 		String[] films = { "Daddy and Them", "Gone Girl", "Otakus in Love", "Dark Angel, The", "Mon Oncle Antoine",
 				"Human Scale, The", "Spring Forward", "Signs" };
-		now = LocalTime.of(19, 30);
-		LocalTime firstShowing = now.plusMinutes(30);
 		boxOffice = new BoxOffice(films, firstShowing);
 		String[] products = { "Oneshot Automatic Soap System", "Coffee Cup 12oz 5342cd", "Yogurt - Raspberry, 175 Gr",
 				"Rum - White, Gg White", "Fireball Whisky", "Calaloo", "Pineapple - Regular", "Yogurt - Peach, 175 Gr",
 				"Mushroom - Porcini, Dry", "Tamarind Paste" };
 		concessionStand = new ConcessionStand(products);
 
-		budget = 7.00;
-
 		boxOffice.prettyPrintFilmGuide();
-		System.out.println("<setting one of the films to sold out>");
+		dbg("setting one of the films to sold out");
 		boxOffice.getFilmGuide()[1].setSoldOut(true);
 		boxOffice.prettyPrintFilmGuide();
 
-		System.out.println("<try purchasing a sold out ticket>");
+		dbg("try purchasing a sold out ticket");
 		buyTicket(1);
-		System.out.println("<try purchasing a too expensive ticket>");
+		dbg("try purchasing a too expensive ticket");
 		buyTicket(7);
-		System.out.println("<try purchasing a ticket not on the list>");
+		dbg("try purchasing a ticket not on the list");
 		buyTicket(10);
-		System.out.println("<try purchasing a valid ticket>");
+		dbg("try purchasing a valid ticket");
 		buyTicket(2);
 		System.out.println();
 
-		System.out.println("<Case: less than 10 minutes left>");
-		System.out.println("<simulating the passing of time...>");
+		dbg("Case: less than 10 minutes left");
+		dbg("simulating the passing of time...");
 		now = LocalTime.of(20, 55);
 		makeSchedule();
 
-		System.out.println("<Case: more than 10 minutes left>");
-		System.out.println("<manipulating spacetime...>");
+		dbg("Case: more than 10 minutes left");
+		dbg("manipulating spacetime...");
 		now = LocalTime.of(20, 30);
 		makeSchedule();
 		
-		
+		System.out.println(" --- You're ready to watch \'" + ticket.getFilm() + "\'... --- ");
 
 	}
 
