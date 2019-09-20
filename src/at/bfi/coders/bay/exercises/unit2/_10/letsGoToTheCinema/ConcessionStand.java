@@ -12,6 +12,12 @@ import java.util.Map;
  * @since   18.09.2019
 
  */
+/*
+ * next milestone:
+ * purchase multiple products with a String[]
+ * implement a Product object
+ * do something with a return value for raffle
+ */
 public class ConcessionStand {
 	
 	private HashMap<String, Double> products;
@@ -25,16 +31,12 @@ public class ConcessionStand {
 		}
 	}
 	
-	
-	
 	/**
 	 * @return the products
 	 */
 	public HashMap<String, Double> getProducts() {
 		return products;
 	}
-
-
 
 	/**
 	 * @param products the products to set
@@ -55,10 +57,12 @@ public class ConcessionStand {
 				+ "Multiples of 10 in binary not applicable.\n");
 	}
 	
+
+	
 	public double purchase(String product, double budget) {
 		Double result = products.get(product);
 //		result = products.get(product);
-		System.out.println(result);
+//		System.out.println(result);
 		if (result == null) {
 			System.out.println("This product wasn't found on the menu.");
 			result = -1.0;
@@ -72,24 +76,62 @@ public class ConcessionStand {
 //		return result;
 		return result;
 	}
-	
-	public int drawLotteryTicket() {
-		return (int)  (Math.random()*100);
-	}
-	
-	public void enterLotteryTicket(int lotteryTicket) {
-		boolean won = false;
-		if (lotteryTicket % 10 == 0) {
-			won = true;
-		} else {
-			// check for prime
+
+	public void playRaffle() {
+		int raffleTicket = (int) (Math.random() * 1024);
+		System.out.println("Your number is " + raffleTicket);
+		if (CinemaApp.debug) {
+			System.out.println("...but in debug mode the raffle is rigged...");
+			raffleTicket = 14;
+			System.out.println("Your number is now 12. Is that a prime?");
+			System.out.println(isPrime(raffleTicket));
+			raffleTicket = 13;
+			System.out.println("Apparently not. How about 13?");
+			System.out.println(isPrime(raffleTicket));
+			System.out.println("Okay, let's stick with " + raffleTicket + " as your lucky number.");
 		}
-		if (won) {
-			System.out.println("You have won!");
+		if (raffleTicket % 10 == 0 || isPrime(raffleTicket)) {
+			System.out.println("Congrats, you have won! Everything is free for you today!");
 			for (Map.Entry<String, Double> entry : products.entrySet()) {
 				entry.setValue(0.0);
 			}
+		} else {
+			System.out.println("Sorry, it's a blank.");
 		}
 	}
+
+	private boolean isPrime(int number) {
+		boolean[] isComposite = new boolean[number + 1];
+//		for (int i = 0; i < isComposite.length; i++) {
+//			System.out.println(i + " -> " + isComposite[i]);
+//		}
+		for (int pos = 2; pos < isComposite.length; pos++) {
+			if (!(isComposite[pos])) {
+				for (int result = pos * pos; result < isComposite.length; result+= pos) {
+					isComposite[result] = true;
+				}
+			}
+		}
+		return !(isComposite[number]);
+	}
+	
+//	public int drawLotteryTicket() {
+//		return (int)  (Math.random()*100);
+//	}
+//	
+//	public void enterLotteryTicket(int lotteryTicket) {
+//		boolean won = false;
+//		if (lotteryTicket % 10 == 0) {
+//			won = true;
+//		} else {
+//			// check for prime
+//		}
+//		if (won) {
+//			System.out.println("You have won!");
+//			for (Map.Entry<String, Double> entry : products.entrySet()) {
+//				entry.setValue(0.0);
+//			}
+//		}
+//	}
 
 }
