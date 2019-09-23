@@ -1,0 +1,43 @@
+ * Aufgabe: Person im Hauptprogramm erzeugen
+
+ Klassenvariablen
+
+    firstName
+    lastName
+    address
+    age
+    fullName
+    und weise Ihnen Werte zu bis auf die Firmenadresse.
+
+	 
+
+	/* Konstanten
+
+	* 
+
+	* lege Konstanten für die komplette Firmenadresse an
+
+	* Company, Address, Zip, City und Email (info@codersbay.at)
+	*  und weise Ihnen Werte zu
+
+	* 
+
+	* Hinweis: final  String, final int ...
+
+	* */
+
+/*  Aufgabe:
+
+*  1. Ausgabe der Personendaten
+
+*  2. Leerzeile
+
+*  3. Ausgabe der CompanyAddress
+
+*  4. Leerzeile
+
+*  5. Age setzen (+1)
+
+*  6. Erneute Ausgabe der Personendaten
+
+ */
