@@ -1,50 +1,37 @@
 package at.bfi.coders.bay.exercises.unit5.personal.person1;
 
-/*
- * Aufgabe: Person im Hauptprogramm erzeugen
-
- Klassenvariablen
-
-    firstName
-    lastName
-    address
-    age
-    fullName
-    und weise Ihnen Werte zu bis auf die Firmenadresse.
-
-	 
-
-	/* Konstanten
-
-	* 
-
-	* lege Konstanten für die komplette Firmenadresse an
-
-	* Company, Address, Zip, City und Email (info@codersbay.at)
-	*  und weise Ihnen Werte zu
-
-	* 
-
-	* Hinweis: final  String, final int ...
-
-	* */
-
-/*  Aufgabe:
-
-*  1. Ausgabe der Personendaten
-
-*  2. Leerzeile
-
-*  3. Ausgabe der CompanyAddress
-
-*  4. Leerzeile
-
-*  5. Age setzen (+1)
-
-*  6. Erneute Ausgabe der Personendaten
-
+/**
+ * Aufgabe: Person im Hauptprogramm erzeugen<br>
+ * <br>
+ * Klassenvariablen<br>
+ * firstName<br>
+ * lastName<br>
+ * address<br>
+ * age<br>
+ * fullName<br>
+ * und weise Ihnen Werte zu bis auf die Firmenadresse.<br>
+ * <br>
+ * Konstanten<br>
+ * <br>
+ * lege Konstanten für die komplette Firmenadresse an<br>
+ * Company, Address, Zip, City und Email (info@codersbay.at)<br>
+ * und weise Ihnen Werte zu<br>
+ * <br>
+ * Hinweis: final String, final int ...<br>
+ * <br>
+ * Aufgabe:<br>
+ * 1. Ausgabe der Personendaten<br>
+ * 2. Leerzeile<br>
+ * 3. Ausgabe der CompanyAddress<br>
+ * 4. Leerzeile<br>
+ * 5. Age setzen (+1)<br>
+ * 6. Erneute Ausgabe der Personendaten<br>
+ * 
+ * 
+ * @author Hannes Alkin
+ * @version 1.0
+ * @since 23.09.2019
  */
-
 public class Person {
 
 	static boolean debug = false;
@@ -132,6 +119,11 @@ public class Person {
 		this.lastName = names[1];
 	}
 
+	/**
+	 * set first name, last name and full name
+	 * @param firstName
+	 * @param lastName
+	 */
 	public void setAllNames(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -203,11 +195,17 @@ public class Person {
 				+ companyAddress + ", zip=" + zip + ", city=" + city + ", email=" + email + "]";
 	}
 
+	/**
+	 * print first name, last name and full name for test purposes
+	 */
 	private void testPrintName() {
 		System.out.println(
 				"firstName: " + firstName + ", last name: " + lastName + ", full name: " + getFullName() + ".");
 	}
 
+	/**
+	 * test name changing - change first name, then last name, then full name, print names each time
+	 */
 	private static void testNameMechanics() {
 		Person tester = new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020,
 				"Linz", "info@codersbay.at");
@@ -228,10 +226,16 @@ public class Person {
 
 	public static void main(String[] args) {
 
+		/*
+		 * test name changing when in debug mode
+		 */
 		if (debug) {
 			testNameMechanics();
 		}
 
+		/*
+		 * print personal data
+		 */
 		Person p1 = new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020, "Linz",
 				"info@codersbay.at");
 
@@ -240,10 +244,13 @@ public class Person {
 		System.out.println("works at: " + p1.getCompany() + ", " + p1.getCompanyAddress() + ", " + p1.getZip() + " "
 				+ p1.getCity() + ", mail: " + p1.getEmail());
 		System.out.println();
-		
+
+		/*
+		 * test setting age
+		 */
 		p1.setAge(p1.getAge() + 1);
 		System.out.println(p1.getFullName() + ", " + p1.getAge() + " years, " + p1.getAddress());
-		
+
 	}
 
 }
