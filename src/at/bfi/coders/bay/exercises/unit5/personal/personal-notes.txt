@@ -87,3 +87,39 @@
 	}
 
 }
+
+
+Aufgabe: Personenverwaltung
+ 1. Erstelle eine Klasse Person und eine Klasse PersonalManagement und überführe den bereits erstellten Code 
+ in eben die Klasse Person
+
+  2. Erstelle einen Konstruktor um ein Personen Objekt erzeugen zu können
+
+ 3. Erstelle eine Instanz der Person Klasse und versuche die Ausgaben der vorrigen Übung(en) nachzubauen
+
+  4. Überlade die Methode zur Ausgabe der Personendaten mit 2 weiteren Methoden und führe diese aus
+
+  5. Überlade ebenfalls den Konstruktor und erstelle einen Weiteren welchen du auch im Hauptprogramm benutzen sollst 
+
+
+
+/*Hauptprogramm*/
+
+public class PersonalManagement{	
+
+	public static void main(String[] args) {
+
+		System.out.println("########## START MAIN ##########");
+
+		/*
+
+		 * Hier koennte dein Code stehen zwinkernd
+
+		 */
+
+		System.out.println("########## END MAIN ##########");
+
+	}
+
+}
+
