@@ -35,7 +35,7 @@ package at.bfi.coders.bay.exercises.unit5.personal.person2;
  */
 public class Person {
 
-	static boolean debug = false;
+	private static boolean debug = false;
 
 	private String firstName;
 	private String lastName;
@@ -49,11 +49,45 @@ public class Person {
 	private final String email;
 
 	/**
-	 * @param address the address to set
+	 * @param firstName
+	 * @param lastName
+	 * @param address
+	 * @param age
+	 * @param fullName
+	 * @param company
+	 * @param companyAddress
+	 * @param zip
+	 * @param city
+	 * @param email
 	 */
-	public void setAddress(String address) {
+	public Person(String firstName, String lastName, String address, int age, String company, String companyAddress,
+			int zip, String city, String email) {
+		this.setAllNames(firstName, lastName);
 		this.privateAddress = address;
+		this.age = age;
+		this.company = company;
+		this.companyAddress = companyAddress;
+		this.zip = zip;
+		this.city = city;
+		this.email = email;
 	}
+
+
+	/**
+	 * @return the privateAddress
+	 */
+	public String getPrivateAddress() {
+		return privateAddress;
+	}
+
+
+	/**
+	 * @param privateAddress the privateAddress to set
+	 */
+	public void setPrivateAddress(String privateAddress) {
+		this.privateAddress = privateAddress;
+	}
+
 
 	/**
 	 * @return the age
@@ -97,12 +131,6 @@ public class Person {
 		this.lastName = lastName;
 	}
 
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return privateAddress;
-	}
 
 	/**
 	 * @return the fullName
@@ -144,6 +172,36 @@ public class Person {
 	public String getCompanyAddress() {
 		return companyAddress;
 	}
+	
+	/**
+	 * @return the full company address
+	 */
+	public String getFullCompanyAddress() {
+		return "works at: " + company + ", " + companyAddress + ", " + zip + " " + city + ", mail: " + email;
+	}
+	
+	/**
+	 * catch attempts to tinker with the company address
+	 * @param address
+	 */
+	public void setCompanyAddress(String address) {
+		System.out.println("[setting company address to \"" + address + "\"...]");
+		System.out.println("Error: Company address is final. Aborting.");
+	}
+
+	/**
+	 * print personal data
+	 */
+	public void printPersonData() {
+		System.out.println(getFullName() + ", " + getAge() + " years, " + getPrivateAddress());
+	}
+	
+	/**
+	 * print the full company address
+	 */
+	public void printFullCompanyAddress() {
+		System.out.println(getFullCompanyAddress());
+	}
 
 	/**
 	 * @return the zip
@@ -164,30 +222,6 @@ public class Person {
 	 */
 	public String getEmail() {
 		return email;
-	}
-
-	/**
-	 * @param firstName
-	 * @param lastName
-	 * @param address
-	 * @param age
-	 * @param fullName
-	 * @param company
-	 * @param companyAddress
-	 * @param zip
-	 * @param city
-	 * @param email
-	 */
-	public Person(String firstName, String lastName, String address, int age, String company, String companyAddress,
-			int zip, String city, String email) {
-		this.setAllNames(firstName, lastName);
-		this.privateAddress = address;
-		this.age = age;
-		this.company = company;
-		this.companyAddress = companyAddress;
-		this.zip = zip;
-		this.city = city;
-		this.email = email;
 	}
 
 	@Override
@@ -226,8 +260,10 @@ public class Person {
 		tester.testPrintName();
 		System.out.println();
 	}
-
+	
 	public static void main(String[] args) {
+		
+		System.out.println("########## START MAIN ##########");
 
 		/*
 		 * test name changing when in debug mode
@@ -242,17 +278,25 @@ public class Person {
 		Person p1 = new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020, "Linz",
 				"info@codersbay.at");
 
-		System.out.println(p1.getFullName() + ", " + p1.getAge() + " years, " + p1.getAddress());
+		p1.printPersonData();
 		System.out.println();
-		System.out.println("works at: " + p1.getCompany() + ", " + p1.getCompanyAddress() + ", " + p1.getZip() + " "
-				+ p1.getCity() + ", mail: " + p1.getEmail());
+		
+		/*
+		 * print and set company address
+		 */
+		p1.printFullCompanyAddress();
+		System.out.println();
+		p1.setCompanyAddress("we have moved!");
+		p1.printFullCompanyAddress();
 		System.out.println();
 
 		/*
 		 * test setting age
 		 */
 		p1.setAge(p1.getAge() + 1);
-		System.out.println(p1.getFullName() + ", " + p1.getAge() + " years, " + p1.getAddress());
+		p1.printPersonData();
+		
+		System.out.println("########## END MAIN ##########");
 
 	}
 
