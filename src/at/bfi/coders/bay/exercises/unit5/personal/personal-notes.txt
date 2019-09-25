@@ -122,4 +122,5 @@ public class PersonalManagement{
 	}
 
 }
-
+	trackedPeople.add(new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020,
+				"Linz", "info@codersbay.at"));

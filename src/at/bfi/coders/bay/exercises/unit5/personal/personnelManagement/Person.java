@@ -35,8 +35,6 @@ package at.bfi.coders.bay.exercises.unit5.personal.personnelManagement;
  */
 public class Person {
 
-	private static boolean debug = false;
-
 	private String firstName;
 	private String lastName;
 	private String privateAddress;
@@ -49,9 +47,10 @@ public class Person {
 	private final String email;
 
 	/**
+	 * Creates a person with private data and company data.
 	 * @param firstName
 	 * @param lastName
-	 * @param address
+	 * @param privateAddress
 	 * @param age
 	 * @param fullName
 	 * @param company
@@ -60,10 +59,10 @@ public class Person {
 	 * @param city
 	 * @param email
 	 */
-	public Person(String firstName, String lastName, String address, int age, String company, String companyAddress,
-			int zip, String city, String email) {
+	public Person(String firstName, String lastName, String privateAddress, int age, String company,
+			String companyAddress, int zip, String city, String email) {
 		this.setAllNames(firstName, lastName);
-		this.privateAddress = address;
+		this.privateAddress = privateAddress;
 		this.age = age;
 		this.company = company;
 		this.companyAddress = companyAddress;
@@ -72,6 +71,17 @@ public class Person {
 		this.email = email;
 	}
 
+	/**
+	 * Creates a person with private data only, assuming the company is the coders.bay.
+	 * @param firstName
+	 * @param lastName
+	 * @param privateAddress
+	 * @param age
+	 */
+	public Person(String firstName, String lastName, String privateAddress, int age) {
+		this(firstName, lastName, privateAddress, age, "Coders Bay", "Tabakfabrikstrasse 3", 4020, "Linz",
+				"info@codersbay.at");
+	}
 
 	/**
 	 * @return the privateAddress
@@ -80,14 +90,12 @@ public class Person {
 		return privateAddress;
 	}
 
-
 	/**
 	 * @param privateAddress the privateAddress to set
 	 */
 	public void setPrivateAddress(String privateAddress) {
 		this.privateAddress = privateAddress;
 	}
-
 
 	/**
 	 * @return the age
@@ -131,7 +139,6 @@ public class Person {
 		this.lastName = lastName;
 	}
 
-
 	/**
 	 * @return the fullName
 	 */
@@ -172,33 +179,29 @@ public class Person {
 	public String getCompanyAddress() {
 		return companyAddress;
 	}
-	
+
 	/**
 	 * @return the full company address
 	 */
 	public String getFullCompanyAddress() {
 		return "works at: " + company + ", " + companyAddress + ", " + zip + " " + city + ", mail: " + email;
 	}
-	
+
 	/**
 	 * catch attempts to tinker with the company address
+	 * 
 	 * @param address
 	 */
 	public void setCompanyAddress(String address) {
 		System.out.println("[setting company address to \"" + address + "\"...]");
 		System.out.println("Error: Company address is final. Aborting.");
 	}
-	
+
+	/**
+	 * @return the private data as a String
+	 */
 	public String getPersonData() {
 		return (getFullName() + ", " + getAge() + " years, " + getPrivateAddress());
-	}
-
-	
-	/**
-	 * print the full company address
-	 */
-	public void printFullCompanyAddress() {
-		System.out.println(getFullCompanyAddress());
 	}
 
 	/**
@@ -229,35 +232,5 @@ public class Person {
 				+ companyAddress + ", zip=" + zip + ", city=" + city + ", email=" + email + "]";
 	}
 
-	/**
-	 * print first name, last name and full name for test purposes
-	 */
-	private void testPrintName() {
-		System.out.println(
-				"firstName: " + firstName + ", last name: " + lastName + ", full name: " + getFullName() + ".");
-	}
-
-	/**
-	 * test name changing - change first name, then last name, then full name, print
-	 * names each time
-	 */
-	private static void testNameMechanics() {
-		Person tester = new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020,
-				"Linz", "info@codersbay.at");
-		System.out.println();
-		System.out.println("testing name handling...");
-		tester.testPrintName();
-		System.out.println("changing first name...");
-		tester.setFirstName("Moritz");
-		tester.testPrintName();
-		System.out.println("changing last name...");
-		tester.setLastName("Meier");
-		tester.testPrintName();
-		System.out.println("changing full name");
-		tester.setFullName("Josef Berger");
-		tester.testPrintName();
-		System.out.println();
-	}
-	
 
 }
