@@ -3,6 +3,7 @@
  */
 package at.bfi.coders.bay.exercises.unit5.photography;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,32 +19,53 @@ import java.util.List;
 public class Camera {
 
 	private final int megaPixel;
-	private final int displaySize;
+	private final double displaySize;
 	private final boolean isStable;
 	private final String brand;
 	private final boolean objectiveSwappable;
 	private Objective objective;
 	private boolean setToGreyscale = false;
 	private List<Photo> photoLibrary;
-	
 
-	// TODO modularize those constructors; add constructors handling photolibrary
-	public Camera(int megaPixel, int displaySize, boolean isStable, String brand) {
+	/*
+	 * next milestone: a subclass that only does greyscale; import pics from a
+	 * camera; have a camera plug into an existing photo library
+	 */
+
+	
+	private Camera(int megaPixel, double displaySize, boolean isStable, String brand, boolean objectiveSwappable) {
 		this.megaPixel = megaPixel;
 		this.displaySize = displaySize;
 		this.isStable = isStable;
 		this.brand = brand;
-		this.objectiveSwappable = true;
+		this.objectiveSwappable = objectiveSwappable;
+		this.photoLibrary = new ArrayList<Photo>();
+	}
+
+	/**
+	 * Create a camera with a swappable objective
+	 * @param megaPixel
+	 * @param displaySize
+	 * @param isStable
+	 * @param brand
+	 */
+	public Camera(int megaPixel, double displaySize, boolean isStable, String brand) {
+		this(megaPixel, displaySize, isStable, brand, true);
 		this.objective = null;
 	}
 
-	public Camera(int megaPixel, int displaySize, boolean isStable, String brand, int focalDistanceMin,
+	/**
+	 * Create a camera with a fixed objective
+	 * @param megaPixel
+	 * @param displaySize
+	 * @param isStable
+	 * @param brand
+	 * @param focalDistanceMin
+	 * @param focalDistanceMax
+	 */
+	public Camera(int megaPixel, double displaySize, boolean isStable, String brand, int focalDistanceMin,
 			int focalDistanceMax) {
-		this.megaPixel = megaPixel;
-		this.displaySize = displaySize;
-		this.isStable = isStable;
-		this.brand = brand;
-		this.objectiveSwappable = false;
+		this(megaPixel, displaySize, isStable, brand, false);
 		this.objective = new Objective(focalDistanceMin, focalDistanceMax);
 	}
 
@@ -55,22 +77,28 @@ public class Camera {
 	}
 
 	/**
+	 * set a new objective (if swappable)
 	 * @param objective the objective to set
 	 */
 	public void setObjective(Objective objective) {
 		if (objectiveSwappable) {
 			this.objective = objective;
 		} else {
-			System.out.println(
-					"This camera doesn't have a swappable objective. "
+			System.out.println("This camera doesn't have a swappable objective. "
 					+ "Removing the objective will void the warranty.");
 		}
 	}
 
+	/**
+	 * remove objective (if swappable)
+	 */
 	public void setObjective() {
 		this.setObjective(null);
 	}
 
+	/**
+	 * remove objective (if swappable)
+	 */
 	public void removeObjective() {
 		this.setObjective(null);
 	}
@@ -85,7 +113,7 @@ public class Camera {
 	/**
 	 * @return the displaySize
 	 */
-	public int getDisplaySize() {
+	public double getDisplaySize() {
 		return displaySize;
 	}
 
@@ -110,17 +138,6 @@ public class Camera {
 		return objectiveSwappable;
 	}
 
-//	public String getColorSetting() {
-//		return setToGreyscale ? "greyscale" : "color";
-//	}
-//
-//	public void setColorSetting(String colorSetting) {
-//		System.out.println(
-//				"String recognition for this function not implemented. "
-//				+ "Color setting unchanged. "
-//				+ "Please try setting the setToGreyscale attribute instead.");
-//	}
-	
 	/**
 	 * @return the setToGreyscale
 	 */
@@ -134,13 +151,21 @@ public class Camera {
 	public void setSetToGreyscale(boolean setToGreyscale) {
 		this.setToGreyscale = setToGreyscale;
 	}
-	
+
+	/**
+	 * toggle color setting between color and greyscale
+	 */
 	public void toggleColorSetting() {
 		this.setToGreyscale = !this.setToGreyscale;
 	}
 
 	@Override
 	public String toString() {
+		return brand;
+	}
+
+	
+	public String getFullStats() {
 		return "Camera [megaPixel=" + megaPixel + ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand="
 				+ brand + ", objectiveSwappable=" + objectiveSwappable + ", objective=" + objective + "]";
 	}
