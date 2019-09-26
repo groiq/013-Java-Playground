@@ -77,15 +77,47 @@ public class ConcessionStand {
 	 * @return the price of the product
 	 */
 	public double purchase(String product, double budget) {
-		Double result = products.get(product);
-		if (result == null) {
-			System.out.println("This product wasn't found on the menu.");
-			result = -1.0;
-		} else if (result > budget) {
-			System.out.println("you cannot afford this.");
-			result = -1.0;
+		double result;
+		if (CinemaApp.debug) {
+			CinemaApp.dbg("using purchase method with exception handling...");
+			result = purchaseWithException(product, budget);
 		} else {
-			System.out.println("You purchased a " + product + "!");
+			result = purchaseWithKeyCheck(product, budget);
+		}
+		
+		return result;
+	}
+	
+	private double purchaseWithException(String product, double budget) {
+		double result;
+		try {
+			result = products.get(product);
+			if (result > budget) {
+				System.out.println("You cannot afford this.");
+				result = -1.0;
+			} else {
+				System.out.println("You purchased a " + product + "!");
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Sorry, only what's on the menu.");
+			result = -1.0;
+		}
+		return result;
+	}
+	
+	private double purchaseWithKeyCheck(String product, double budget) {
+		double result;
+		if (products.containsKey(product)) {
+			result = products.get(product);
+			if (result > budget) {
+				System.out.println("You cannot afford this.");
+				result = -1.0;
+			} else {
+				System.out.println("You purchased a " + product + "!");
+			}
+		} else {
+			System.out.println("Sorry, only what's on the menu.");
+			result = -1.0;
 		}
 		return result;
 	}
