@@ -76,6 +76,14 @@ public class ConcessionStand {
 	 * @param budget  the amount of money given
 	 * @return the price of the product
 	 */
+	/*
+	 * I'm following two ways to check whether a product is actually on the menu.
+	 * One is to fetch the product from the hashmap and try to process it, catching
+	 * null pointer exceptions. The other is to first check for the product using
+	 * HashMap.containsKey(). This is apparently the preferable way, but I wanted to
+	 * exercise exception handling, so I'll implement both and write a toggler.
+	 * Exception handling will be used if debug mode is on.
+	 */
 	public double purchase(String product, double budget) {
 		double result;
 		if (CinemaApp.debug) {
@@ -84,10 +92,10 @@ public class ConcessionStand {
 		} else {
 			result = purchaseWithKeyCheck(product, budget);
 		}
-		
+
 		return result;
 	}
-	
+
 	private double purchaseWithException(String product, double budget) {
 		double result;
 		try {
@@ -104,7 +112,7 @@ public class ConcessionStand {
 		}
 		return result;
 	}
-	
+
 	private double purchaseWithKeyCheck(String product, double budget) {
 		double result;
 		if (products.containsKey(product)) {
