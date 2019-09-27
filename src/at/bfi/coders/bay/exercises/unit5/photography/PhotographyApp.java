@@ -46,7 +46,7 @@ import java.util.Date;
  * Passe dein Programm so an dass es wieder funktioniert.<br>
  * 
  * 
- * @author groiq
+ * @author Hannes Alkin
  * @version
  * @since 27.08.2019
  * 
@@ -114,16 +114,15 @@ public class PhotographyApp {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("> buy some cameras and equipment");
-		Camera ixus = new Camera(20, 2.7, true, "Canon Ixus", 28, 224);
+		System.out.println("> buy some cameras");
+		Camera ixus = new Camera(20, 2.7, true, "Canon Ixus");
 		Camera eos = new Camera(32, 3, false, "Canon EOS");
-		Camera fuji = new Camera(10, 3, false, "Fujifilm Instax", 28, 28);
-		Objective ef = new Objective(24, 70);
+		Camera fuji = new Camera(10, 3, false, "Fujifilm Instax");
 		System.out.println("purchased:");
 		System.out.println(ixus);
 		System.out.println(eos);
 		System.out.println(fuji);
-		System.out.println(ef);
+		System.out.println(eos.getFullStats());
 		System.out.println();
 
 //		System.out.println("> Use first the ixus, then the fuji, then the eos.");
@@ -152,6 +151,8 @@ public class PhotographyApp {
 		}
 		
 		packForToday(weekday);
+		
+		// TODO then continue with the set focal distance methods 
 
 		// taking a photo
 

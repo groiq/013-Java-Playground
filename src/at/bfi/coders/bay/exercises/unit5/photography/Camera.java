@@ -22,7 +22,6 @@ public class Camera {
 	private final double displaySize;
 	private final boolean isStable;
 	private final String brand;
-	private final boolean objectiveSwappable;
 	private Objective objective;
 	private boolean setToGreyscale = false;
 	private List<Photo> photoLibrary;
@@ -33,15 +32,6 @@ public class Camera {
 	 */
 
 	
-	private Camera(int megaPixel, double displaySize, boolean isStable, String brand, boolean objectiveSwappable) {
-		this.megaPixel = megaPixel;
-		this.displaySize = displaySize;
-		this.isStable = isStable;
-		this.brand = brand;
-		this.objectiveSwappable = objectiveSwappable;
-		this.photoLibrary = new ArrayList<Photo>();
-	}
-
 	/**
 	 * Create a camera with a swappable objective
 	 * @param megaPixel
@@ -50,57 +40,12 @@ public class Camera {
 	 * @param brand
 	 */
 	public Camera(int megaPixel, double displaySize, boolean isStable, String brand) {
-		this(megaPixel, displaySize, isStable, brand, true);
-		this.objective = null;
-	}
-
-	/**
-	 * Create a camera with a fixed objective
-	 * @param megaPixel
-	 * @param displaySize
-	 * @param isStable
-	 * @param brand
-	 * @param focalDistanceMin
-	 * @param focalDistanceMax
-	 */
-	public Camera(int megaPixel, double displaySize, boolean isStable, String brand, int focalDistanceMin,
-			int focalDistanceMax) {
-		this(megaPixel, displaySize, isStable, brand, false);
-		this.objective = new Objective(focalDistanceMin, focalDistanceMax);
-	}
-
-	/**
-	 * @return the objective
-	 */
-	public Objective getObjective() {
-		return objective;
-	}
-
-	/**
-	 * set a new objective (if swappable)
-	 * @param objective the objective to set
-	 */
-	public void setObjective(Objective objective) {
-		if (objectiveSwappable) {
-			this.objective = objective;
-		} else {
-			System.out.println("This camera doesn't have a swappable objective. "
-					+ "Removing the objective will void the warranty.");
-		}
-	}
-
-	/**
-	 * remove objective (if swappable)
-	 */
-	public void setObjective() {
-		this.setObjective(null);
-	}
-
-	/**
-	 * remove objective (if swappable)
-	 */
-	public void removeObjective() {
-		this.setObjective(null);
+		this.megaPixel = megaPixel;
+		this.displaySize = displaySize;
+		this.isStable = isStable;
+		this.brand = brand;
+		this.photoLibrary = new ArrayList<Photo>();
+		this.objective = new Objective();
 	}
 
 	/**
@@ -132,13 +77,6 @@ public class Camera {
 	}
 
 	/**
-	 * @return the objectiveSwappable
-	 */
-	public boolean isObjectiveSwappable() {
-		return objectiveSwappable;
-	}
-
-	/**
 	 * @return the setToGreyscale
 	 */
 	public boolean isSetToGreyscale() {
@@ -167,7 +105,7 @@ public class Camera {
 	
 	public String getFullStats() {
 		return "Camera [megaPixel=" + megaPixel + ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand="
-				+ brand + ", objectiveSwappable=" + objectiveSwappable + ", objective=" + objective + "]";
+				+ brand + ", " + objective + "]";
 	}
 
 }
