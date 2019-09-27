@@ -63,6 +63,12 @@ public class Objective {
 		}
 	}
 
+	/**
+	 * sets minimum and maximum focal distance simulaneously
+	 * @param newMin
+	 * @param newMax
+	 * @throws FocalDistanceMismatchException
+	 */
 	public void setFocalDistance(int newMin, int newMax) throws FocalDistanceMismatchException {
 		if (newMin < newMax) {
 			this.focalDistanceMin = newMin;

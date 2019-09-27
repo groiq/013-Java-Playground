@@ -19,33 +19,38 @@ import java.util.List;
 public class Camera {
 
 	private final int megaPixel;
+	private final int picWidth;
+	private final int picHeight;
 	private final double displaySize;
 	private final boolean isStable;
 	private final String brand;
-	private Objective objective;
+	private final Objective objective;
 	private boolean setToGreyscale = false;
-	private List<Photo> photoLibrary;
+	private final List<Photo> photoLibrary;
 
 	/*
 	 * next milestone: a subclass that only does greyscale; import pics from a
 	 * camera; have a camera plug into an existing photo library
 	 */
 
-	
 	/**
-	 * Create a camera with a swappable objective
-	 * @param megaPixel
+	 * @param picWidth
+	 * @param picHeight
 	 * @param displaySize
 	 * @param isStable
 	 * @param brand
 	 */
-	public Camera(int megaPixel, double displaySize, boolean isStable, String brand) {
-		this.megaPixel = megaPixel;
+	public Camera(int picWidth, int picHeight, double displaySize, boolean isStable, String brand) {
+		this.picWidth = picWidth;
+		this.picHeight = picHeight;
+		this.megaPixel = picWidth * picHeight / 1000000;
 		this.displaySize = displaySize;
 		this.isStable = isStable;
 		this.brand = brand;
+
 		this.photoLibrary = new ArrayList<Photo>();
 		this.objective = new Objective();
+
 	}
 
 	/**
@@ -53,6 +58,20 @@ public class Camera {
 	 */
 	public int getMegaPixel() {
 		return megaPixel;
+	}
+
+	/**
+	 * @return the picWidth
+	 */
+	public int getPicWidth() {
+		return picWidth;
+	}
+
+	/**
+	 * @return the picHeight
+	 */
+	public int getPicHeight() {
+		return picHeight;
 	}
 
 	/**
@@ -97,15 +116,58 @@ public class Camera {
 		this.setToGreyscale = !this.setToGreyscale;
 	}
 
+	/**
+	 * @return the objective
+	 */
+	public Objective getObjective() {
+		return objective;
+	}
+
+	/**
+	 * @return the photoLibrary
+	 */
+	public List<Photo> getPhotoLibrary() {
+		return photoLibrary;
+	}
+
 	@Override
 	public String toString() {
 		return brand;
 	}
 
-	
 	public String getFullStats() {
-		return "Camera [megaPixel=" + megaPixel + ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand="
-				+ brand + ", " + objective + "]";
+		return "Camera [megaPixel=" + megaPixel + ", picWidth=" + picWidth + ", picHeight=" + picHeight
+				+ ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand=" + brand + ", " + objective
+				+ "]";
+	}
+
+
+	public void takePhoto(String motif) {
+		int counter = photoLibrary.size();
+		String name = String.format("DSCN-%03d.jpg", counter);
+//		System.out.println(name);
+		Photo newPic = new Photo(name, megaPixel, picWidth, picHeight, setToGreyscale, motif);
+		photoLibrary.add(newPic);
+		System.out.println("Click!");
+
+	}
+
+	public void takePhoto() {
+		takePhoto("Words don't do the motif justice.");
+	}
+
+	public void slideshow() {
+		System.out.println("> view all pictures on your camera...");
+		for (Photo photo : photoLibrary) {
+			System.out.println(photo);
+		}
+	}
+
+	public void viewPhotoStats() {
+		System.out.println("> review stats for all pictures on your camera...");
+		for (Photo photo : photoLibrary) {
+			System.out.println(photo.getFullStats());
+		}
 	}
 
 }

@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-
 /**
  * <h1>Photograpy Simulator exercise</h1>
  * 
@@ -54,7 +53,10 @@ import java.util.Date;
 public class PhotographyApp {
 
 	static final boolean debug = true;
+
 	private static Camera[] weekPlan = new Camera[8];
+	private static Camera todaysCamera;
+//	private static String[] motifs;
 
 	static void dbg(String message) {
 		if (debug) {
@@ -103,9 +105,40 @@ public class PhotographyApp {
 
 	private static void packForToday(int weekday) {
 //		System.out.println("> pack for today");
-		System.out.println("Today is " + DayOfWeek.of(weekday) + ", so I'll pack the " + weekPlan[weekday-1] + ".");
+		todaysCamera = weekPlan[weekday - 1];
+		System.out.println("Today is " + DayOfWeek.of(weekday) + ", so I'll pack the " + todaysCamera + ".");
+
 		if (weekday > 5) {
 			System.out.println("REMINDER Going to the country today. Did you pack the sturdy shoes?");
+		}
+	}
+
+	private static void setFocalDistance(Camera camera, int newMin, int newMax) {
+		System.out.println("> set focal distance of " + camera + " to " + newMin + "-" + newMax);
+		try {
+			camera.getObjective().setFocalDistance(newMin, newMax);
+			System.out.println("Focal distance set to " + newMin + "-" + newMax + ".");
+		} catch (FocalDistanceMismatchException e) {
+			if (newMin == newMax) {
+				System.out.println(
+						"Error: " + newMin + " should be smaller than " + newMax + ", but is equal. Aborting.");
+			} else {
+				System.out.println("Error: " + newMin + " should be smaller than " + newMax
+						+ ", but is bigger. Assuming that you swapped the values.");
+				setFocalDistance(camera, newMax, newMin);
+			}
+		}
+	}
+
+	private static void setFocalDistance(int newMin, int newMax) {
+		setFocalDistance(todaysCamera, newMin, newMax);
+	}
+
+	private static void photoTour(String[] motifs) {
+
+		System.out.println("> take a photo tour");
+		for (String motif : motifs) {
+			todaysCamera.takePhoto(motif);
 		}
 	}
 
@@ -115,13 +148,14 @@ public class PhotographyApp {
 	public static void main(String[] args) {
 
 		System.out.println("> buy some cameras");
-		Camera ixus = new Camera(20, 2.7, true, "Canon Ixus");
-		Camera eos = new Camera(32, 3, false, "Canon EOS");
-		Camera fuji = new Camera(10, 3, false, "Fujifilm Instax");
+		Camera ixus = new Camera(5152, 2896, 2.7, true, "Canon Ixus");
+		Camera eos = new Camera(6960, 4640, 3, false, "Canon EOS");
+		Camera fuji = new Camera(1920, 1920, 3, false, "Fujifilm Instax");
 		System.out.println("purchased:");
 		System.out.println(ixus);
 		System.out.println(eos);
 		System.out.println(fuji);
+		dbg("print full stats of one of the cameras");
 		System.out.println(eos.getFullStats());
 		System.out.println();
 
@@ -142,19 +176,41 @@ public class PhotographyApp {
 			dbg("for debugging, go through various weekdays");
 			weekday = 1;
 			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
+			packForToday(weekday);
 			weekday = 2;
 			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
 			packForToday(weekday);
 			weekday = 6;
 			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
-			
-		}
-		
-		packForToday(weekday);
-		
-		// TODO then continue with the set focal distance methods 
 
-		// taking a photo
+		}
+
+		packForToday(weekday);
+		System.out.println();
+
+		setFocalDistance(1, 1);
+		setFocalDistance(2, 1);
+		setFocalDistance(1, 2);
+		System.out.println();
+
+		String[] motifs = { "a rolling landscape", "a towering mountain", "a close-up of a flower" };
+		photoTour(motifs);
+		System.out.println();
+
+		todaysCamera.slideshow();
+		todaysCamera.viewPhotoStats();
+
+//		for (int sideLenMultiplier = 0; sideLenMultiplier < 12; sideLenMultiplier++) {
+//			int baseSquare = (int) Math.pow(sideLenMultiplier, 2);
+//			int mpx = baseSquare * 12;
+//			
+//			double calcBaseSquare = Math.sqrt(mpx / 12);
+//			int wid = (int) (calcBaseSquare * 4);
+//			int height = (int) (calcBaseSquare * 3);
+//			System.out.println(sideLenMultiplier + " -> " + baseSquare + " -> " + mpx + " -> " + calcBaseSquare + " -> "
+//					+ wid + " x " + height);
+//
+//		}
 
 	}
 
