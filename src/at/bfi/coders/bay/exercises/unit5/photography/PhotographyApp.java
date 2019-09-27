@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package at.bfi.coders.bay.exercises.unit5.photography;
 
 import java.text.SimpleDateFormat;
@@ -56,36 +54,19 @@ public class PhotographyApp {
 
 	private static Camera[] weekPlan = new Camera[8];
 	private static Camera todaysCamera;
-//	private static String[] motifs;
 
+	/*
+	 * generate debug output
+	 */
 	static void dbg(String message) {
 		if (debug) {
 			System.out.println("[" + message + "]");
 		}
 	}
 
-//	private static void setWeekPlan(Camera[] newPlan) {
-//		for (int i = 1; i < weekPlan.length; i++) {
-//			try {
-//				weekPlan[i] = newPlan[i-1];
-//			} catch (ArrayIndexOutOfBoundsException e) {
-//				System.out.println("Week plan aborts at " + DayOfWeek.of(i));
-//				System.out.println(Arrays.toString(weekPlan));
-//				break;
-//			}
-//		}
-//	}
-//	
-//	private static String getWeekPlan() {
-//		String result = "|";
-//		for (int i = 0; i < weekPlan.length; i++) {
-//			if (weekPlan[i] != null) {
-//				result += DayOfWeek.of(i) + ": " + weekPlan[i] + "|";
-//			}
-//		}
-//		return result;
-//	}
-
+	/*
+	 * Get the current weekday
+	 */
 	private static int getWeekday() {
 		Calendar calendar = Calendar.getInstance();
 		Date today = new Date();
@@ -97,7 +78,6 @@ public class PhotographyApp {
 		 * Sunday, and DayOfWeek is 1-based, starting with Monday, I have to recalculate
 		 * a bit.
 		 * 
-		 * Note that DayOfWeek is 1-based, starting with Monday.
 		 */
 		weekday = (weekday + 6) % 7;
 		return weekday;
