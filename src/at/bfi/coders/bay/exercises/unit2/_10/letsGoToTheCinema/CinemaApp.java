@@ -49,7 +49,7 @@ import java.util.List;
  */
 public class CinemaApp {
 
-	static boolean debug = true;
+	static final boolean debug = true;
 
 	private static double budget;
 

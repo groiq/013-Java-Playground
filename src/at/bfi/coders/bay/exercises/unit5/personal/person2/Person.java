@@ -35,7 +35,7 @@ package at.bfi.coders.bay.exercises.unit5.personal.person2;
  */
 public class Person {
 
-	private static boolean debug = false;
+	private static final boolean debug = false;
 
 	private String firstName;
 	private String lastName;
