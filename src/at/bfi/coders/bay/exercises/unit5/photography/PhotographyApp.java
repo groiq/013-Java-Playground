@@ -150,7 +150,7 @@ public class PhotographyApp {
 			}
 		}
 	}
-	
+
 	/*
 	 * set focal distance on the stored camera
 	 */
@@ -171,9 +171,6 @@ public class PhotographyApp {
 		}
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
 		// set up objects

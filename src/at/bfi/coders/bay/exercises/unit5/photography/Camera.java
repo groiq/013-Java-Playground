@@ -34,6 +34,8 @@ public class Camera {
 	 */
 
 	/**
+	 * Create a new camera
+	 * 
 	 * @param picWidth
 	 * @param picHeight
 	 * @param displaySize
@@ -54,6 +56,8 @@ public class Camera {
 	}
 
 	/**
+	 * the image size in megapixel. Currently image sizes are unalterable.
+	 * 
 	 * @return the megaPixel
 	 */
 	public int getMegaPixel() {
@@ -61,6 +65,8 @@ public class Camera {
 	}
 
 	/**
+	 * The image height in pixel.
+	 * 
 	 * @return the picWidth
 	 */
 	public int getPicWidth() {
@@ -68,6 +74,8 @@ public class Camera {
 	}
 
 	/**
+	 * the image height in pixel.
+	 * 
 	 * @return the picHeight
 	 */
 	public int getPicHeight() {
@@ -82,6 +90,8 @@ public class Camera {
 	}
 
 	/**
+	 * Checks whether a camera has an image stabilizer.
+	 * 
 	 * @return the isStable
 	 */
 	public boolean isStable() {
@@ -96,6 +106,9 @@ public class Camera {
 	}
 
 	/**
+	 * Checks the color settings. Returns true if the camera is set to greyscale,
+	 * false if it is set to full color.
+	 * 
 	 * @return the setToGreyscale
 	 */
 	public boolean isSetToGreyscale() {
@@ -103,6 +116,9 @@ public class Camera {
 	}
 
 	/**
+	 * Controls color settings. Sets the color to greyscale if true, to full color
+	 * if false.
+	 * 
 	 * @param setToGreyscale the setToGreyscale to set
 	 */
 	public void setSetToGreyscale(boolean setToGreyscale) {
@@ -110,13 +126,16 @@ public class Camera {
 	}
 
 	/**
-	 * toggle color setting between color and greyscale
+	 * toggles color settings between full color and greyscale. toggle color setting
+	 * between color and greyscale
 	 */
 	public void toggleColorSetting() {
 		this.setToGreyscale = !this.setToGreyscale;
 	}
 
 	/**
+	 * the objective mounted on the camera.
+	 * 
 	 * @return the objective
 	 */
 	public Objective getObjective() {
@@ -141,21 +160,33 @@ public class Camera {
 				+ "]";
 	}
 
-
+	/**
+	 * Creates a photo object, using the String passed as the picture motif together
+	 * with the (current) settings for image size and color, and adds it to the
+	 * included photo library.
+	 * 
+	 * @param motif
+	 */
 	public void takePhoto(String motif) {
 		int counter = photoLibrary.size();
 		String name = String.format("DSCN-%03d.jpg", counter);
-//		System.out.println(name);
 		Photo newPic = new Photo(name, megaPixel, picWidth, picHeight, setToGreyscale, motif);
 		photoLibrary.add(newPic);
 		System.out.println("Click!");
 
 	}
 
+	/**
+	 * Creates a photo object with a default motif string and adds it to the
+	 * included photo library.
+	 */
 	public void takePhoto() {
 		takePhoto("Words don't do the motif justice.");
 	}
 
+	/**
+	 * Prints the descriptions of all photos in the photo library.
+	 */
 	public void slideshow() {
 		System.out.println("> view all pictures on your camera...");
 		for (Photo photo : photoLibrary) {
@@ -163,6 +194,9 @@ public class Camera {
 		}
 	}
 
+	/**
+	 * Prints full stats for all photos in the photo library.
+	 */
 	public void viewPhotoStats() {
 		System.out.println("> review stats for all pictures on your camera...");
 		for (Photo photo : photoLibrary) {
