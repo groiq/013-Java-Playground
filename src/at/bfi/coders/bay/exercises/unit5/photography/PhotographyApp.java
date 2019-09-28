@@ -46,14 +46,14 @@ import java.util.Date;
  * @author Hannes Alkin
  * @version
  * @since 27.08.2019
- * 
  */
 public class PhotographyApp {
 
 	static final boolean debug = true;
 
-	private static Camera[] weekPlan = new Camera[8];
+	private static Camera[] weekPlan = new Camera[7];
 	private static Camera todaysCamera;
+	private static Calendar calendar = Calendar.getInstance();
 
 	/*
 	 * generate debug output
@@ -65,34 +65,75 @@ public class PhotographyApp {
 	}
 
 	/*
-	 * Get the current weekday
+	 * look up weekday from a given date
 	 */
-	private static int getWeekday() {
-		Calendar calendar = Calendar.getInstance();
-		Date today = new Date();
-		calendar.setTime(today);
+	private static int getWeekday(Date date) {
+		dbg("determining weekday from date " + date + "...");
+		calendar.setTime(date);
 		int weekday = calendar.get(Calendar.DAY_OF_WEEK);
-		dbg("calculated weekday is " + new SimpleDateFormat("EE").format(today) + " with number " + weekday);
+		dbg("calculated weekday is " + new SimpleDateFormat("EE").format(date) + " with number " + weekday);
 		/*
 		 * Since weekday numbering of the Calendar library is 1-based, starting with
-		 * Sunday, and DayOfWeek is 1-based, starting with Monday, I have to recalculate
-		 * a bit.
-		 * 
+		 * Sunday, and my camera choice method uses zero-based weekday numberings,
+		 * starting with Monday, I have to recalculate a bit.
 		 */
-		weekday = (weekday + 6) % 7;
+		weekday = (weekday + 5) % 7;
+		dbg("recalculated date is " + DayOfWeek.of(weekday + 1) + " with number " + weekday);
 		return weekday;
 	}
 
+	/*
+	 * pack gear for a specific weekday
+	 */
 	private static void packForToday(int weekday) {
-//		System.out.println("> pack for today");
-		todaysCamera = weekPlan[weekday - 1];
-		System.out.println("Today is " + DayOfWeek.of(weekday) + ", so I'll pack the " + todaysCamera + ".");
-
-		if (weekday > 5) {
+		todaysCamera = weekPlan[weekday];
+		System.out.println("Today is " + DayOfWeek.of(weekday + 1) + ", so I'll pack the " + todaysCamera + ".");
+		if (weekday > 4) {
 			System.out.println("REMINDER Going to the country today. Did you pack the sturdy shoes?");
 		}
 	}
 
+	/*
+	 * fetch current date and pack gear accordingly
+	 */
+	private static void packForToday() {
+		System.out.println("> pack for today");
+		Date today = new Date();
+		dbg("date detected is " + today);
+		int weekday = getWeekday(today);
+		packForToday(weekday);
+	}
+
+	/*
+	 * try weekday and packing mechanisms for all seven weekdays for debugging
+	 */
+	private static void debugWeekday() {
+		dbg("cycle through weekdays for testing purposes...");
+		calendar.set(2019, 8, 15);
+		Date date;
+		int weekday;
+		for (int i = 0; i < 7; i++) {
+			System.out.println("---");
+			calendar.add(Calendar.DATE, 1);
+			date = calendar.getTime();
+			weekday = getWeekday(date);
+			packForToday(weekday);
+		}
+	}
+
+	/*
+	 * ensure that a camera is set for today
+	 */
+	private static void checkCamera() {
+		if (todaysCamera == null) {
+			System.out.println("whoops, forgot to pack a camera...");
+			packForToday();
+		}
+	}
+
+	/*
+	 * set focal distance on a camera with exception handling
+	 */
 	private static void setFocalDistance(Camera camera, int newMin, int newMax) {
 		System.out.println("> set focal distance of " + camera + " to " + newMin + "-" + newMax);
 		try {
@@ -109,15 +150,23 @@ public class PhotographyApp {
 			}
 		}
 	}
-
+	
+	/*
+	 * set focal distance on the stored camera
+	 */
 	private static void setFocalDistance(int newMin, int newMax) {
+		checkCamera();
 		setFocalDistance(todaysCamera, newMin, newMax);
 	}
 
+	/*
+	 * 
+	 */
 	private static void photoTour(String[] motifs) {
-
+		checkCamera();
 		System.out.println("> take a photo tour");
 		for (String motif : motifs) {
+			System.out.println(motif + " catches your eye.");
 			todaysCamera.takePhoto(motif);
 		}
 	}
@@ -127,6 +176,7 @@ public class PhotographyApp {
 	 */
 	public static void main(String[] args) {
 
+		// set up objects
 		System.out.println("> buy some cameras");
 		Camera ixus = new Camera(5152, 2896, 2.7, true, "Canon Ixus");
 		Camera eos = new Camera(6960, 4640, 3, false, "Canon EOS");
@@ -139,58 +189,32 @@ public class PhotographyApp {
 		System.out.println(eos.getFullStats());
 		System.out.println();
 
-//		System.out.println("> Use first the ixus, then the fuji, then the eos.");
-//		setWeekPlan(new Camera[] {ixus, fuji, eos});
+		// assign cameras to weekdays
 		System.out.println("> Use the ixus for Mo-We-Fr, the fuji for Tu-Th and the eos for weekends.");
 		weekPlan = new Camera[] { ixus, fuji, ixus, fuji, ixus, eos, eos };
 		System.out.println("Your week plan: " + Arrays.toString(weekPlan));
 		System.out.println();
 
-		System.out.println("> Pack for today");
-
-		int weekday = getWeekday();
-		System.out.println(weekday + " " + DayOfWeek.of(weekday).toString());
-		System.out.println(weekPlan[weekday]);
-
+		// test camera packing
+		packForToday();
 		if (debug) {
-			dbg("for debugging, go through various weekdays");
-			weekday = 1;
-			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
-			packForToday(weekday);
-			weekday = 2;
-			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
-			packForToday(weekday);
-			weekday = 6;
-			dbg("weekday set to " + weekday + " -> " + DayOfWeek.of(weekday));
-
+			System.out.println();
+			debugWeekday();
 		}
 
-		packForToday(weekday);
+		// test focal distance methods
 		System.out.println();
-
 		setFocalDistance(1, 1);
 		setFocalDistance(2, 1);
 		setFocalDistance(1, 2);
 		System.out.println();
 
+		// test taking and viewing photos
 		String[] motifs = { "a rolling landscape", "a towering mountain", "a close-up of a flower" };
 		photoTour(motifs);
 		System.out.println();
-
 		todaysCamera.slideshow();
 		todaysCamera.viewPhotoStats();
-
-//		for (int sideLenMultiplier = 0; sideLenMultiplier < 12; sideLenMultiplier++) {
-//			int baseSquare = (int) Math.pow(sideLenMultiplier, 2);
-//			int mpx = baseSquare * 12;
-//			
-//			double calcBaseSquare = Math.sqrt(mpx / 12);
-//			int wid = (int) (calcBaseSquare * 4);
-//			int height = (int) (calcBaseSquare * 3);
-//			System.out.println(sideLenMultiplier + " -> " + baseSquare + " -> " + mpx + " -> " + calcBaseSquare + " -> "
-//					+ wid + " x " + height);
-//
-//		}
 
 	}
 
