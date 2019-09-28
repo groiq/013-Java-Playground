@@ -160,7 +160,7 @@ public class PhotographyApp {
 	}
 
 	/*
-	 * 
+	 * Make a series of photos
 	 */
 	private static void photoTour(String[] motifs) {
 		checkCamera();
