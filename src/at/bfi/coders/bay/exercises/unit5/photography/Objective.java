@@ -8,61 +8,82 @@ package at.bfi.coders.bay.exercises.unit5.photography;
  * 
  * simulates an objective for a camera.
  * 
- * @author  groiq
- * @version 
- * @since   27.08.2019
+ * @author groiq
+ * @version
+ * @since 27.08.2019
  */
 public class Objective {
-	
+
 	private int focalDistanceMin;
 	private int focalDistanceMax;
-	
+
 	/**
 	 * @return the focalDistanceMin
 	 */
 	public int getFocalDistanceMin() {
 		return focalDistanceMin;
 	}
-	/**
-	 * @param focalDistanceMin the focalDistanceMin to set
-	 */
-	public void setFocalDistanceMin(int focalDistanceMin) {
-		this.focalDistanceMin = focalDistanceMin;
-	}
+
 	/**
 	 * @return the focalDistanceMax
 	 */
 	public int getFocalDistanceMax() {
 		return focalDistanceMax;
 	}
+
+	/**
+	 * returns the minimal and maximal focal distance as a two-element integer
+	 * array.
+	 * 
+	 * @return the focal distances
+	 */
+	public int[] getFocalDistance() {
+		return new int[] { focalDistanceMin, focalDistanceMax };
+	}
+
+	/**
+	 * @param focalDistanceMin the focalDistanceMin to set
+	 */
+	public void setFocalDistanceMin(int focalDistanceMin) throws FocalDistanceMismatchException {
+		if (focalDistanceMin < this.focalDistanceMax) {
+			this.focalDistanceMin = focalDistanceMin;
+		} else {
+			throw new FocalDistanceMismatchException(focalDistanceMin, this.focalDistanceMax);
+		}
+	}
+
 	/**
 	 * @param focalDistanceMax the focalDistanceMax to set
 	 */
-	public void setFocalDistanceMax(int focalDistanceMax) {
-		this.focalDistanceMax = focalDistanceMax;
+	public void setFocalDistanceMax(int focalDistanceMax) throws FocalDistanceMismatchException {
+		if (focalDistanceMax > this.focalDistanceMin) {
+			this.focalDistanceMax = focalDistanceMax;
+		} else {
+			throw new FocalDistanceMismatchException(this.focalDistanceMin, focalDistanceMax);
+		}
 	}
-	
-	public int[] getFocalDistance() {
-		return new int[] {focalDistanceMin,focalDistanceMax};
+
+	/**
+	 * sets minimum and maximum focal distance simultaneously. Throws a
+	 * FocalDistanceMismatchException if min distance is not smaller than max
+	 * distance.
+	 * 
+	 * @param newMin
+	 * @param newMax
+	 * @throws FocalDistanceMismatchException
+	 */
+	public void setFocalDistance(int newMin, int newMax) throws FocalDistanceMismatchException {
+		if (newMin < newMax) {
+			this.focalDistanceMin = newMin;
+			this.focalDistanceMax = newMax;
+		} else {
+			throw new FocalDistanceMismatchException(newMin, newMax);
+		}
 	}
-	
-	public void setFocalDistance(int focalDistanceMin, int focalDistanceMax) {
-		this.focalDistanceMin = focalDistanceMin;
-		this.focalDistanceMax = focalDistanceMax;
-	}
-	
-	public Objective(int focalDistanceMin, int focalDistanceMax) {
-		this.focalDistanceMin = focalDistanceMin;
-		this.focalDistanceMax = focalDistanceMax;
-	}
-//	@Override
-//	public String toString() {
-//		return "Objective [focalDistanceMin=" + focalDistanceMin + ", focalDistanceMax=" + focalDistanceMax + "]";
-//	}
-	
+
 	@Override
 	public String toString() {
-		return "objective with focal distance " + focalDistanceMin + "-" + focalDistanceMax;
+		return "focal distance set to " + focalDistanceMin + "-" + focalDistanceMax + ".";
 	}
 
 }

@@ -3,6 +3,7 @@
  */
 package at.bfi.coders.bay.exercises.unit5.photography;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,64 +19,45 @@ import java.util.List;
 public class Camera {
 
 	private final int megaPixel;
-	private final int displaySize;
+	private final int picWidth;
+	private final int picHeight;
+	private final double displaySize;
 	private final boolean isStable;
 	private final String brand;
-	private final boolean objectiveSwappable;
-	private Objective objective;
+	private final Objective objective;
 	private boolean setToGreyscale = false;
-	private List<Photo> photoLibrary;
-	
+	private final List<Photo> photoLibrary;
 
-	// TODO modularize those constructors; add constructors handling photolibrary
-	public Camera(int megaPixel, int displaySize, boolean isStable, String brand) {
-		this.megaPixel = megaPixel;
+	/*
+	 * next milestone: a subclass that only does greyscale; import pics from a
+	 * camera; have a camera plug into an existing photo library
+	 */
+
+	/**
+	 * Create a new camera
+	 * 
+	 * @param picWidth
+	 * @param picHeight
+	 * @param displaySize
+	 * @param isStable
+	 * @param brand
+	 */
+	public Camera(int picWidth, int picHeight, double displaySize, boolean isStable, String brand) {
+		this.picWidth = picWidth;
+		this.picHeight = picHeight;
+		this.megaPixel = picWidth * picHeight / 1000000;
 		this.displaySize = displaySize;
 		this.isStable = isStable;
 		this.brand = brand;
-		this.objectiveSwappable = true;
-		this.objective = null;
-	}
 
-	public Camera(int megaPixel, int displaySize, boolean isStable, String brand, int focalDistanceMin,
-			int focalDistanceMax) {
-		this.megaPixel = megaPixel;
-		this.displaySize = displaySize;
-		this.isStable = isStable;
-		this.brand = brand;
-		this.objectiveSwappable = false;
-		this.objective = new Objective(focalDistanceMin, focalDistanceMax);
+		this.photoLibrary = new ArrayList<Photo>();
+		this.objective = new Objective();
+
 	}
 
 	/**
-	 * @return the objective
-	 */
-	public Objective getObjective() {
-		return objective;
-	}
-
-	/**
-	 * @param objective the objective to set
-	 */
-	public void setObjective(Objective objective) {
-		if (objectiveSwappable) {
-			this.objective = objective;
-		} else {
-			System.out.println(
-					"This camera doesn't have a swappable objective. "
-					+ "Removing the objective will void the warranty.");
-		}
-	}
-
-	public void setObjective() {
-		this.setObjective(null);
-	}
-
-	public void removeObjective() {
-		this.setObjective(null);
-	}
-
-	/**
+	 * the image size in megapixel. Currently image sizes are unalterable.
+	 * 
 	 * @return the megaPixel
 	 */
 	public int getMegaPixel() {
@@ -83,13 +65,33 @@ public class Camera {
 	}
 
 	/**
+	 * The image height in pixel.
+	 * 
+	 * @return the picWidth
+	 */
+	public int getPicWidth() {
+		return picWidth;
+	}
+
+	/**
+	 * the image height in pixel.
+	 * 
+	 * @return the picHeight
+	 */
+	public int getPicHeight() {
+		return picHeight;
+	}
+
+	/**
 	 * @return the displaySize
 	 */
-	public int getDisplaySize() {
+	public double getDisplaySize() {
 		return displaySize;
 	}
 
 	/**
+	 * Checks whether a camera has an image stabilizer.
+	 * 
 	 * @return the isStable
 	 */
 	public boolean isStable() {
@@ -104,24 +106,9 @@ public class Camera {
 	}
 
 	/**
-	 * @return the objectiveSwappable
-	 */
-	public boolean isObjectiveSwappable() {
-		return objectiveSwappable;
-	}
-
-//	public String getColorSetting() {
-//		return setToGreyscale ? "greyscale" : "color";
-//	}
-//
-//	public void setColorSetting(String colorSetting) {
-//		System.out.println(
-//				"String recognition for this function not implemented. "
-//				+ "Color setting unchanged. "
-//				+ "Please try setting the setToGreyscale attribute instead.");
-//	}
-	
-	/**
+	 * Checks the color settings. Returns true if the camera is set to greyscale,
+	 * false if it is set to full color.
+	 * 
 	 * @return the setToGreyscale
 	 */
 	public boolean isSetToGreyscale() {
@@ -129,20 +116,92 @@ public class Camera {
 	}
 
 	/**
+	 * Controls color settings. Sets the color to greyscale if true, to full color
+	 * if false.
+	 * 
 	 * @param setToGreyscale the setToGreyscale to set
 	 */
 	public void setSetToGreyscale(boolean setToGreyscale) {
 		this.setToGreyscale = setToGreyscale;
 	}
-	
+
+	/**
+	 * toggles color settings between full color and greyscale. toggle color setting
+	 * between color and greyscale
+	 */
 	public void toggleColorSetting() {
 		this.setToGreyscale = !this.setToGreyscale;
 	}
 
+	/**
+	 * the objective mounted on the camera.
+	 * 
+	 * @return the objective
+	 */
+	public Objective getObjective() {
+		return objective;
+	}
+
+	/**
+	 * @return the photoLibrary
+	 */
+	public List<Photo> getPhotoLibrary() {
+		return photoLibrary;
+	}
+
 	@Override
 	public String toString() {
-		return "Camera [megaPixel=" + megaPixel + ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand="
-				+ brand + ", objectiveSwappable=" + objectiveSwappable + ", objective=" + objective + "]";
+		return brand;
+	}
+
+	public String getFullStats() {
+		return "Camera [megaPixel=" + megaPixel + ", picWidth=" + picWidth + ", picHeight=" + picHeight
+				+ ", displaySize=" + displaySize + ", isStable=" + isStable + ", brand=" + brand + ", " + objective
+				+ "]";
+	}
+
+	/**
+	 * Creates a photo object, using the String passed as the picture motif together
+	 * with the (current) settings for image size and color, and adds it to the
+	 * included photo library.
+	 * 
+	 * @param motif
+	 */
+	public void takePhoto(String motif) {
+		int counter = photoLibrary.size();
+		String name = String.format("DSCN-%03d.jpg", counter);
+		Photo newPic = new Photo(name, megaPixel, picWidth, picHeight, setToGreyscale, motif);
+		photoLibrary.add(newPic);
+		System.out.println("Click!");
+
+	}
+
+	/**
+	 * Creates a photo object with a default motif string and adds it to the
+	 * included photo library.
+	 */
+	public void takePhoto() {
+		takePhoto("Words don't do the motif justice.");
+	}
+
+	/**
+	 * Prints the descriptions of all photos in the photo library.
+	 */
+	public void slideshow() {
+		System.out.println("> view all pictures on your camera...");
+		for (Photo photo : photoLibrary) {
+			System.out.println(photo);
+		}
+	}
+
+	/**
+	 * Prints full stats for all photos in the photo library.
+	 */
+	public void viewPhotoStats() {
+		System.out.println("> review stats for all pictures on your camera...");
+		for (Photo photo : photoLibrary) {
+			System.out.println(photo.getFullStats());
+		}
 	}
 
 }

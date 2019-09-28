@@ -7,21 +7,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author  Hannes Alkin
- * @version 
- * @since   18.09.2019
-
+ * <h1>Simulates a concession stand.</h1>
+ * 
+ * Provides a menu, a method to purchase a product and a raffle.<br>
+ * Products are handled as a HashMap with name and price.
+ * 
+ * @author Hannes Alkin
+ * @version
+ * @since 18.09.2019
+ * 
  */
 /*
- * next milestone:
- * purchase multiple products with a String[]
- * implement a Product object
- * do something with a return value for raffle
+ * next milestone: purchase multiple products with a String[], implement a
+ * Product object, do something with a return value for raffle
  */
 public class ConcessionStand {
-	
+
 	private HashMap<String, Double> products;
-	
+
 	public ConcessionStand(String[] productNames) {
 		products = new HashMap<String, Double>();
 		double price = 2.0;
@@ -30,8 +33,10 @@ public class ConcessionStand {
 			price += 0.5;
 		}
 	}
-	
+
 	/**
+	 * Returns the menus with product name and price as a HashMap.
+	 * 
 	 * @return the products
 	 */
 	public HashMap<String, Double> getProducts() {
@@ -39,44 +44,98 @@ public class ConcessionStand {
 	}
 
 	/**
+	 * Sets a new menu.
+	 * 
 	 * @param products the products to set
 	 */
 	public void setProducts(HashMap<String, Double> products) {
 		this.products = products;
 	}
 
+	/**
+	 * Prints the menu as a table.
+	 */
 	public void printMenu() {
 		System.out.println("\n> examine concession stand menu\n");
 		System.out.println(String.format("%30s\tPrice", "Product"));
 		System.out.println("----------------------------------------------------");
 		for (Map.Entry<String, Double> entry : products.entrySet()) {
-			System.out.println(String.format("%30s\t%2.2f", entry.getKey(),entry.getValue()));
+			System.out.println(String.format("%30s\t%2.2f", entry.getKey(), entry.getValue()));
 		}
 		System.out.println("Have you tried our new lottery? Free snacks for all primes and multiples of 10!*");
-		System.out.println("*Disclaimer: Only multiples of 10 in decimal. "
-				+ "Multiples of 10 in binary not applicable.\n");
+		System.out.println(
+				"*Disclaimer: Only multiples of 10 in decimal. " + "Multiples of 10 in binary not applicable.\n");
 	}
-	
 
-	
+	/**
+	 * Purchase a product. Takes product name and an amount of money as parameters.
+	 * Checks whether product name is valid and whether the amount is enough.
+	 * Returns the price of the product, or -1 if the purchase fails.
+	 * 
+	 * @param product the product name
+	 * @param budget  the amount of money given
+	 * @return the price of the product
+	 */
+	/*
+	 * I'm following two ways to check whether a product is actually on the menu.
+	 * One is to fetch the product from the hashmap and try to process it, catching
+	 * null pointer exceptions. The other is to first check for the product using
+	 * HashMap.containsKey(). This is apparently the preferable way, but I wanted to
+	 * exercise exception handling, so I'll implement both and write a toggler.
+	 * Exception handling will be used if debug mode is on.
+	 */
 	public double purchase(String product, double budget) {
-		Double result = products.get(product);
-//		result = products.get(product);
-//		System.out.println(result);
-		if (result == null) {
-			System.out.println("This product wasn't found on the menu.");
-			result = -1.0;
-		} else if (result > budget) {
-			System.out.println("you cannot afford this.");
-			result = -1.0;
+		double result;
+		if (CinemaApp.debug) {
+			CinemaApp.dbg("using purchase method with exception handling...");
+			result = purchaseWithException(product, budget);
 		} else {
-			System.out.println("You purchased a " + product + "!");
-		} 
-//			result = -1.0;
-//		return result;
+			result = purchaseWithKeyCheck(product, budget);
+		}
+
 		return result;
 	}
 
+	private double purchaseWithException(String product, double budget) {
+		double result;
+		try {
+			result = products.get(product);
+			if (result > budget) {
+				System.out.println("You cannot afford this.");
+				result = -1.0;
+			} else {
+				System.out.println("You purchased a " + product + "!");
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Sorry, only what's on the menu.");
+			result = -1.0;
+		}
+		return result;
+	}
+
+	private double purchaseWithKeyCheck(String product, double budget) {
+		double result;
+		if (products.containsKey(product)) {
+			result = products.get(product);
+			if (result > budget) {
+				System.out.println("You cannot afford this.");
+				result = -1.0;
+			} else {
+				System.out.println("You purchased a " + product + "!");
+			}
+		} else {
+			System.out.println("Sorry, only what's on the menu.");
+			result = -1.0;
+		}
+		return result;
+	}
+
+	/**
+	 * Implements the concession stand's raffle.<br>
+	 * Generates a random number. If the number is a multiple of 10 or a prime, all
+	 * prices are set to zero.<br>
+	 * In debug mode, the number is manually set to a prime.
+	 */
 	public void playRaffle() {
 		int raffleTicket = (int) (Math.random() * 1024);
 		System.out.println("Your number is " + raffleTicket);
@@ -102,36 +161,14 @@ public class ConcessionStand {
 
 	private boolean isPrime(int number) {
 		boolean[] isComposite = new boolean[number + 1];
-//		for (int i = 0; i < isComposite.length; i++) {
-//			System.out.println(i + " -> " + isComposite[i]);
-//		}
 		for (int pos = 2; pos < isComposite.length; pos++) {
 			if (!(isComposite[pos])) {
-				for (int result = pos * pos; result < isComposite.length; result+= pos) {
+				for (int result = pos * pos; result < isComposite.length; result += pos) {
 					isComposite[result] = true;
 				}
 			}
 		}
 		return !(isComposite[number]);
 	}
-	
-//	public int drawLotteryTicket() {
-//		return (int)  (Math.random()*100);
-//	}
-//	
-//	public void enterLotteryTicket(int lotteryTicket) {
-//		boolean won = false;
-//		if (lotteryTicket % 10 == 0) {
-//			won = true;
-//		} else {
-//			// check for prime
-//		}
-//		if (won) {
-//			System.out.println("You have won!");
-//			for (Map.Entry<String, Double> entry : products.entrySet()) {
-//				entry.setValue(0.0);
-//			}
-//		}
-//	}
 
 }

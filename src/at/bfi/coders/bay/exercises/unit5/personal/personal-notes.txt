@@ -1,0 +1,126 @@
+ * Aufgabe: Person im Hauptprogramm erzeugen
+
+ Klassenvariablen
+
+    firstName
+    lastName
+    address
+    age
+    fullName
+    und weise Ihnen Werte zu bis auf die Firmenadresse.
+
+	 
+
+	/* Konstanten
+
+	* 
+
+	* lege Konstanten für die komplette Firmenadresse an
+
+	* Company, Address, Zip, City und Email (info@codersbay.at)
+	*  und weise Ihnen Werte zu
+
+	* 
+
+	* Hinweis: final  String, final int ...
+
+	* */
+
+/*  Aufgabe:
+
+*  1. Ausgabe der Personendaten
+
+*  2. Leerzeile
+
+*  3. Ausgabe der CompanyAddress
+
+*  4. Leerzeile
+
+*  5. Age setzen (+1)
+
+*  6. Erneute Ausgabe der Personendaten
+
+ */
+ 
+ ex. 2
+ 
+  *  1. Ausgabe der Personendaten via Methode printPersonData()
+
+	 *  2. Leerzeile
+
+	 *  3. Ausgabe der Firmenadresse
+
+	 *  4. Leerzeile
+
+	 *  5. setzen der Firmenadresse via Methode setCompanyAddress()
+
+	 *  6. Erneute Ausgabe der Firmenadresse
+
+	 *  7. Leerzeile
+
+	 *  8. Alter setzen (+1) via Methode setAge()
+
+	 *  9. Erneute Ausgabe der Personendaten via Methode printPersonData()
+
+	 */
+
+	
+
+	/*
+
+	 *  Main Methode zum Ausfuehren des Programs
+
+	 */
+
+	public static void main(String[] args) {
+
+		System.out.println("########## START MAIN ##########");
+
+		/*
+
+		 * Hier koennte dein Code stehen zwinkernd
+
+		 */
+
+		System.out.println("########## END MAIN ##########");
+
+	}
+
+}
+
+
+Aufgabe: Personenverwaltung
+ 1. Erstelle eine Klasse Person und eine Klasse PersonalManagement und überführe den bereits erstellten Code 
+ in eben die Klasse Person
+
+  2. Erstelle einen Konstruktor um ein Personen Objekt erzeugen zu können
+
+ 3. Erstelle eine Instanz der Person Klasse und versuche die Ausgaben der vorrigen Übung(en) nachzubauen
+
+  4. Überlade die Methode zur Ausgabe der Personendaten mit 2 weiteren Methoden und führe diese aus
+
+  5. Überlade ebenfalls den Konstruktor und erstelle einen Weiteren welchen du auch im Hauptprogramm benutzen sollst 
+
+
+
+/*Hauptprogramm*/
+
+public class PersonalManagement{	
+
+	public static void main(String[] args) {
+
+		System.out.println("########## START MAIN ##########");
+
+		/*
+
+		 * Hier koennte dein Code stehen zwinkernd
+
+		 */
+
+		System.out.println("########## END MAIN ##########");
+
+	}
+
+}
+	trackedPeople.add(new Person("Max", "Mueller", "Solar City", 34, "Coders Bay", "Tabakfabrikstrasse 3", 4020,
+				"Linz", "info@codersbay.at"));

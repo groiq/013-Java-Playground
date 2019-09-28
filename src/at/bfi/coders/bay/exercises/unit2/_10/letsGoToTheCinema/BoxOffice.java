@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Simulates a cinema box office.
+ * Simulates a cinema box office.<br>
+ * Stores the film guide as an array of Showing objects. Provides a method for
+ * purchasing a ticket.
  * 
  * @author Hannes Alkin
  * @version 1.0
@@ -41,6 +43,8 @@ public class BoxOffice {
 	}
 
 	/**
+	 * Get the film guide as an array of Showing objects.
+	 * 
 	 * @return the filmGuide
 	 */
 	public Showing[] getFilmGuide() {
@@ -48,6 +52,8 @@ public class BoxOffice {
 	}
 
 	/**
+	 * Overwrites the film guide.
+	 * 
 	 * @param filmGuide the filmGuide to set
 	 */
 	public void setFilmGuide(Showing[] filmGuide) {
@@ -56,6 +62,7 @@ public class BoxOffice {
 
 	/**
 	 * get the list of film titles.
+	 * 
 	 * @return the list of film titles.
 	 */
 	public String[] getFilms() {
@@ -66,7 +73,9 @@ public class BoxOffice {
 		return result;
 	}
 
-	
+	/**
+	 * Prints the film guide as a table.
+	 */
 	public void prettyPrintFilmGuide() {
 		System.out.println("\n> examine film guide\n");
 		System.out.println(String.format("%20s", "Film") + "\tTime\tCinema Hall");
@@ -78,16 +87,24 @@ public class BoxOffice {
 		System.out.println();
 	}
 
+	/**
+	 * basic toString() method.
+	 * 
+	 * @return object info as a string
+	 */
 	@Override
 	public String toString() {
 		return "BoxOffice [filmGuide=" + Arrays.toString(filmGuide) + "]";
 	}
 
 	/**
+	 * Purchase a ticket. Takes as parameters the index of the selected showing in
+	 * the film guide and the amount of money spent. Checks wheter the index is
+	 * valid, whether the showing is sold out and whether the money is enough.
 	 * 
-	 * @param showingNo
-	 * @param budget
-	 * @return
+	 * @param showingNo the index of the selected showing in the list
+	 * @param budget    the money spent
+	 * @return a ticket for the selected film
 	 */
 	public Ticket purchase(int showingNo, double budget) {
 		Ticket result = null;
@@ -100,10 +117,10 @@ public class BoxOffice {
 			} else if (theShowing.getPrice() > budget) {
 				System.out.println("Sorry, not enough money.");
 			} else {
-//				budget -= theShowing.price;
 				System.out.println("You've got a ticket for " + theShowing.getFilm() + "!");
 				result = new Ticket(theShowing);
 			}
+			// if the showingNo doesn't refer to a valid showing
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("> Purchase ticket for <unknown film>");
 			System.out.println("Sorry, that's not playing tonight.");
