@@ -5,7 +5,15 @@ package other.exercises.e02.junitTesting;
 
 import static org.junit.Assert.assertEquals;
 
+//import static org.junit.Assert.assertEquals;
+
+//import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
+
+//import static org.junit.Assert.assertEquals;
+//
+//import org.junit.Test;
 
 /**
  * @author  Hannes Alkin
