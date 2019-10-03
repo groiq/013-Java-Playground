@@ -1,6 +1,3 @@
-/**
- * 
- */
 package at.bfi.coders.bay.exercises.unit6.calculations;
 
 /**
@@ -32,19 +29,19 @@ public class Calculations {
 		}
 	}
 
-	public static int chooseCalculation(int i1, int i2, String operator) throws IllegalArgumentException {
+	public static int chooseCalculation(int i1, int i2, char c) throws IllegalArgumentException {
 
-		switch (operator) {
-		case "+":
+		switch (c) {
+		case '+':
 			return add(i1, i2);
-		case "-":
+		case '-':
 			return substract(i1, i2);
-		case "*":
+		case '*':
 			return multiply(i1, i2);
-		case "/":
+		case '/':
 			return divide(i1, i2);
 		default:
-			throw new IllegalArgumentException("Unexpected value for operator: " + operator);
+			throw new IllegalArgumentException("Unexpected value for operator: " + c);
 		}
 
 	}
