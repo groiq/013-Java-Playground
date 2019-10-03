@@ -15,6 +15,7 @@ import org.junit.Test;
  */
 public class CalculationsTest {
 	
+	/// handling basic calculations
 	@Test
 	public void TestChooseCalculation() {
 		assertEquals(6+2, Calculations.chooseCalculation(6, 2, "+"));
@@ -31,4 +32,16 @@ public class CalculationsTest {
 		}
 	}
 	
+	// handling illegal arguments for operator
+	@Test(expected = IllegalArgumentException.class)
+	public void TestIllegalArgumentExceptionOnOperator() {
+		Calculations.chooseCalculation(6, 2, ".");
+	}
+	
+	// handle divide - by - zero cases
+	@Test(expected = IllegalArgumentException.class)
+	public void TestDivideByZero() {
+		Calculations.chooseCalculation(6, 0, "/");
+	}
+
 }
