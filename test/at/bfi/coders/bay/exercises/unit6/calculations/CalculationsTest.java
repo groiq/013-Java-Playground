@@ -21,6 +21,14 @@ public class CalculationsTest {
 		assertEquals(6-2, Calculations.chooseCalculation(6, 2, "-"));
 		assertEquals(6*2, Calculations.chooseCalculation(6, 2, "*"));
 		assertEquals(6/2, Calculations.chooseCalculation(6, 2, "/"));
+		for (int i = 1; i <= 10; i++) {
+			for (int j = 1; j <= 10; j++) {
+				assertEquals(i+j, Calculations.chooseCalculation(i, j, "+"));
+				assertEquals(i-j, Calculations.chooseCalculation(i, j, "-"));
+				assertEquals(i*j, Calculations.chooseCalculation(i, j, "*"));
+				assertEquals(i/j, Calculations.chooseCalculation(i, j, "/"));
+			}
+		}
 	}
-
+	
 }

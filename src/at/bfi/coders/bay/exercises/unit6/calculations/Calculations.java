@@ -16,15 +16,15 @@ public class Calculations {
 	}
 	
 	private static int substract(int i1, int i2) {
-		return 0;
+		return (i1 - i2);
 	}
 	
 	private static int multiply(int i1, int i2) {
-		return 0;
+		return (i1 * i2);
 	}
 	
 	private static int divide(int i1, int i2) {
-		return 0;
+		return (i1 / i2);
 	}
 	
 	public static int chooseCalculation(int i1, int i2, String operator) {
