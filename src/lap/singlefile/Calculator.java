@@ -11,7 +11,7 @@ public class Calculator {
 
         for (int i = 0; i < limit; i++) {
             for (int j = 0; j < limit; j++) {
-                System.out.println(i + " + " + j + " = " + add(i, j));
+                System.out.println(i + " * " + j + " = " + multiply(i, j));
             }
         }        
 
@@ -44,9 +44,15 @@ public class Calculator {
     }
 
     private static int multiply(int a, int b) {
-        int result = -1;
+        int result = 0;
 
-        
+        while (b != 0) {
+            if ((b & 1) == 1) {
+                result = add(result, a);
+            }
+            b = b >> 1;
+            a = a << 1;
+        }
 
         return result;
 
