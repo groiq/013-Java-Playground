@@ -59,7 +59,8 @@ public class Calculator {
     }
 
     private static int subtract(int a, int b) {
-        return subtractBitComplement(a, b);
+        // return subtractBitComplement(a, b);
+        return subtractBinary(a, b);
     }
 
     private static int subtractBitComplement(int a, int b) {
@@ -69,7 +70,14 @@ public class Calculator {
 
     private static int subtractBinary(int a, int b) {
         // todo implement
-        return -1;
+        int plainResult = a ^ b;
+        int borrow = ( ~a & b ) << 1;
+
+        if (borrow != 0) {
+            plainResult = subtractBinary(plainResult, borrow);
+        }
+
+        return plainResult;
     }
     
 }
