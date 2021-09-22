@@ -9,16 +9,18 @@ public class Calculator {
 
         int limit = 8;
 
-        for (int i = 0; i < limit; i++) {
-            for (int j = 0; j < limit; j++) {
-                System.out.println(i + " - " + j + " = " + subtract(i, j));
-            }
-        }        
+        // for (int i = 0; i < limit; i++) {
+        //     for (int j = 0; j < limit; j++) {
+        //         System.out.println(i + " - " + j + " = " + subtract(i, j));
+        //     }
+        // }        
 
         // int i = add(1, 3);
         // System.out.println(i);
 
-        System.out.println("----------------------------------------------------");
+        divide(9, 3)
+
+        // System.out.println("----------------------------------------------------");
 
     }
 
@@ -78,6 +80,26 @@ public class Calculator {
         }
 
         return plainResult;
+    }
+
+    private static int divide(int aP, int bP) {
+
+        // duplicate variables in case we need to preserve the originals
+        int a = aP;
+        int b = bP;
+
+        // align most significant bits. Will break if a <= b originally.
+        int bitAlignTracker = -1;
+        while (a > b) {
+            b = b << 1;
+            add(bitAlignTracker, 1);
+        }
+        b = b >> 1; 
+
+        
+
+
+        return -1;
     }
     
 }
