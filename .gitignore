@@ -1,3 +1,6 @@
 /bin/
 src/com/hackerrank/exercises/algorithms/ex04sherlockAndSquares/testCaseInPython/prv/
 .project
+
+# gitignored playground file
+src/lap/singlefile/Playground.java 
