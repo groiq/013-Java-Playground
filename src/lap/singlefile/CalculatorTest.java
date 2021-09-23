@@ -22,7 +22,7 @@ public class CalculatorTest {
                 checkForEquality((i + " + " + j), (i + j), Calculator.add(i, j));
                 checkForEquality((i + " - " + j), (i - j), Calculator.subtract(i, j));
                 checkForEquality((i + " * " + j), (i * j), Calculator.multiply(i, j));
-                if (j != 0 && i >= j) {
+                if (j != 0) { // filter out division by zero
                     checkForEquality((i + " / " + j), (i / j), Calculator.divide(i, j));   
                 }
             }

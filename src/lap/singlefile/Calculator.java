@@ -93,21 +93,14 @@ public class Calculator {
         return plainResult;
     }
 
-    static int divide(int aP, int bP) {
+    static int divide(int a, int b) {
 
-        if (bP == 0) {
+        if (b == 0) {
             System.out.println("error: division by zero");
             return -1;
         }
-        if (aP == 0) {
-            return 0;
-        }
 
-        // duplicate variables in case we need to preserve the originals
-        int a = aP;
-        int b = bP;
-
-        // align most significant bits. Will break if a <= b originally.
+        // align most significant bits
         int bitAlignTracker = 0;
         while (a >= b) {
             b = b << 1;
@@ -129,9 +122,6 @@ public class Calculator {
             // System.out.println(bitAlignTracker);
             bitAlignTracker = subtract(bitAlignTracker, 1);
         }
-
-        
-
 
         return result;
     }
